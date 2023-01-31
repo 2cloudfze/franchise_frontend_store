@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import useQueryBuilder from "@/hook/use-query-builder";
 import CartContext from "@/context/CartContext/cart-context";
 import { useContext } from "react";
+import SnackBarButton from "@/pages/products/components/SnackBarButton";
 
 export default function ProductItem({
   id,
@@ -27,23 +28,20 @@ export default function ProductItem({
       query: { data: `${queryString}` },
     });
 
-  const AddToCartHandler = () => {
-    const item = {
-      id,
-      name,
-      img_url: img_url
-        ? img_url
-        : `https://d2v8x7eqx4g1su.cloudfront.net/brand_images/${manuName.toLowerCase()}.jpg`,
-      price,
-      partNumber,
-      cat,
-    };
-    cartContext.addItem({ ...item, qty: 1, total: price * 1 });
+  const item = {
+    id,
+    name,
+    img_url: img_url
+      ? img_url
+      : `https://d2v8x7eqx4g1su.cloudfront.net/brand_images/${manuName.toLowerCase()}.jpg`,
+    price,
+    partNumber,
+    cat,
   };
+
   return (
     <article>
       <div className="product-img-box">
-        {/* <Link href={`/product/${id}`}> */}
         <img
           className="product-img"
           src={
@@ -74,9 +72,9 @@ export default function ProductItem({
 
       <div className="price">
         <p className="price-value">${price}</p>
-        <button className="add-cart" onClick={AddToCartHandler}>
-          Add Cart
-        </button>
+        
+        <SnackBarButton item={item} cartContext={cartContext} />
+        
       </div>
 
       <style jsx>{`
@@ -163,6 +161,9 @@ export default function ProductItem({
         }
         .price .add-cart:focus {
           outline: none;
+        }
+        .button{
+          background-color:red;
         }
       `}</style>
     </article>
