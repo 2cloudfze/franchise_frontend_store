@@ -72,9 +72,8 @@ export default function ProductItem({
 
       <div className="price">
         <p className="price-value">${price}</p>
-        
+
         <SnackBarButton item={item} cartContext={cartContext} />
-        
       </div>
 
       <style jsx>{`
@@ -93,7 +92,6 @@ export default function ProductItem({
           align-items: center;
           margin-left: 20px;
           margin-right: 20px;
-          // background:lightblue;
           line-height: 1.5;
         }
         .item {
@@ -101,14 +99,16 @@ export default function ProductItem({
           margin-left: 20px;
           margin-right: 20px;
           margin-top: px;
-          // background:lightblue;
+          
         }
         .item .obj {
           margin-top: 10px;
+        
         }
         .top-buttons {
-          margin-bottom: 24px;
+         margin-bottom: 24px;
           align-self: flex-end;
+          
         }
         .top-buttons .add-wishlist {
           background: none;
@@ -116,14 +116,17 @@ export default function ProductItem({
         }
         .top-buttons .add-wishlist:focus {
           outline: none;
+          
         }
         .product-img-box {
           margin-bottom: 28px;
+          max-width:210px;
         }
         .product-img {
           width: 225px;
           height: 160px;
-          object-fit: contain;
+          object-fit: scale-down;
+          
         }
         .product-name {
           width: 80%;
@@ -132,13 +135,15 @@ export default function ProductItem({
           font-weight: 500;
           font-size: 20px;
           text-align: center;
-          color: #8a0a0a;
+          color: balck;
           margin-bottom: 18px;
+          
         }
         .product-name:hover {
           text-decoration: underline;
           font-weight: 700;
           cursor: pointer;
+          
         }
         .price {
           display: flex;
@@ -162,8 +167,8 @@ export default function ProductItem({
         .price .add-cart:focus {
           outline: none;
         }
-        .button{
-          background-color:red;
+        .button {
+          background-color: red;
         }
       `}</style>
     </article>

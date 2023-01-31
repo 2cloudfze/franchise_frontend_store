@@ -19,14 +19,23 @@ export default function CartItem({ cartItem }) {
       cartContext.removeItem(cartItem.id);
     }
   };
+
+  const styles = {
+    // backgroundColor: 'red',
+    color: 'white',
+    padding: '16px',
+    width:'160px'
+  };
   return (
+  
     <TableBody>
       <TableRow
         key={cartItem.id}
         sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
       >
+ 
         <TableCell>
-          <img src={cartItem.img_url} alt="Not found" />
+          <img style={styles} src={cartItem.img_url} alt="Not found" />
         </TableCell>
         <TableCell component="th" scope="cartItem">
           {cartItem.name}
@@ -38,5 +47,6 @@ export default function CartItem({ cartItem }) {
         <TableCell>{cartItem.total}</TableCell>
       </TableRow>
     </TableBody>
+    
   );
 }

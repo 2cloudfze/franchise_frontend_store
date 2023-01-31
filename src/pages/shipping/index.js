@@ -1,290 +1,199 @@
-import React, { useState } from "react";
-import { useRouter } from "next/router";
+import React from 'react'
+import styled from "@emotion/styled";
 import Layout from "@/components/Layouts/DefaultLayout";
-import { CircleLoader } from "react-spinners";
+import AddIcon from '@mui/icons-material/Add';
+import Link from 'next/link';
 
-const ShippingBilling = () => {
-  const [shippingAddress, setShippingAddress] = useState({});
-  const [billingAddress, setBillingAddress] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
-  const router = useRouter();
-  const LoadingComponent = <CircleLoader style={{position: 'absolute',top: '50%',left: '50%',transform: 'translate(-50%, -50%)'}}/>;
+const Container = styled.div`
+  background: white;
+`
 
-  const handleShippingAddressChange = (e) => {
-    setShippingAddress({ ...shippingAddress, [e.target.name]: e.target.value });
-  };
+const Border = styled.div`
+  flex: 1;
+  margin-bottom: 50px;
+  margin-top: 100px;
+  margin-left: 60px;
+  border-style: dashed;
+  border-radius: 10px;
+  padding: 20px;
+  height: 40vh;
+  width: 25%;
+`
 
-  const handleBillingAddressChange = (e) => {
-    setBillingAddress({ ...billingAddress, [e.target.name]: e.target.value });
-  };
+const Border1 = styled.div`
+  flex: 1;
+  margin-bottom: 50px;
+  margin-top: -422px;
+  margin-left: 500px;
+  border: 0.5px solid #2a2a72;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 20px;
+  height: 40vh;
+  width: 25%;
+`
 
-  const handleSubmit = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-  };
+const Border2 = styled.div`
+  flex: 1;
+  margin-bottom: 50px;
+  margin-top: -422px;
+  margin-left: 950px;
+  border: 0.5px solid #2a2a72;
+  border-radius: 10px;
+  padding: 20px;
+  cursor: pointer;
+  height: 40vh;
+  width: 25%;
+`
 
+const Title = styled.h2`
+  font-weight: 200;
+  font-size: 25px;
+  margin-left: 100px;
+  text-decoration: none;
+`
+
+const Head = styled.h3`
+  font-weight: 100;
+  font-size: 15px;
+  margin-top: -5px;
+  margin-left: 105px;
+  `
+
+const Para = styled.p`
+  font-size: 20px;
+  margin-left: 10px;
+`
+
+const Para1 = styled.p`
+  font-size: 17px;
+  margin-left: 10px;
+`
+
+const Para2 = styled.p`
+  font-size: 18px;
+  margin-left: 10px;
+  color: blue;
+  cursor: pointer;
+`
+
+const Para3 = styled.a`
+  font-size: 19px;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: blue;
+  cursor: pointer;
+`
+
+const Button = styled.button`
+  width: 20%;
+  padding: 9px;
+  background-color: black;
+  color: white;
+  border-style: outset;
+  button-size: 1200;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-left: 130px;
+  margin-top: 90px;
+  text-decoration: none;
+`
+
+const Hr = styled.hr`
+  background-color: #eee;
+  border: none;
+  height: 2px;
+`
+
+const Main = styled.h2`
+  margin-bottom: 40px;
+  color: black;
+  font-size: 23px;
+  position: absolute;
+  top: 20%;
+  left: 29.5%;
+  font: "15px Arial, sans-serif";
+`
+
+const Main1 = styled.h2`
+  margin-bottom: 40px;
+  background: white;
+  color: black;
+  font-size: 23px;
+  position: absolute;
+  top: 83%;
+  left: 29.5%;
+  font: "15px Arial, sans-serif";
+`
+
+function Shipfront() {
   return (
     <Layout>
-      {isLoading ? (
-        LoadingComponent
-      ) : (
-        <div className="main-box">
-          <h2 className="adress-titlefirst">Shipping Address</h2>
-          <form onSubmit={handleSubmit}>
-            <label className="adress-line">
-              Address Line 1:
-              <input
-                className="field-adress"
-                type="text"
-                name="address1"
-                placeholder="Address Line 1"
-                onChange={handleShippingAddressChange}
-              />
-            </label>
-            <br />
-            <label className="adress-line">
-              Address Line 2:
-              <input
-                className="field-adress"
-                type="text"
-                name="address2"
-                placeholder="Address Line 2"
-                onChange={handleShippingAddressChange}
-              />
-            </label>
-            <br />
-            <label className="city">
-              City:
-              <input
-                className="field-city"
-                type="text"
-                name="city"
-                placeholder="City"
-                onChange={handleShippingAddressChange}
-              />
-            </label>
-            <br />
-            <label className="state">
-              State:
-              <input
-                className="field-state"
-                type="text"
-                name="state"
-                placeholder="State"
-                onChange={handleShippingAddressChange}
-              />
-            </label>
-            <br />
-            <label className="zipcode">
-              Zip Code:
-              <input
-                className="field-zip"
-                type="text"
-                name="zip"
-                placeholder="Zip Code"
-                onChange={handleShippingAddressChange}
-              />
-            </label>
-            <br />
-            <label className="country">
-              Country:
-              <input
-                className="field-country"
-                type="text"
-                name="country"
-                placeholder="Country"
-                onChange={handleShippingAddressChange}
-              />
-            </label>
-            <br />
-            <h2 className="adress-titlesecond">Billing Address</h2>
-            <label className="adress-line">
-              Address Line 1:
-              <input
-                className="field-adress"
-                type="text"
-                name="address1"
-                placeholder="Address Line 1"
-                onChange={handleBillingAddressChange}
-              />
-            </label>
-            <br />
-            <label className="adress-line">
-              Address Line 2:
-              <input
-                className="field-adress"
-                type="text"
-                name="address2"
-                placeholder="Address Line 2"
-                onChange={handleBillingAddressChange}
-              />
-            </label>
-            <br />
-            <label className="city">
-              City:
-              <input
-                className="field-city"
-                type="text"
-                name="city"
-                placeholder="City"
-                onChange={handleBillingAddressChange}
-              />
-            </label>
-            <br />
-            <label className="state">
-              State:
-              <input
-                className="field-state"
-                type="text"
-                name="state"
-                placeholder="State"
-                onChange={handleBillingAddressChange}
-              />
-            </label>
-            <br />
-            <label className="zipcode">
-              Zip Code:
-              <input
-                className="field-zip"
-                type="text"
-                name="zip"
-                placeholder="Zip Code"
-                onChange={handleBillingAddressChange}
-              />
-            </label>
-            <br />
-            <label className="country">
-              Country:
-              <input
-                className="field-country"
-                type="text"
-                name="country"
-                placeholder="Country"
-                onChange={handleBillingAddressChange}
-              />
-            </label>
-            <br />
-            <button className="button" type="submit">
-              Save
-            </button>
-          </form>
+      <Container>
+        <Main>SHIPPING ADDRESS</Main>
+        <Border>
+            <Button><Link href='/shipping/shipfront'><AddIcon fontSize='large' /></Link></Button>
+            <Title><Link href='/shipping/shipfront'>Add Address</Link></Title>
+        </Border>
 
-          <style jsx>{`
-            .main-box {
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              // background-color: lightblue;
-              margin-top: 20px;
-              flex-direction: column;
-              font-family: "Raleway", sans-serif;
-              position: absolute;
-              top: 70%;
-              left: 37%;
-              transform: translate(-50%, -50%);
-              width: 800px;
-              height: 400px;
-            }
-            .adress-titlefirst {
-              margin-bottom: 40px;
-              color: black;
-              font-size: 23px;
-              position: absolute;
-              top: -80%;
-              left: 29.5%;
-              font: "15px Arial, sans-serif";
-            }
+        <Border1>
+            <Head>Default</Head>
+            <Hr />
+            <Para>John Doe</Para>
+            <Para1>Star Building</Para1>
+            <Para1>Mettur Dam,Salem</Para1>
+            <Para1>Tamil Nadu  -  636001</Para1>
+            <Para1>INDIA</Para1>
+            <Para1>Ph No :-  9876543210</Para1>
+            <Para2>Add Delivery Instruction</Para2>
+            <Para3>Edit</Para3> | <Para3>Remove</Para3>
+        </Border1>
 
-            .adress-line {
-              margin-bottom: 8px;
+        <Border2>
+            <Para>John Doe</Para>
+            <Para1>Anbagam</Para1>
+            <Para1>Alagapuram,Salem</Para1>
+            <Para1>Tamil Nadu  -  636004</Para1>
+            <Para1>INDIA</Para1>
+            <Para1>Ph No :-  9876543210</Para1>
+            <Para2>Add Delivery Instruction</Para2>
+            <Para3>Edit</Para3> | <Para3>Remove</Para3>
+        </Border2>
 
-              font-size: 16px;
-              font-weight: bold;
-              display: block;
-            }
+        <Main1>BILLING ADDRESS</Main1>
 
-            .city {
-              margin-bottom: 10px;
-              font-size: 16px;
-              font-weight: bold;
-              display: block;
-            }
-            .state {
-              margin-bottom: 20px;
+        <Border>
+            <Button><Link href='/shipping/shipbill'><AddIcon fontSize='large' /></Link></Button>
+            <Title><Link href='/shipping/shipbill'>Add Address</Link></Title>
+        </Border>
 
-              font-size: 16px;
-              font-weight: bold;
-              display: block;
-            }
-            .zipcode {
-              margin-bottom: 20px;
+        <Border1>
+            <Head>Default</Head>
+            <Hr />
+            <Para>John Doe</Para>
+            <Para1>Star Building</Para1>
+            <Para1>Mettur Dam,Salem</Para1>
+            <Para1>Tamil Nadu  -  636001</Para1>
+            <Para1>INDIA</Para1>
+            <Para1>Ph No :-  9876543210</Para1>
+            <Para2>Add Delivery Instruction</Para2>
+            <Para3>Edit</Para3> | <Para3>Remove</Para3>
+        </Border1>
 
-              font-size: 16px;
-              font-weight: bold;
-              display: block;
-            }
-            .country {
-              margin-bottom: 20px;
+        <Border2>
+            <Para>John Doe</Para>
+            <Para1>Anbagam</Para1>
+            <Para1>Alagapuram,Salem</Para1>
+            <Para1>Tamil Nadu  -  636004</Para1>
+            <Para1>INDIA</Para1>
+            <Para1>Ph No :-  9876543210</Para1>
+            <Para2>Add Delivery Instruction</Para2>
+            <Para3>Edit</Para3> | <Para3>Remove</Para3>
+        </Border2>
 
-              font-size: 16px;
-              font-weight: bold;
-              display: block;
-            }
-            .button {
-              width: 80px;
-              height: 30px;
-
-              margin-top: 10px;
-              background: linear-gradient(195deg, #1260a3, #1a73e8, #36c7c7);
-              color: white;
-              border: none;
-
-              cursor: pointer;
-              border-radius: 21px;
-
-              box-shadow: 0px 2px 5px rgba(189, 170, 174);
-              box-shadow: 0px 2px 10px rgba(161, 189, 201);
-            }
-            .button:hover {
-              background-color: #2f9dd4;
-            }
-            .field-adress {
-              // background:red;
-              padding-left: 10px;
-              margin-left: 10px;
-              height: 30px;
-            }
-            .field-city {
-              // background:red;
-              padding-left: 10px;
-              margin-left: 95px;
-              height: 30px;
-            }
-            .field-state {
-              // background:red;
-              padding-left: 10px;
-              margin-left: 86px;
-              height: 30px;
-            }
-            .field-zip {
-              // background:red;
-              padding-left: 10px;
-              margin-left: 58px;
-              height: 30px;
-            }
-            .field-country {
-              // background:red;
-              padding-left: 10px;
-              margin-left: 65px;
-              height: 30px;
-            }
-          `}</style>
-        </div>
-      )}
+      </Container>
     </Layout>
-  );
-};
+  )
+}
 
-export default ShippingBilling;
+export default Shipfront

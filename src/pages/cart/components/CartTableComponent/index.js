@@ -17,12 +17,13 @@ export default function CartTableComponent({ cartContext }) {
       >
         <TableHead>
           <TableRow>
-            <TableCell></TableCell>
+            <div></div>
             <TableCell>Products</TableCell>
             <TableCell>Price</TableCell>
             <TableCell>Quantity</TableCell>
             <TableCell>Total</TableCell>
           </TableRow>
+          
         </TableHead>
         {cartContext.items.map((element, index) => (
           <CartItem key={index} cartItem={element} />

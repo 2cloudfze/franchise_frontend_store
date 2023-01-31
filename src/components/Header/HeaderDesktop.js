@@ -52,7 +52,7 @@ export default function HeaderDesktop({ viewer }) {
               </Link>
               <Link legacyBehavior href="/shipping">
                 <a className="nav-buttons-ship">
-                  <p>Shipping</p>
+                  <p>My Address</p>
                 </a>
               </Link>
               <Link legacyBehavior href="/my_orders">
