@@ -135,10 +135,10 @@ function Shipfront() {
   return (
     <Layout>
       <Container>
-        <Main>SHIPPING ADDRESS</Main>
+        {/* <Main>SHIPPING ADDRESS</Main> */}
         <Border>
             <Button><Link href='/shipping/shipfront'><AddIcon fontSize='large' /></Link></Button>
-            <Title><Link href='/shipping/shipfront'>Add Address</Link></Title>
+            <Title><Link href='/shipping/shipfront'>Add Shipping Address</Link></Title>
         </Border>
 
         <Border1>
@@ -165,11 +165,11 @@ function Shipfront() {
             <Para3>Edit</Para3> | <Para3>Remove</Para3>
         </Border2>
 
-        <Main1>BILLING ADDRESS</Main1>
+        {/* <Main1>BILLING ADDRESS</Main1> */}
 
         <Border>
             <Button><Link href='/shipping/shipbill'><AddIcon fontSize='large' /></Link></Button>
-            <Title><Link href='/shipping/shipbill'>Add Address</Link></Title>
+            <Title><Link href='/shipping/shipbill'>Add Billing Address</Link></Title>
         </Border>
 
         <Border1>

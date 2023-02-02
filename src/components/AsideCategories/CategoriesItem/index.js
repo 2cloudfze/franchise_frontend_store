@@ -1,15 +1,25 @@
 import React, { useState } from "react";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import Item from "./components";
+import { border, height, width } from "@mui/system";
 
 export default function CategoriesItem({ category, subCategories }) {
   const [showSubCategories, setShowSubCategories] = useState(false);
+    let myStyles = {
+    color: 'red',
+    backgroundColor: 'white',
+    maxHeight: '400px',
+    overflow: 'auto',
+    border:'none',
+    maxWidth:'230px'
+    };
 
   return (
     <div
       onMouseEnter={() => setShowSubCategories(true)}
       onMouseLeave={() => setShowSubCategories(false)}
     >
+      <div style={myStyles}>
       <li key={category.id}>
         <a>
           <div className="content">
@@ -29,11 +39,14 @@ export default function CategoriesItem({ category, subCategories }) {
                 id={subCategory.id}
                 name={subCategory.name}
               />
+              
             ))}
+            
           </div>
         )}
 
         <style jsx>{`
+
           li a {
             display: flex;
             flex-direction: row;
@@ -54,6 +67,13 @@ export default function CategoriesItem({ category, subCategories }) {
             box-shadow: 0px 2px 10px rgba(161, 189, 201);
           }
 
+        .main{
+          background-color: red;
+          width:50px;
+          max-height: 200px;
+          overflow: auto;
+        }
+
           li a:hover {
             background: #f2f2f2;
             color: black;
@@ -71,6 +91,7 @@ export default function CategoriesItem({ category, subCategories }) {
           }
         `}</style>
       </li>
+      </div>
     </div>
   );
 }

@@ -181,7 +181,7 @@ const offlineCategories = [
   },
   // {
   //   id: 9,
-  //   name: 'SOFTWARE',
+  //   name: 'SOFTWARE ',
   //   label: 'SOFTWARE',
   //   md_icon: 'MdVideogameAsset',
   //   created_at: '1603806592003',
@@ -189,16 +189,16 @@ const offlineCategories = [
   //   { id: 26, name: '' },
   //   { id: 27, name: '' },]
   // },
-  // {
-  //   id: 10,
-  //   name: 'POWER PRODUCTS & UPS',
-  //   label: 'POWER PRODUCTS & UPS',
-  //   md_icon: 'MdWatch',
-  //   created_at: '1603806592003',
-  //   sub_category:[ { id: 28, name: '' },
-  //   { id: 29, name: '' },
-  //   { id: 30, name: '' },]
-  // },
+  {
+    id: 10,
+    name: 'POWER PRODUCTS & UPS',
+    label: 'POWER PRODUCTS & UPS',
+    md_icon: 'MdWatch',
+    created_at: '1603806592003',
+    sub_category:[ { id: 28, name: '' },
+    { id: 29, name: '' },
+    { id: 30, name: '' },]
+  },
 ];
 
 export default offlineCategories;

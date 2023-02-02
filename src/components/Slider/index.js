@@ -2,17 +2,15 @@ import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { sliderItems } from "@/db/offlineData/slider";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@mui/icons-material";
-import {  useEffect } from "react";
+import { useEffect } from "react";
 
 const Container = styled.div`
   width: 100%;
-  height: 100%;;
+  height: 40%;
   display: flex;
   position: relative;
   overflow: hidden;
   background-color: white;
-  margin-bottom:75px;
- 
 `;
 
 const Arrow = styled.div`
@@ -51,27 +49,25 @@ const Slide = styled.div`
 
 const ImgContainer = styled.div`
   height: 100%;
-  margin-left:100px;
+  margin-left: 100px;
   flex: 1;
 `;
 
 const Image = styled.img`
   height: 80%;
-  margin-bottom:30px;
-  
-  
+  margin-bottom: 30px;
 `;
 
 const InfoContainer = styled.div`
   flex: 1;
-   padding: 70px;
+  padding: 70px;
 `;
 
 const Title = styled.h1`
   font-size: 30px;
   font-family: Georgia, serif;
   color: #057c99;
-  &:hover{
+  &:hover {
     color: black;
   }
 `;
@@ -82,7 +78,7 @@ const Desc = styled.p`
   font-weight: 100;
   font-family: Georgia, serif;
   letter-spacing: 2px;
-  &:hover{
+  &:hover {
     color: #057c99;
   }
 `;
@@ -90,16 +86,15 @@ const Desc = styled.p`
 const Button = styled.button`
   padding: 10px;
   font-size: 15px;
-  color:white;
-  background: linear-gradient(195deg,#7eb6bf,#126b7a);
+  color: white;
+  background: linear-gradient(195deg, #7eb6bf, #126b7a);
   box-shadow: 2px 2px 2px rgba(125, 129, 130);
-  border-radius:40px;
-  border:none;
-  &:hover{
+  border-radius: 40px;
+  border: none;
+  &:hover {
     color: black;
-    background:#22a8c9;
+    background: #22a8c9;
   }
-  ;
   cursor: pointer;
 `;
 
@@ -128,7 +123,7 @@ function slider() {
 
       <Wrapper slideIndex={slideIndex}>
         {sliderItems.map((item) => (
-          <Slide  key={item.id}>
+          <Slide key={item.id}>
             <ImgContainer>
               <Image src={item.img} />
             </ImgContainer>

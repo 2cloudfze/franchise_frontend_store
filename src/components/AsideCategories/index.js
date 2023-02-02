@@ -17,23 +17,15 @@ export default function AsideCategories() {
       <style jsx>{`
         .categories {
           list-style-type: none;
-           display: flex;
-           flex-direction: row;
-          //  flex: 1 0 20%;
+          display: flex;
+          flex-direction: row;
           background: white;
-          // position-left: 15px;
-          margin: 0 auto;
           color: black;
-          padding: 22px;
           font-family: Georgia, serif;
-
-          border-radius: 21px;
+          border-radius: 16px;
           margin-bottom: 30px;
-          box-shadow: 0px 2px 5px rgba(189, 170, 174);
-          
+          // box-shadow: 0px 2px 5px rgba(189, 170, 174);
         }
-
-        
       `}</style>
     </div>
   );
