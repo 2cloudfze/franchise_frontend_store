@@ -12,11 +12,10 @@ export default function PromoCard() {
           justify-content: center;
           background: #ffff;
           border-radius: 16px;
-          height: 330px;
+          height: 950px;
           width: 255px;
-          margin-top : 58px;
           max-width: 255px;
-          box-shadow: 0px 2px 5px #ded3d3;
+          box-shadow: 2px 4px 4px #ded3d3;
         }
         .promo-card .title {
           font-weight: 500;

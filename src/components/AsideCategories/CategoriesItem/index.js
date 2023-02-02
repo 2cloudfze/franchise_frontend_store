@@ -37,7 +37,7 @@ export default function CategoriesItem({ category, subCategories }) {
           li a {
             display: flex;
             flex-direction: row;
-
+            flex: 1 0 20%;
             align-items: center;
             justify-content: space-between;
             padding: 18px;
@@ -46,8 +46,8 @@ export default function CategoriesItem({ category, subCategories }) {
             font-size: 13px;
             color: white;
             padding: 20px;
-            background: linear-gradient(195deg, #1260a3, #1A73E8,#36c7c7);
-            cursor:pointer;
+            background: linear-gradient(195deg, #1260a3, #1a73e8, #36c7c7);
+            cursor: pointer;
             border-bottom: 2px solid #f5f5f5;
             transition: 0.4s;
             box-shadow: 0px 2px 5px rgba(189, 170, 174);
@@ -56,7 +56,7 @@ export default function CategoriesItem({ category, subCategories }) {
 
           li a:hover {
             background: #f2f2f2;
-            color:black;
+            color: black;
           }
           li a .content {
             display: flex;

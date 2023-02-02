@@ -20,7 +20,7 @@ const offlineCategories = [
     sub_category:[ { id: 455484, name: 'PCMCIA Cards' },
     { id: 500243, name: 'Connectors & Components' },
     { id: 278126, name: 'Fax/Modems' },
-    { id: 345281, name: 'Pages' },
+    { id: 345281, name: 'Pagers' },
     { id: 209876, name: 'Print Servers' },
     { id: 781236, name: 'Internet Gateways' },
     { id: 210026, name: 'Tranceivers & Modules' },
@@ -179,26 +179,26 @@ const offlineCategories = [
     { id: 624224, name: 'POS Keyboards' },
     { id: 624224, name: 'POS Accessories' },]
   },
-  {
-    id: 9,
-    name: 'SOFTWARE',
-    label: 'SOFTWARE',
-    md_icon: 'MdVideogameAsset',
-    created_at: '1603806592003',
-    sub_category:[ { id: 25, name: '' },
-    { id: 26, name: '' },
-    { id: 27, name: '' },]
-  },
-  {
-    id: 10,
-    name: 'POWER PRODUCTS & UPS',
-    label: 'POWER PRODUCTS & UPS',
-    md_icon: 'MdWatch',
-    created_at: '1603806592003',
-    sub_category:[ { id: 28, name: '' },
-    { id: 29, name: '' },
-    { id: 30, name: '' },]
-  },
+  // {
+  //   id: 9,
+  //   name: 'SOFTWARE',
+  //   label: 'SOFTWARE',
+  //   md_icon: 'MdVideogameAsset',
+  //   created_at: '1603806592003',
+  //   sub_category:[ { id: 25, name: '' },
+  //   { id: 26, name: '' },
+  //   { id: 27, name: '' },]
+  // },
+  // {
+  //   id: 10,
+  //   name: 'POWER PRODUCTS & UPS',
+  //   label: 'POWER PRODUCTS & UPS',
+  //   md_icon: 'MdWatch',
+  //   created_at: '1603806592003',
+  //   sub_category:[ { id: 28, name: '' },
+  //   { id: 29, name: '' },
+  //   { id: 30, name: '' },]
+  // },
 ];
 
 export default offlineCategories;

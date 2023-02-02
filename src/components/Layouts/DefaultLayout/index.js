@@ -1,14 +1,12 @@
 import Page from "@/components/Page";
-import AsideCategories from "@/components/AsideCategories";
 import PromoCard from "@/components/PromoCard";
 function DefaultLayout({ children }) {
   return (
     <Page>
       <section id="block">
-        <aside>
-          <AsideCategories />
+        <div>
           <PromoCard />
-        </aside>
+        </div>
         <div className="main">{children}</div>
 
         <style jsx>{`

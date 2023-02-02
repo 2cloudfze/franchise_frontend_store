@@ -5,6 +5,7 @@ import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import { useState, useContext } from "react";
 import TableRow from "@mui/material/TableRow";
 import QtyComponent from "@/pages/cart/components/QtyComponent";
+import { height } from "@mui/system";
 
 export default function CartItem({ cartItem }) {
   const cartContext = useContext(CartContext);

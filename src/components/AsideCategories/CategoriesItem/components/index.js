@@ -20,6 +20,7 @@ export default function Item({ name, id }) {
         padding: "10px",
         font: "15px Arial, sans-serif",
         cursor: "pointer",
+        background:"lightblue"
       }}
     >
       {name}

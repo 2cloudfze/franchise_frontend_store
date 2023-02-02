@@ -60,6 +60,21 @@ const myOrdersData = [
     Orderstatus:'failed'
     
   },
+  {
+    id: 3,
+    name: 'Ring Fit Adventure - Nintendo Switch',
+    description:
+      'An adventure game that’s also a workout! Explore a huge fantasy world and defeat enemies using real-life exercise Jog, sprint, and high knee through dozens of levels',
+    img_url: 'https://d2v8x7eqx4g1su.cloudfront.net/brand_images/hp.jpg',
+    price: 109.0,
+    rating: 4.7,
+    created_at: Date.now(),
+    updated_at: Date.now(),
+    user_id: 1,
+    user_name: 'Luke',
+    qty: '3',
+    Orderstatus:'pending'
+  },
 ]
 
 export default myOrdersData;

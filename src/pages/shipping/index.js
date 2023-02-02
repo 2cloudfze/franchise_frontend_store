@@ -13,11 +13,12 @@ const Border = styled.div`
   margin-bottom: 50px;
   margin-top: 100px;
   margin-left: 60px;
-  border-style: dashed;
-  border-radius: 10px;
+  border-style: solid;
+  border-radius: 50px;
   padding: 20px;
   height: 40vh;
   width: 25%;
+  
 `
 
 const Border1 = styled.div`
@@ -31,6 +32,7 @@ const Border1 = styled.div`
   padding: 20px;
   height: 40vh;
   width: 25%;
+  
 `
 
 const Border2 = styled.div`
@@ -47,10 +49,12 @@ const Border2 = styled.div`
 `
 
 const Title = styled.h2`
-  font-weight: 200;
-  font-size: 25px;
+  
+  font-weight: 100;
+  font-size: 18px;
   margin-left: 100px;
   text-decoration: none;
+   
 `
 
 const Head = styled.h3`
@@ -68,6 +72,7 @@ const Para = styled.p`
 const Para1 = styled.p`
   font-size: 17px;
   margin-left: 10px;
+  
 `
 
 const Para2 = styled.p`
@@ -88,14 +93,14 @@ const Para3 = styled.a`
 const Button = styled.button`
   width: 20%;
   padding: 9px;
-  background-color: black;
+  background-color: ;
   color: white;
   border-style: outset;
-  button-size: 1200;
+  button-size: 900;
   cursor: pointer;
   margin-right: 10px;
   margin-left: 130px;
-  margin-top: 90px;
+  margin-top: 130px;
   text-decoration: none;
 `
 
