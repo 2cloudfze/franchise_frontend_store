@@ -1,20 +1,18 @@
-export default function OrdersComponent({ id, name,  img_url, price,qty,orderstatus}){
-    
-    return (
-      <article>
-          
-          
-            <img className="homeproduct-img" src={img_url} alt="error" />
-          
-  
-          <p className="product-title">Name: {name}</p>
-          <p className="product-title">Price: {price} </p>
-          <p className="product-title">Quantity {qty}</p>
-          
-          <p className="product-title">subtotal: {price*qty}</p>
-          <p className="product-title">orderstatus: {orderstatus}</p>
-  
-        <style jsx>{`
+import { useRouter } from "next/router";
+
+export default function DealItem({ id, name, img_url, price, qty }) {
+  const router = useRouter();
+  return (
+    <article>
+      <div onClick={() => router.push(`/products/${id}`)}>
+      <img className="homeproduct-img" src={img_url} alt="error" />
+
+      <p className="product-title">Name: {name}</p>
+      <p className="product-title">Price: {price} </p>
+      <p className="product-title">Quantity {qty}</p>
+      </div>
+
+      <style jsx>{`
           article {
             display: flex;
             align-items: center;
@@ -27,6 +25,7 @@ export default function OrdersComponent({ id, name,  img_url, price,qty,ordersta
             border-radius: 6px;
             margin-right: 20px;
             font-family: Georgia, serif;
+            
           }
           
           
@@ -37,6 +36,7 @@ export default function OrdersComponent({ id, name,  img_url, price,qty,ordersta
             width: 225px;
             height: 160px;
             object-fit: contain;
+            cursor:pointer;
           }
           .product-title {
             width: 80%;
@@ -44,6 +44,7 @@ export default function OrdersComponent({ id, name,  img_url, price,qty,ordersta
             text-decoration: none;
             font-weight: 500;
             font-size: 18px;
+            cursor:pointer;
   
             text-align: center;
             color: black;
@@ -74,7 +75,6 @@ export default function OrdersComponent({ id, name,  img_url, price,qty,ordersta
             font-weight: 600;
          
         `}</style>
-      </article>
-    );
-  }
-  
+    </article>
+  );
+}

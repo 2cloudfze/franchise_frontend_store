@@ -8,8 +8,8 @@ export default function CategoriesItem({ category, subCategories }) {
     let myStyles = {
     color: 'red',
     backgroundColor: 'white',
-    maxHeight: '400px',
-    overflow: 'auto',
+    // maxHeight: '400px',
+    // overflow: 'auto',
     border:'none',
     maxWidth:'230px'
     };
@@ -50,13 +50,13 @@ export default function CategoriesItem({ category, subCategories }) {
           li a {
             display: flex;
             flex-direction: row;
-            flex: 1 0 20%;
+            height:30px;
             align-items: center;
             justify-content: space-between;
-            padding: 18px;
+
             text-decoration: none;
             font-weight: 500;
-            font-size: 13px;
+            font-size: 11px;
             color: white;
             padding: 20px;
             background: linear-gradient(195deg, #1260a3, #1a73e8, #36c7c7);
@@ -66,13 +66,6 @@ export default function CategoriesItem({ category, subCategories }) {
             box-shadow: 0px 2px 5px rgba(189, 170, 174);
             box-shadow: 0px 2px 10px rgba(161, 189, 201);
           }
-
-        .main{
-          background-color: red;
-          width:50px;
-          max-height: 200px;
-          overflow: auto;
-        }
 
           li a:hover {
             background: #f2f2f2;

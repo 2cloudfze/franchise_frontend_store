@@ -1,27 +1,25 @@
-import OrdersComponent from "@/pages/my_orders/components/OrdersComponent";
+import DealItem from "./DealItem";
 
 import GridComponent from "@/components/GridComponent";
-import ordersData from "@/db/offlineData/myOrdersData";
-import Layout from "@/components/Layouts/DefaultLayout";
-export default function OrderProducts() {
+import dealsData from "@/db/offlineData/myOrdersData";
+export default function DealsComponent() {
+    
   return (
     <div>
-      <Layout>
-        <h1 className="title-content">MY ORDERS</h1>
+      
+        <h1 className="title-content">OUR DEALS</h1>
         <GridComponent>
-          {ordersData.map((product) => (
-            <OrdersComponent
+          {dealsData.map((product) => (
+            <DealItem
               key={product.id}
               id={product.id}
               img_url={product.img_url}
               name={product.name}
               price={product.price}
               qty={product.qty}
-              orderstatus={product.Orderstatus}
             />
           ))}
         </GridComponent>
-      </Layout>
       <style jsx>{`
         .title-content {
           display: flex;
@@ -30,7 +28,7 @@ export default function OrderProducts() {
           font-size: 20px;
           font-weight: 500;
           margin-bottom: 40px;
-          margin-top: 20px;
+          margin-top: 160px;
           font-family: Georgia, serif;
           color: black;
         }

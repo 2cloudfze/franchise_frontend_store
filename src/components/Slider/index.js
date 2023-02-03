@@ -111,7 +111,7 @@ function slider() {
   useEffect(() => {
     const interval = setInterval(() => {
       setSlideIndex(slideIndex < 3 ? slideIndex + 1 : 0);
-    }, 3000);
+    }, 5000);
     return () => clearInterval(interval);
   }, [slideIndex]);
 

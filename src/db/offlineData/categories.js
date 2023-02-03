@@ -179,16 +179,16 @@ const offlineCategories = [
     { id: 624224, name: 'POS Keyboards' },
     { id: 624224, name: 'POS Accessories' },]
   },
-  // {
-  //   id: 9,
-  //   name: 'SOFTWARE ',
-  //   label: 'SOFTWARE',
-  //   md_icon: 'MdVideogameAsset',
-  //   created_at: '1603806592003',
-  //   sub_category:[ { id: 25, name: '' },
-  //   { id: 26, name: '' },
-  //   { id: 27, name: '' },]
-  // },
+  {
+    id: 9,
+    name: 'SOFTWARE ',
+    label: 'SOFTWARE',
+    md_icon: 'MdVideogameAsset',
+    created_at: '1603806592003',
+    sub_category:[ { id: 25, name: '' },
+    { id: 26, name: '' },
+    { id: 27, name: '' },]
+  },
   {
     id: 10,
     name: 'POWER PRODUCTS & UPS',
