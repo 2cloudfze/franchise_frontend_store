@@ -3,15 +3,12 @@ import Products from "@/pages/products/components/Products";
 import { useRouter } from "next/router";
 import useHttp from "@/hook/use-http";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
-import { CircleLoader } from 'react-spinners';
-
+import { CircleLoader } from "react-spinners";
 
 export default function LoadSelectedProduct() {
   const router = useRouter();
   const { isLoading, error, sendRequest: runSearch } = useHttp();
   const [products, setProducts] = useState([]);
-  
-
 
   useEffect(() => {
     if (router.isReady) {
@@ -24,30 +21,32 @@ export default function LoadSelectedProduct() {
     }
   }, [router, router.isReady, runSearch]);
 
-  const LoadingComponent = <CircleLoader style={{position: 'absolute',top: '50%',left: '50%',transform: 'translate(-50%, -50%)'}}/>
+  const LoadingComponent = (
+    <CircleLoader
+      style={{
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+      }}
+    />
+  );
 
   const ErrorComponent = <p>{error}</p>;
   const ProductBlock = <Products productData={products} />;
   return (
-    
-    <DefaultLayout>
-
-      {isLoading ? LoadingComponent : error ? ErrorComponent : ProductBlock} 
+    <DefaultLayout isLayoutColumn={false}>
+      {isLoading ? LoadingComponent : error ? ErrorComponent : ProductBlock}
 
       <style jsx>{`
-       .circle-loader{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-       }
-      
-      
-
+        .circle-loader {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
       `}</style>
     </DefaultLayout>
-    
-    
   );
 }
 

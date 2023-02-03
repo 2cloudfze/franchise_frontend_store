@@ -21,7 +21,7 @@ function BrandCatalog() {
   }, [router, router.isReady]);
 
   return (
-    <DefaultLayout>
+    <DefaultLayout isLayoutColumn={false}>
       <Brands parent={parent} BrandsData={brands} />
     </DefaultLayout>
   );

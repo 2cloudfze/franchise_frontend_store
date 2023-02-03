@@ -1,18 +1,20 @@
 import Page from "@/components/Page";
 import PromoCard from "@/components/PromoCard";
-function DefaultLayout({ children }) {
+function DefaultLayout({ children, isLayoutColumn }) {
   return (
     <Page>
       <section id="block">
-        <div>
-          <PromoCard />
-        </div>
+        {!isLayoutColumn ? (
+          <div>
+            <PromoCard />
+          </div>
+        ) : null}
         <div className="main">{children}</div>
 
         <style jsx>{`
           #block {
             display: flex;
-            flex-direction: row;
+            flex-direction: ${isLayoutColumn ? "column" : "row"};
             justify-content: space-between;
             width: 100%;
           }

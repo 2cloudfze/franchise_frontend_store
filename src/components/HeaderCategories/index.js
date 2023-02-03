@@ -17,8 +17,8 @@ export default function HeaderCategories() {
           color: black;
 
           z-index: 1;
-          letter-spacing: 0.06rem;
-          font-family: "Roboto", sans-serif;
+
+          font-family: Georgia, serif;
           border-radius: 16px;
           margin-bottom: 30px;
           box-shadow: 0px 2px 5px rgba(189, 170, 174);

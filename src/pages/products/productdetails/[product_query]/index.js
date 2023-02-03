@@ -26,7 +26,7 @@ function ProductDetails() {
   const ProductBlock = <Productfolder productData={products} />;
 
   return (
-    <DefaultLayout>
+    <DefaultLayout isLayoutColumn={false}>
       {isLoading ? LoadingComponent : error ? ErrorComponent : ProductBlock}
     </DefaultLayout>
   );

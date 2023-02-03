@@ -6,7 +6,6 @@ import { border, height, width } from "@mui/system";
 export default function CategoriesItem({ categoryData }) {
   const [showSubCategories, setShowSubCategories] = useState(false);
   let myStyles = {
-    color: "red",
     backgroundColor: "white",
     border: "none",
     maxWidth: "230px",
@@ -49,7 +48,6 @@ export default function CategoriesItem({ categoryData }) {
               height: 30px;
               align-items: center;
               justify-content: space-between;
-
               text-decoration: none;
               font-weight: 500;
               font-size: 11px;

@@ -1,19 +1,16 @@
 import HomeProducts from "@/pages/home/components/HomeProducts";
 import Slider from "../../components/Slider";
-import Header from "@/components/Header";
-import AsideCategories from "@/components/HeaderCategories";
+
 import DealsComponent from "./components/DealsComponent";
-import Footer from "@/components/Footer";
+
+import DefaultLayout from "@/components/Layouts/DefaultLayout";
 function Home() {
   return (
-    <div>
-      <Header />
-      <AsideCategories />
+    <DefaultLayout isLayoutColumn={true}>
       <Slider />
       <HomeProducts />
       <DealsComponent />
-      <Footer />
-    </div>
+    </DefaultLayout>
   );
 }
 
