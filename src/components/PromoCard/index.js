@@ -12,9 +12,9 @@ export default function PromoCard() {
           justify-content: center;
           background: #ffff;
           border-radius: 16px;
-          height: 330px;
+          height: 700px;
           width: 255px;
-          margin-top : 58px;
+          margin-top: 58px;
           max-width: 255px;
           box-shadow: 0px 2px 5px #ded3d3;
         }

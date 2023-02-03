@@ -7,7 +7,7 @@ export default function SearchBox() {
   const [searchText, setSearchText] = useState("");
   const { head, queryString, next } = useQueryBuilder({
     query: searchText,
-    rowCount: 10,
+    rowCount: 8,
   });
   const handleSearch = (e) => {
     if (e.keyCode === 13) {
@@ -46,7 +46,6 @@ export default function SearchBox() {
           border: 2px solid white;
           box-sizing: border-box;
           border-radius: 12px;
-          
         }
         .search-box .search-button {
           display: flex;
@@ -57,13 +56,9 @@ export default function SearchBox() {
         }
         .search-box .search-button:focus {
           outline: none;
-          
-          
-
         }
         .search-box .search-button:hover {
           opacity: 40%;
-          
         }
         .search-box input {
           width: 75%;
@@ -71,11 +66,9 @@ export default function SearchBox() {
           border: none;
           padding-left: 8px;
           background: #f7fafa;
-          
         }
         .search-box input:focus {
           outline: none;
-          
         }
         .search-box select {
           align-self: flex-end;

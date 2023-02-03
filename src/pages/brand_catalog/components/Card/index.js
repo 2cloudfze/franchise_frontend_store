@@ -5,7 +5,7 @@ export default function CardComponent({ image, title, parent }) {
   const router = useRouter();
   const { head, queryString, next } = useQueryBuilder({
     query: `category:${parent} AND manname:${title}`,
-    rowCount: 10,
+    rowCount: 8,
   });
   const onClickHandler = () =>
     router.push({
@@ -41,7 +41,7 @@ export default function CardComponent({ image, title, parent }) {
           text-decoration: none;
           font-weight: 500;
           font-size: 18px;
-          cursor:pointer;
+          cursor: pointer;
           text-align: center;
           color: black;
           margin-bottom: 18px;

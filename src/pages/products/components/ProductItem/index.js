@@ -20,7 +20,7 @@ export default function ProductItem({
 
   const { head, queryString, next } = useQueryBuilder({
     query: `sku:${partNumber}`,
-    rowCount: 10,
+    rowCount: 8,
   });
   const onClickHandler = () =>
     router.push({
@@ -99,16 +99,13 @@ export default function ProductItem({
           margin-left: 20px;
           margin-right: 20px;
           margin-top: px;
-          
         }
         .item .obj {
           margin-top: 10px;
-        
         }
         .top-buttons {
-         margin-bottom: 24px;
+          margin-bottom: 24px;
           align-self: flex-end;
-          
         }
         .top-buttons .add-wishlist {
           background: none;
@@ -116,17 +113,15 @@ export default function ProductItem({
         }
         .top-buttons .add-wishlist:focus {
           outline: none;
-          
         }
         .product-img-box {
           margin-bottom: 28px;
-          max-width:210px;
+          max-width: 210px;
         }
         .product-img {
           width: 225px;
           height: 160px;
           object-fit: scale-down;
-          
         }
         .product-name {
           width: 80%;
@@ -137,13 +132,11 @@ export default function ProductItem({
           text-align: center;
           color: balck;
           margin-bottom: 18px;
-          
         }
         .product-name:hover {
           text-decoration: underline;
           font-weight: 700;
           cursor: pointer;
-          
         }
         .price {
           display: flex;

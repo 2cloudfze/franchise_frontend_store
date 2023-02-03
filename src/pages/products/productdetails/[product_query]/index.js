@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import Productfolder from "@/pages/products/productdetails/components";
+import ProductFolder from "@/pages/products/productdetails/components";
 import { useRouter } from "next/router";
 import useHttp from "@/hook/use-http";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
@@ -23,7 +23,7 @@ function ProductDetails() {
 
   const LoadingComponent = <p>Loading .... </p>;
   const ErrorComponent = <p>{error}</p>;
-  const ProductBlock = <Productfolder productData={products} />;
+  const ProductBlock = <ProductFolder productData={products} />;
 
   return (
     <DefaultLayout isLayoutColumn={false}>
