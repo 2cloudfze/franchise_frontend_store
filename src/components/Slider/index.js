@@ -4,6 +4,7 @@ import { sliderItems } from "@/db/offlineData/slider";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@mui/icons-material";
 import { useEffect } from "react";
 
+
 const Container = styled.div`
   width: 100%;
   height: 40%;
@@ -14,22 +15,22 @@ const Container = styled.div`
 `;
 
 const Arrow = styled.div`
-  width: 60px;
-  height: 50px;
-  background-color: #057c99;
-  border-radius: 50%;
+  width: 80px;
+  height: 400px;
+  // background-color: #057c99;
+  // border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
   top: 0;
   bottom: 0;
-  left: ${(props) => props.direction === "left" && "10px"};
-  right: ${(props) => props.direction === "right" && "10px"};
-  margin: auto;
+  left: ${(props) => props.direction === "left" && "-11px"};
+  right: ${(props) => props.direction === "right" && "-11px"};
+   margin: auto;
   cursor: pointer;
   opacity: 0.5;
-  z-index: 2;
+   z-index: 2;
 `;
 
 const Wrapper = styled.div`
@@ -73,9 +74,10 @@ const Title = styled.h1`
 `;
 
 const Desc = styled.p`
-  margin: 30px 0px;
+   margin: 30px 0px;
   font-size: 20px;
   font-weight: 100;
+  object-fit:contain
   font-family: Georgia, serif;
   letter-spacing: 2px;
   &:hover {
@@ -118,7 +120,7 @@ function slider() {
   return (
     <Container>
       <Arrow direction="left" onClick={() => handleClick("left")}>
-        <ArrowLeftOutlined />
+        <ArrowLeftOutlined sx={{ fontSize: 60 }} />
       </Arrow>
 
       <Wrapper slideIndex={slideIndex}>
@@ -137,7 +139,7 @@ function slider() {
       </Wrapper>
 
       <Arrow direction="right" onClick={() => handleClick("right")}>
-        <ArrowRightOutlined />
+        <ArrowRightOutlined sx={{ fontSize: 60 }} />
       </Arrow>
     </Container>
   );

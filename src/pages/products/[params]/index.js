@@ -52,22 +52,45 @@ export default function LoadSelectedProduct() {
   const ProductBlock = (
     <>
       <Products productData={products} />
-      <button onClick={onNextButtonClickHandler}>next</button>
+      <button  style={{
+        color:"white",
+        marginLeft:600,
+        marginTop:20,
+        background: "#36c7c7",
+        padding:10,
+        width:70,
+        borderRadius:20,
+        border:"none",
+        cursor:"pointer",
+        
+      }} onClick={onNextButtonClickHandler}>next</button>
     </>
   );
   return (
+    <div>
     <DefaultLayout isLayoutColumn={false}>
       {isLoading ? LoadingComponent : error ? ErrorComponent : ProductBlock}
 
-      <style jsx>{`
+      
+    </DefaultLayout>
+    <style jsx>{`
         .circle-loader {
           position: absolute;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
         }
+        .next-button{
+          background-color:red;
+          color:red;
+          width:100px;
+        }
+        .container{
+          flex-direction:column;
+          justify-content:center;
+        }
       `}</style>
-    </DefaultLayout>
+    </div>
   );
 }
 

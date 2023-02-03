@@ -18,7 +18,7 @@ export default function Page({ title, description, children }) {
           align-items: center;
           flex-direction: column;
           width: 180%;
-          max-width: 1700px;
+           max-width: 1840px;
         }
       `}</style>
     </PageContainer>
