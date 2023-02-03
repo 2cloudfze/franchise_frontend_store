@@ -2,13 +2,13 @@ import PageContainer from "@/components/PageContainer";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 //import Slider from "@/pages/home/components/Slider"
-import AsideCategories from "@/components/AsideCategories";
+import HeaderCategories from "@/components/HeaderCategories";
 export default function Page({ title, description, children }) {
   return (
     <PageContainer title={title} description={description}>
       <Header />
-      <AsideCategories/>
-       {/* <Slider /> */}
+      <HeaderCategories />
+      {/* <Slider /> */}
       <div className="content">{children}</div>
 
       <Footer />

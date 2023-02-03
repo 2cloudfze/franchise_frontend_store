@@ -1,17 +1,11 @@
-import CategoriesItem from "@/components/AsideCategories/CategoriesItem";
+import CategoriesItem from "@/components/HeaderCategories/CategoriesItem";
 import offlineCategories from "@/db/offlineData/categories";
 
-export default function AsideCategories() {
+export default function HeaderCategories() {
   return (
     <div className="categories">
-      {offlineCategories.map((category) => {
-        return (
-          <CategoriesItem
-            key={category.id}
-            category={category}
-            subCategories={category.sub_category}
-          />
-        );
+      {offlineCategories.map((category, index) => {
+        return <CategoriesItem key={index} categoryData={category} />;
       })}
 
       <style jsx>{`
@@ -21,18 +15,18 @@ export default function AsideCategories() {
           flex-direction: row;
           background: white;
           color: black;
-          position: absolute;
+
           z-index: 1;
-          
-          font-family: Georgia, serif;
+          letter-spacing: 0.06rem;
+          font-family: "Roboto", sans-serif;
           border-radius: 16px;
           margin-bottom: 30px;
           box-shadow: 0px 2px 5px rgba(189, 170, 174);
         }
-        .categories:hover{
-          width: 0px;
+        .categories:hover {
+          height: 0px;
         }
-        
+
         .categories .dropdown-menu {
           position: absolute;
           top: 100%;
@@ -52,7 +46,7 @@ export default function AsideCategories() {
           border: 1px solid rgba(0, 0, 0, 0.15);
           border-radius: 0.25rem;
         }
-        
+
         .categories .dropdown-menu.show {
           display: block;
         }

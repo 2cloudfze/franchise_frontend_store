@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
 import useQueryBuilder from "@/hook/use-query-builder";
-export default function Item({ name, id }) {
+export default function Item({ name, id, category }) {
   const router = useRouter();
   const { head, queryString, next } = useQueryBuilder({
-    query: `category:${name}`,
+    query: `category:${category}`,
     rowCount: 10,
   });
   const onClickHandler = () =>
@@ -16,11 +16,11 @@ export default function Item({ name, id }) {
       onClick={onClickHandler}
       key={id}
       style={{
-        color: "black",
+        color: "white",
         padding: "10px",
         font: "15px Arial, sans-serif",
         cursor: "pointer",
-        // background:"lightblue"
+        borderBottom: "2px solid #f5f5f5",
       }}
     >
       {name}
