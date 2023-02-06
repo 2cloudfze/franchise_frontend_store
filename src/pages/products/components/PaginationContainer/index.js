@@ -8,7 +8,7 @@ export default function PaginationContainer({ buttonHandler }) {
         variant="contained"
         startIcon={<ArrowLeftOutlined />}
         onClick={() => buttonHandler("previous")}
-        style={{ marginRight: "480px", marginLeft: "270px" }}
+        style={{ marginRight: "30px", marginLeft: "500px" }}
       >
         Previous
       </Button>

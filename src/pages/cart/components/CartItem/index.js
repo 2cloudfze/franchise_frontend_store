@@ -30,11 +30,12 @@ export default function CartItem({ cartItem }) {
   return (
   
     <TableBody>
+      
       <TableRow
         key={cartItem.id}
         sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
       >
- 
+         
         <TableCell>
           <img style={styles} src={cartItem.img_url} alt="Not found" />
         </TableCell>

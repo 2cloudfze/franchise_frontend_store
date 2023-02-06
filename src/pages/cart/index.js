@@ -7,9 +7,11 @@ function Cart() {
   const cartContext = useContext(CartContext);
 
   return (
-    <>
+    <div className="main-container">
       <DefaultLayout isLayoutColumn={true}>
+    
         <div className="main-box">
+          
           <CartTableComponent cartContext={cartContext} />
         </div>
         <div className="side-box">
@@ -17,22 +19,28 @@ function Cart() {
         </div>
 
         <style jsx>{`
+        .main-container{
+          position:relative;
+        }
           .main-box {
             display: flex;
             width: 900px;
             // padding:29px;
             margin-top: 100px;
+            margin-left: 170px;
+            margin-bottom: 100px;
             border-top: 1px solid #a2a3a3;
             border-bottom: 1px solid #a2a3a3;
           }
           .side-box {
             position: absolute;
             top: 40%;
-            left: 80%;
+            left: 70%;
+            
           }
         `}</style>
       </DefaultLayout>
-    </>
+    </div>
   );
 }
 

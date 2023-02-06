@@ -17,6 +17,7 @@ export default function CartTableComponent({ cartContext }) {
       >
         <TableHead>
           <TableRow>
+            <div></div>
             <TableCell>Products</TableCell>
             <TableCell>Price</TableCell>
             <TableCell>Quantity</TableCell>

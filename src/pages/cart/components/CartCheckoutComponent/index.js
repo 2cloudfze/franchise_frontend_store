@@ -7,7 +7,7 @@ export default function CartCheckoutComponent() {
   const cartContext = useContext(CartContext);
 
   return (
-    <div>
+    <>
       <p>Total items : {cartContext.items.length}</p>
       <p>Estimated Total: ${cartContext.totalAmount.toFixed(2)}</p>
 
@@ -16,19 +16,23 @@ export default function CartCheckoutComponent() {
       </button>
 
       <style jsx>{`
+
+          .checkout-box{
+          
+          
+          background:lightblue;
+               }
         .check-button {
           width: 80%;
           border: none;
           margin-top: 10px;
+          margin-right: 10px;
           padding: 15px 20px;
           background: linear-gradient(195deg, #1260a3, #1a73e8, #36c7c7);
           color: white;
           cursor: pointer;
         }
-        .check-button:hover {
-          background: blue;
-        }
       `}</style>
-    </div>
+    </>
   );
 }
