@@ -1,30 +1,45 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Products from "@/pages/products/components/Products";
 import { useRouter } from "next/router";
 import useHttp from "@/hook/use-http";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import { CircleLoader } from "react-spinners";
 import useQueryBuilder from "@/hook/use-query-builder";
+import PaginationContext from "@/context/PaginationContext/pagination-context";
 
 export default function LoadSelectedProduct() {
   const router = useRouter();
+  const paginationContext = useContext(PaginationContext);
   const { isLoading, error, sendRequest: runSearch } = useHttp();
   const [products, setProducts] = useState([]);
   const [nextCurser, setNextCurser] = useState("*");
   const [currentQuery, setCurrentQuery] = useState("");
   const { head, next } = useQueryBuilder({ query: "*:*" });
-  const [curserMarkers, setCurserMarkers] = useState(["*"]);
 
   const removeNextCurser = (str) => str.split("&").slice(0, -1).join("&");
-  const onNextButtonClickHandler = () => {
+  const onButtonClickHandler = (action) => {
+    paginationContext.addCursors(nextCurser);
     const nextUrl = removeNextCurser(currentQuery);
-    const goToUrl = nextUrl + next(nextCurser);
-    router.push({
-      pathname: "/products/" + head,
-      query: { data: `${goToUrl}` },
-    });
-    setCurserMarkers([...curserMarkers, nextCurser]);
-    console.log(curserMarkers);
+    let goToUrl;
+    if (action === "next") {
+      goToUrl = nextUrl + next(nextCurser);
+      router.push({
+        pathname: "/products/" + head,
+        query: { data: `${goToUrl}`, currentCurser: nextCurser },
+      });
+    } else if (paginationContext.currentCursor !== "*") {
+      const currentCurserIndex = paginationContext.cursors.indexOf(
+        paginationContext.currentCursor
+      );
+
+      const previousCursor = paginationContext.cursors[currentCurserIndex - 1];
+
+      goToUrl = nextUrl + next(previousCursor);
+      router.push({
+        pathname: "/products/" + head,
+        query: { data: `${goToUrl}`, currentCurser: previousCursor },
+      });
+    }
   };
   useEffect(() => {
     if (router.isReady) {
@@ -34,7 +49,11 @@ export default function LoadSelectedProduct() {
       runSearch({ params: parameter }).then((data) => {
         if (data.response && data.response.docs) {
           setProducts(data.response.docs);
+          paginationContext.setCurrentCursor(query.currentCurser);
           setNextCurser(data.nextCursorMark);
+          if (query.currentCurser === "*") {
+            paginationContext.initialize(data.response.numFound, 8);
+          }
         }
       });
     }
@@ -67,11 +86,11 @@ export default function LoadSelectedProduct() {
           border: "none",
           cursor: "pointer",
         }}
-        onClick={onNextButtonClickHandler}
+        onClick={() => onButtonClickHandler("previous")}
       >
         previous
       </button>
-      <div>{curserMarkers.length}</div>
+
       <button
         style={{
           color: "white",
@@ -84,7 +103,7 @@ export default function LoadSelectedProduct() {
           border: "none",
           cursor: "pointer",
         }}
-        onClick={onNextButtonClickHandler}
+        onClick={() => onButtonClickHandler("next")}
       >
         next
       </button>

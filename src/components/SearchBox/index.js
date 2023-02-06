@@ -14,7 +14,7 @@ export default function SearchBox() {
       setSearchText(e.target.value);
       router.push({
         pathname: "/products/" + head,
-        query: { data: `${queryString}${next()}` },
+        query: { data: `${queryString}${next()}`, currentCurser: "*" },
       });
     }
   };

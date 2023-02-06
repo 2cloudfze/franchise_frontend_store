@@ -9,7 +9,7 @@ export default function Item({ name, id, category }) {
   const onClickHandler = () =>
     router.push({
       pathname: "/products/" + head,
-      query: { data: `${queryString}${next()}` },
+      query: { data: `${queryString}${next()}`, currentCurser: "*" },
     });
   return (
     <li

@@ -1,8 +1,11 @@
 import CartProvider from "@/context/CartContext/CartProvider";
+import PaginationProvider from "@/context/PaginationContext/PaginationProvider";
 export default function App({ Component, pageProps }) {
   return (
     <CartProvider>
-      <Component {...pageProps} />{" "}
+      <PaginationProvider>
+        <Component {...pageProps} />
+      </PaginationProvider>
     </CartProvider>
   );
 }
