@@ -13,6 +13,7 @@ export default function LoadSelectedProduct() {
   const [nextCurser, setNextCurser] = useState("*");
   const [currentQuery, setCurrentQuery] = useState("");
   const { head, next } = useQueryBuilder({ query: "*:*" });
+  const [curserMarkers, setCurserMarkers] = useState(["*"]);
 
   const removeNextCurser = (str) => str.split("&").slice(0, -1).join("&");
   const onNextButtonClickHandler = () => {
@@ -22,6 +23,8 @@ export default function LoadSelectedProduct() {
       pathname: "/products/" + head,
       query: { data: `${goToUrl}` },
     });
+    setCurserMarkers([...curserMarkers, nextCurser]);
+    console.log(curserMarkers);
   };
   useEffect(() => {
     if (router.isReady) {
@@ -35,7 +38,7 @@ export default function LoadSelectedProduct() {
         }
       });
     }
-  }, [, router, router.isReady, runSearch]);
+  }, [router, router.isReady, runSearch]);
 
   const LoadingComponent = (
     <CircleLoader
@@ -52,42 +55,61 @@ export default function LoadSelectedProduct() {
   const ProductBlock = (
     <>
       <Products productData={products} />
-      <button  style={{
-        color:"white",
-        marginLeft:600,
-        marginTop:20,
-        background: "#36c7c7",
-        padding:10,
-        width:70,
-        borderRadius:20,
-        border:"none",
-        cursor:"pointer",
-        
-      }} onClick={onNextButtonClickHandler}>next</button>
+      <button
+        style={{
+          color: "white",
+          marginLeft: 600,
+          marginTop: 20,
+          background: "#36c7c7",
+          padding: 10,
+          width: 70,
+          borderRadius: 20,
+          border: "none",
+          cursor: "pointer",
+        }}
+        onClick={onNextButtonClickHandler}
+      >
+        previous
+      </button>
+      <div>{curserMarkers.length}</div>
+      <button
+        style={{
+          color: "white",
+          marginLeft: 600,
+          marginTop: 20,
+          background: "#36c7c7",
+          padding: 10,
+          width: 70,
+          borderRadius: 20,
+          border: "none",
+          cursor: "pointer",
+        }}
+        onClick={onNextButtonClickHandler}
+      >
+        next
+      </button>
     </>
   );
   return (
     <div>
-    <DefaultLayout isLayoutColumn={false}>
-      {isLoading ? LoadingComponent : error ? ErrorComponent : ProductBlock}
-
-      
-    </DefaultLayout>
-    <style jsx>{`
+      <DefaultLayout isLayoutColumn={false}>
+        {isLoading ? LoadingComponent : error ? ErrorComponent : ProductBlock}
+      </DefaultLayout>
+      <style jsx>{`
         .circle-loader {
           position: absolute;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
         }
-        .next-button{
-          background-color:red;
-          color:red;
-          width:100px;
+        .next-button {
+          background-color: red;
+          color: red;
+          width: 100px;
         }
-        .container{
-          flex-direction:column;
-          justify-content:center;
+        .container {
+          flex-direction: column;
+          justify-content: center;
         }
       `}</style>
     </div>
