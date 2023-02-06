@@ -6,6 +6,7 @@ import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import { CircleLoader } from "react-spinners";
 import useQueryBuilder from "@/hook/use-query-builder";
 import PaginationContext from "@/context/PaginationContext/pagination-context";
+import PaginationContainer from "../components/PaginationContainer";
 
 export default function LoadSelectedProduct() {
   const router = useRouter();
@@ -74,39 +75,7 @@ export default function LoadSelectedProduct() {
   const ProductBlock = (
     <>
       <Products productData={products} />
-      <button
-        style={{
-          color: "white",
-          marginLeft: 600,
-          marginTop: 20,
-          background: "#36c7c7",
-          padding: 10,
-          width: 70,
-          borderRadius: 20,
-          border: "none",
-          cursor: "pointer",
-        }}
-        onClick={() => onButtonClickHandler("previous")}
-      >
-        previous
-      </button>
-
-      <button
-        style={{
-          color: "white",
-          marginLeft: 600,
-          marginTop: 20,
-          background: "#36c7c7",
-          padding: 10,
-          width: 70,
-          borderRadius: 20,
-          border: "none",
-          cursor: "pointer",
-        }}
-        onClick={() => onButtonClickHandler("next")}
-      >
-        next
-      </button>
+    <PaginationContainer/>
     </>
   );
   return (
