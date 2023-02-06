@@ -75,7 +75,7 @@ export default function LoadSelectedProduct() {
   const ProductBlock = (
     <>
       <Products productData={products} />
-    <PaginationContainer/>
+      <PaginationContainer buttonHandler={onButtonClickHandler} />
     </>
   );
   return (

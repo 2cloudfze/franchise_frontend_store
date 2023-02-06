@@ -53,8 +53,9 @@ export default function CategoriesItem({ categoryData }) {
               font-size: 11px;
               color: white;
               padding: 20px;
-              background: linear-gradient(195deg, #1260a3, #1a73e8, #36c7c7);
+              background: linear-gradient(205deg, #1260a3, #1a73e8, #36c7c7);
               cursor: pointer;
+              border-right: 0.5px solid #f5f5f5;
               border-bottom: 2px solid #f5f5f5;
               transition: 0.4s;
               box-shadow: 0px 2px 5px rgba(189, 170, 174);
