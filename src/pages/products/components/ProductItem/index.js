@@ -42,7 +42,8 @@ export default function ProductItem({
   };
 
   return (
-    <article>
+    <article >
+      <div onClick={onClickHandler}>
       <div className="product-img-box">
         <img
           className="product-img"
@@ -53,10 +54,6 @@ export default function ProductItem({
           }
           alt="Image not found"
         />
-      </div>
-
-      <div className="product-name" onClick={onClickHandler}>
-        {name}
       </div>
 
       <div className="desc">
@@ -72,12 +69,11 @@ export default function ProductItem({
         </p>
       </div>
 
-      <div className="price">
-        <p className="price-value">${price}</p>
-
-        <SnackBarButton item={item} cartContext={cartContext} />
-      </div>
-
+      
+        <p className="price">${price}</p>
+        </div>
+      
+      <SnackBarButton item={item} cartContext={cartContext} />
       <style jsx>{`
         article {
           display: flex;
@@ -85,10 +81,11 @@ export default function ProductItem({
           flex-direction: column;
           box-sizing: border-box;
           height: 100%;
-          padding: 24px;
-          background: white;
+          padding: 14px;
+          background: #ffff;
           box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
           border-radius: 6px;
+          cursor: pointer;
         }
         .desc {
           align-items: center;
@@ -100,10 +97,9 @@ export default function ProductItem({
           align-items: center;
           margin-left: 20px;
           margin-right: 20px;
-          margin-top: px;
         }
         .item .obj {
-          margin-top: 10px;
+          margin-top: 5px;
         }
         .top-buttons {
           margin-bottom: 24px;
@@ -142,28 +138,11 @@ export default function ProductItem({
         }
         .price {
           display: flex;
+          margin-left:148px;
           align-items: center;
           font-weight: 900;
           font-size: 16px;
           color: #666666;
-        }
-
-        .price .add-cart {
-          width: 100%;
-          border: none;
-          margin-top: 105px;
-          margin-left: -40px;
-          padding: 15px 20px;
-          background: linear-gradient(195deg, #1260a3, #1a73e8, #36c7c7);
-          border-radius: 20px;
-          color: white;
-          cursor: pointer;
-        }
-        .price .add-cart:focus {
-          outline: none;
-        }
-        .button {
-          background-color: red;
         }
       `}</style>
     </article>

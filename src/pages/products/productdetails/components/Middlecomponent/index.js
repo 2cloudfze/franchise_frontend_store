@@ -33,22 +33,28 @@ function Middlecomponent({ product }) {
         <br />
         <Title>{product.description}</Title>
 
-        <Price>{`$${product.price}`}</Price>
+        <Price className="data">{`$${product.price}`}</Price>
         <br />
-        <Availability>
+        <Availability className="data">
           {product.inStock ? "instock" : "out of stock"}
         </Availability>
         <br />
-        <Condition>{product.condition}</Condition>
+        <Condition className="data">{product.condition}</Condition>
       </Container>
       <style jsx>
         {`
-          // .main-product{
+          .main-product{
 
-          //   position:absolute;
-          //   top:50%;
-          //   left:50%;
-          // }
+            position:absolute;
+            top:40%;
+            left:30%;
+            font-size:20px;
+            font-weight:600;
+          }
+          .data{
+            font-size:20px;
+            font-weight:30px;
+          }
         `}
       </style>
     </div>
