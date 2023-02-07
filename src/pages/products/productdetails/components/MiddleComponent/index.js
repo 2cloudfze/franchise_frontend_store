@@ -31,7 +31,7 @@ function Middlecomponent({ product }) {
           }
         />
         <br />
-        <Title>{product.description}</Title>
+        <Title style={{ width: "35%" }}>{product.description}</Title>
 
         <Price className="data">{`$${product.price}`}</Price>
         <br />
@@ -43,17 +43,16 @@ function Middlecomponent({ product }) {
       </Container>
       <style jsx>
         {`
-          .main-product{
-
-            position:absolute;
-            top:40%;
-            left:30%;
-            font-size:20px;
-            font-weight:600;
+          .main-product {
+            position: absolute;
+            top: 40%;
+            left: 25%;
+            font-size: 20px;
+            font-weight: 600;
           }
-          .data{
-            font-size:20px;
-            font-weight:30px;
+          .data {
+            font-size: 20px;
+            font-weight: 30px;
           }
         `}
       </style>

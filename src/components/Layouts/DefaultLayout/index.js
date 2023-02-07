@@ -4,11 +4,11 @@ function DefaultLayout({ children, isLayoutColumn }) {
   return (
     <Page>
       <section id="block">
-        {!isLayoutColumn ? (
+        {!isLayoutColumn && (
           <div>
             <PromoCard />
           </div>
-        ) : null}
+        )}
         <div className="main">{children}</div>
 
         <style jsx>{`

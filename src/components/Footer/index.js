@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-
 import {
   FaFacebookF,
   FaTwitter,
@@ -80,6 +79,7 @@ export default function Footer() {
 
       <style jsx>{`
         footer {
+          position: relative;         
           width: 100vw;
           display: flex;
           flex-direction: column;

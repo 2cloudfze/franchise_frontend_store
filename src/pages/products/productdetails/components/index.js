@@ -1,8 +1,8 @@
 import React from "react";
-import Product from "@/pages/products/productdetails/components/Middlecomponent";
+import Product from "@/pages/products/productdetails/components/MiddleComponent";
 import GridComponent from "@/components/GridComponent";
 
-function Productfolder({ productData }) {
+function ProductFolder({ productData }) {
   return (
     <GridComponent>
       {productData && productData.length > 0 ? (
@@ -16,4 +16,4 @@ function Productfolder({ productData }) {
   );
 }
 
-export default Productfolder;
+export default ProductFolder;
