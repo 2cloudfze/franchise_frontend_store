@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: trigger single Job
-      uses: appleboy/jenkins-action@master
+      uses: 2cloudfze/github_action_trigger_jenkins@main
       with:
         url: "https://jenkins.2cloud.gq/"
         user: "user"
