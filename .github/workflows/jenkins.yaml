@@ -1,0 +1,19 @@
+name: franchise-frontend-trigger
+
+on:
+  push:
+    branches:
+    - *
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: trigger single Job
+      uses: appleboy/jenkins-action@master
+      with:
+        url: "https://jenkins.2cloud.gq/"
+        user: "user"
+        token: ${{ secrets.TOKEN }}
+        job: "arabtr-frontend"
