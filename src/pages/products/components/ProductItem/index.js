@@ -19,8 +19,8 @@ export default function ProductItem({
   const cartContext = useContext(CartContext);
 
   const { head, queryString, next } = useQueryBuilder({
-    query: `sku_str:${partNumber}`,
-    rowCount: 1,
+    query: `sku:${partNumber}`,
+    rowCount: 8,
   });
 
   const onClickHandler = () =>
