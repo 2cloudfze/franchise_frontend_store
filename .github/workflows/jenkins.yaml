@@ -3,7 +3,7 @@ name: franchise-frontend-trigger
 on:
   push:
     branches:
-    - *
+    - master
 jobs:
 
   build:
