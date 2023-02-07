@@ -14,6 +14,7 @@ function ProductDetails() {
     if (router.isReady) {
       const { query } = router;
       const parameter = (query.product_query + "?" + query.data).trim();
+      console.log(parameter);
       runSearch({ params: parameter }).then((data) => {
         if (data.response && data.response.docs)
           setProducts(data.response.docs);

@@ -19,11 +19,14 @@ export default function DealItem({ id, name, img_url, price, qty }) {
             flex-direction: column;
             box-sizing: border-box;
             height: 100%;
+            max-width:
+            margin-left:70px;
+            margin-bottom:20px;
             padding: 24px;
             background: white;
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
             border-radius: 6px;
-            margin-right: 20px;
+            // margin-right: 20px;
             font-family: Georgia, serif;
             
           }
@@ -31,6 +34,8 @@ export default function DealItem({ id, name, img_url, price, qty }) {
           
           .homeproduct-img-box {
             margin-bottom: 28px;
+            margin-left: 28px;
+    
           }
           .homeproduct-img {
             width: 225px;

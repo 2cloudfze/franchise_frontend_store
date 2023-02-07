@@ -17,17 +17,14 @@ export default function CartCheckoutComponent() {
 
       <style jsx>{`
 
-          .checkout-box{
-          
-          
-          background:lightblue;
-               }
         .check-button {
-          width: 80%;
+          width: 60%;
+          height: 40px;
           border: none;
-          margin-top: 10px;
-          margin-right: 10px;
-          padding: 15px 20px;
+           margin-top: 10px;
+           
+          
+          // padding: 15px 20px;
           background: linear-gradient(195deg, #1260a3, #1a73e8, #36c7c7);
           color: white;
           cursor: pointer;
