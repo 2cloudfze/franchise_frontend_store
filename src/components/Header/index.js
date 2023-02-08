@@ -14,10 +14,11 @@ export default function Header() {
 
       <style jsx>{`
         header {
-          width: 100vw;
+          width: 100%;
           display: flex;
           flex-direction: column;
-          margin-bottom: 30px;
+          margin-bottom: 2px;
+          border-radius:"100px";
           background-color: #8cd4d0;
           box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
         }
