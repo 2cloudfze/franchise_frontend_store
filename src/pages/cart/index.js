@@ -5,7 +5,7 @@ import CartTableComponent from "@/pages/cart/components/CartTableComponent";
 import CartCheckoutComponent from "./components/CartCheckoutComponent";
 function Cart() {
   const cartContext = useContext(CartContext);
-  const NoProductsFound = <p>You have no items in your shopping cart</p>;
+  const NoProductsFound = <img style={{marginLeft:'370px'}} src="/assets/EmptyCart/emptyCart.gif"/>
   return (
     <>
       <DefaultLayout isLayoutColumn={true}>
@@ -38,11 +38,16 @@ function Cart() {
               margin-bottom: 100px;
               border-top: 1px solid #a2a3a3;
               border-bottom: 1px solid #a2a3a3;
+              border-left: none;
+              border-right: none;
+              border:fixed;
+              
             }
+            
             .side-box {
               display: flex;
               flex-direction: column;
-              align-items: center;
+              // align-items: center;
               justify-content: flex-end;
               position: absolute;
               top: 50%;

@@ -59,12 +59,12 @@ const categories = [
       { id: "2/13", displayname: "Gigabite", category: "Gigabit_Network_Adapters" },
       { id: "2/14", displayname: "ADSL/Cable modems", category: "Cable_Modems" },
       { id: "2/15", displayname: "Access Point", category: "Wireless_Access_Points/Bridges" },
-      { id: "2/16", displayname: "Network Adapters", category: "Redundant" },
-      { id: "2/17", displayname: "Firewalls", category: "Redundant" },
+      { id: "2/16", displayname: "Network Adapters", category: "Network_Adapters" },
+      { id: "2/17", displayname: "Firewalls", category: "Firewalls" },
       {
         id: "2/18",
         displayname: "Network Management Software",
-        category: "Redundant",
+        category: "Network Management Software",
       },
       {
         id: "2/19",

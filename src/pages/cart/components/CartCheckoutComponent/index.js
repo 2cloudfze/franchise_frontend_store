@@ -7,7 +7,11 @@ export default function CartCheckoutComponent() {
   const cartContext = useContext(CartContext);
 
   return (
-    <>
+    <>  
+       
+      <p>Shipping cost: TBD</p>
+      <p>Discount: -$0</p>
+      <p>Tax: TBD</p>
       <p>Total items : {cartContext.items.length}</p>
       <p>Estimated Total: ${cartContext.totalAmount.toFixed(2)}</p>
 
@@ -22,13 +26,15 @@ export default function CartCheckoutComponent() {
           height: 40px;
           border: none;
            margin-top: 10px;
-           
-          
-          // padding: 15px 20px;
+           // padding: 15px 20px;
           background: linear-gradient(195deg, #1260a3, #1a73e8, #36c7c7);
           color: white;
           cursor: pointer;
         }
+
+        // .context-values{
+        //   margin-left:"50px";
+        // }
       `}</style>
     </>
   );

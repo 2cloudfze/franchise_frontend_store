@@ -7,7 +7,7 @@ import TableRow from "@mui/material/TableRow";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 export default function CartTableComponent({ cartContext }) {
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} elevation={0}>
       <Table
         sx={{
           [`& .${tableCellClasses.root}`]: {
