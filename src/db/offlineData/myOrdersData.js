@@ -60,6 +60,38 @@ const myOrdersData = [
     Orderstatus:'failed'
     
   },
+  {
+    id: 5,
+    name: 'Bluetooth Speakers, DOSS SoundBox Plus',
+    description:
+      'Bluetooth Speakers, DOSS SoundBox Plus Portable Wireless Bluetooth Speaker with 16W HD Sound and Deep Bass, Wireless Stereo Pairing, 20H Playtime, Wireless Speaker for Home, Outdoor, Travel - Black',
+    img_url: 'https://d2v8x7eqx4g1su.cloudfront.net/brand_images/acer.jpg',
+    price: 39.99,
+    rating: 3.7,
+    created_at: Date.now(),
+    updated_at: Date.now(),
+    user_id: 1,
+    user_name: 'Luke',
+    qty: '2',
+    Orderstatus:'failed'
+    
+  },
+  {
+    id: 6,
+    name: 'Bluetooth Speakers, DOSS SoundBox Plus',
+    description:
+      'Bluetooth Speakers, DOSS SoundBox Plus Portable Wireless Bluetooth Speaker with 16W HD Sound and Deep Bass, Wireless Stereo Pairing, 20H Playtime, Wireless Speaker for Home, Outdoor, Travel - Black',
+    img_url: 'https://d2v8x7eqx4g1su.cloudfront.net/brand_images/acer.jpg',
+    price: 39.99,
+    rating: 3.7,
+    created_at: Date.now(),
+    updated_at: Date.now(),
+    user_id: 1,
+    user_name: 'Luke',
+    qty: '2',
+    Orderstatus:'failed'
+    
+  },
 ]
 
 export default myOrdersData;

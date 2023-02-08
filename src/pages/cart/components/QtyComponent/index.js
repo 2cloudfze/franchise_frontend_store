@@ -33,11 +33,6 @@ export default function QtyComponent({ cartAddRemove, quantity }) {
       <Button1>
         <AddIcon onClick={() => cartAddRemove("Add")} />
       </Button1>
-      {/* <style jsx>{`
-         .quantity{
-
-         }
-     `}</style> */}
     </>
   );
 }

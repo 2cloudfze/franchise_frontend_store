@@ -5,7 +5,9 @@ import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import { useState, useContext } from "react";
 import TableRow from "@mui/material/TableRow";
 import QtyComponent from "@/pages/cart/components/QtyComponent";
-
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete'
+import Stack from '@mui/material/Stack';
 export default function CartItem({ cartItem }) {
   const cartContext = useContext(CartContext);
 
@@ -21,9 +23,11 @@ export default function CartItem({ cartItem }) {
     // backgroundColor: 'red',
     color: "white",
     padding: "16px",
-    width: "160px",
+    maxWidth:"120px",
+    maxHeight:"60px"
   };
   return (
+    <>
     <TableBody>
       <TableRow
         key={cartItem.id}
@@ -32,6 +36,7 @@ export default function CartItem({ cartItem }) {
         <TableCell>
           <img style={styles} src={cartItem.img_url} alt="Not found" />
         </TableCell>
+      
         <TableCell component="th" scope="cartItem">
           {cartItem.name}
         </TableCell>
@@ -40,7 +45,16 @@ export default function CartItem({ cartItem }) {
           <QtyComponent cartAddRemove={cartAddRemove} quantity={cartItem.qty} />
         </TableCell>
         <TableCell>{cartItem.total}</TableCell>
+        
+        <Stack  marginTop="42px"  >
+      <IconButton aria-label="delete">
+        <DeleteIcon sx={{color:"red"}} />
+      </IconButton>
+      </Stack>
+
       </TableRow>
     </TableBody>
+    
+    </>
   );
 }

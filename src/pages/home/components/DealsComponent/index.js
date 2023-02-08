@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
-import  OrdersItems  from "@/db/offlineData/myOrdersData";
+import OrdersItems from "@/db/offlineData/myOrdersData";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@mui/icons-material";
 import { useEffect } from "react";
 import GridComponent from "@/components/GridComponent";
-import DealItem from "./DealItem"
+import DealItem from "./DealItem";
 
 const Container = styled.div`
   width: 50%;
   height: 400px;
   display: flex;
-  align-items:center;
-  margin-top:100px;
-  margin-left:400px;
-  margin-right:400px;
+  align-items: center;
+  margin-top: 100px;
+  margin-left: 400px;
+  margin-right: 400px;
   position: relative;
   overflow: hidden;
 `;
@@ -31,10 +31,10 @@ const Arrow = styled.div`
   bottom: 0;
   left: ${(props) => props.direction === "left" && "-11px"};
   right: ${(props) => props.direction === "right" && "-11px"};
-   margin: auto;
+  margin: auto;
   cursor: pointer;
   opacity: 0.5;
-   z-index: 2;
+  z-index: 2;
 `;
 
 const Wrapper = styled.div`
@@ -45,11 +45,10 @@ const Wrapper = styled.div`
 `;
 
 const Slide = styled.div`
-  width: 100vw;
-  height: 80vh;
+  width: 33.33%;
   display: flex;
   align-items: center;
-  background-color: #${(props) => props.bg};
+  justify-content: center;
 `;
 
 const ImgContainer = styled.div`
@@ -108,20 +107,22 @@ function DealsComponent() {
 
   const handleClick = (direction) => {
     if (direction === "left") {
-      setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 3);
+      console.log(direction);
+      setSlideIndex(slideIndex < OrdersItems.length - 3 ? slideIndex + 1 : 0);
     } else {
-      setSlideIndex(slideIndex < 3 ? slideIndex + 1 : 0);
+      console.log(direction);
+      setSlideIndex(slideIndex > 0 ? slideIndex - 1 : OrdersItems.length - 3);
     }
+    console.log(slideIndex);
   };
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSlideIndex(slideIndex < 3 ? slideIndex + 1 : 0);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, [slideIndex]); 
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setSlideIndex(slideIndex < 3 ? slideIndex + 1 : 0);
+  //   }, 1000);
+  //   return () => clearInterval(interval);
+  // }, [slideIndex]);
 
   return (
-    
     <Container>
       <h2>OUR DEALS</h2>
       <Arrow direction="left" onClick={() => handleClick("left")}>
@@ -129,23 +130,19 @@ function DealsComponent() {
       </Arrow>
 
       <Wrapper slideIndex={slideIndex}>
-      
-      <GridComponent>
-      
-        {OrdersItems.map((product) => (
-          
-          <Slide key={product.id}>
-            
-            <DealItem
-              key={product.id}
-              id={product.id}
-              img_url={product.img_url}
-              name={product.name}
-              price={product.price}
-              qty={product.qty}
-            />
-          </Slide>
-        ))}
+        <GridComponent>
+          {OrdersItems.slice(slideIndex, slideIndex + 3).map((product) => (
+            <Slide key={product.id}>
+              <DealItem
+                key={product.id}
+                id={product.id}
+                img_url={product.img_url}
+                name={product.name}
+                price={product.price}
+                qty={product.qty}
+              />
+            </Slide>
+          ))}
         </GridComponent>
       </Wrapper>
 

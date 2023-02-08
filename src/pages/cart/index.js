@@ -3,58 +3,62 @@ import CartContext from "@/context/CartContext/cart-context";
 import { useContext } from "react";
 import CartTableComponent from "@/pages/cart/components/CartTableComponent";
 import CartCheckoutComponent from "./components/CartCheckoutComponent";
+import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 function Cart() {
   const cartContext = useContext(CartContext);
-  const NoProductsFound = <img style={{marginLeft:'370px'}} src="/assets/EmptyCart/emptyCart.gif"/>
+  const NoProductsFound = (
+    <img
+      style={{ marginLeft: "370px" }}
+      src="/assets/EmptyCart/emptyCart.gif"
+    />
+  );
   return (
     <>
       <DefaultLayout isLayoutColumn={true}>
-        <div
+        <div 
           style={{
             backgroundColor: "white",
             position: "relative",
-            padding: "80px",
-            marginBottom: "400px",
+            padding: "40px",
+           
           }}
         >
           {cartContext.items.length === 0 ? (
             NoProductsFound
           ) : (
             <>
-              <div className="main-box">
+              <ShoppingBagIcon sx={{position:'absolute',top: '60px',right: '970px', width: '36px',height: '36px'}} />
+              <h1 className="cart-header">My cart</h1>
+              
                 <CartTableComponent cartContext={cartContext} />
-              </div>
+              
               <div className="side-box">
                 <CartCheckoutComponent />
               </div>
+              <p style={{position:'absolute',top:'82%',left:'23%'}}> {cartContext.items.length} Items</p>
+              <p style={{position:'absolute',top:'82%',left:'50%'}}> ${cartContext.totalAmount.toFixed(2)}</p>
             </>
           )}
 
           <style jsx>{`
-            .main-box {
-              width: 900px;
-              margin-top: 100px;
-              margin-left: 170px;
-              margin-bottom: 100px;
-              border-top: 1px solid #a2a3a3;
-              border-bottom: 1px solid #a2a3a3;
-              border-left: none;
-              border-right: none;
-              border:fixed;
-              
+            .cart-header {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size:30px;
             }
-            
+
             .side-box {
               display: flex;
               flex-direction: column;
-              // align-items: center;
               justify-content: flex-end;
               position: absolute;
-              top: 50%;
-              right: 10%;
+              top: 30%;
+              right:0%;
               margin-right: 90px;
               margin-bottom: 70px;
             }
+            
           `}</style>
         </div>
       </DefaultLayout>
