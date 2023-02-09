@@ -53,7 +53,7 @@ export default function LoadSelectedProduct() {
           paginationContext.setCurrentCursor(query.currentCurser);
           setNextCurser(data.nextCursorMark);
           if (query.currentCurser === "*") {
-            paginationContext.initialize(data.response.numFound, 8);
+            paginationContext.initialize(data.response.numFound, 100);
           }
         }
       });

@@ -14,7 +14,7 @@ export default function Header() {
 
       <style jsx>{`
         header {
-          width: 100%;
+          width: 101%;
           display: flex;
           flex-direction: column;
           margin-bottom: 2px;

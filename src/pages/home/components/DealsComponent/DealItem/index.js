@@ -1,45 +1,37 @@
 import { useRouter } from "next/router";
 
-export default function DealItem({ id, name, img_url, price, qty }) {
+export default function DealItem({ id, name, img_url, price }) {
   const router = useRouter();
   return (
     <article>
-      <div onClick={() => router.push(`/products/${id}`)}>
-      <img className="homeproduct-img" src={img_url} alt="error" />
+      <div >
+        <img className="homeproduct-img" src={img_url} alt="error" />
 
-      <p className="product-title">Name: {name}</p>
-      <p className="product-title">Price: {price} </p>
-      <p className="product-title">Quantity {qty}</p>
+        <p className="product-title"> {name}</p>
+        <p className="product-title"> ${price} </p>
       </div>
 
       <style jsx>{`
           article {
             display: flex;
             align-items: center;
-            flex-direction: column;
+            flex-direction: row;
             box-sizing: border-box;
+            font-size:12px;
+            line-height:1.8px;
+             color:#090808;
             height: 100%;
-            max-width:
-            margin-left:70px;
-            margin-bottom:20px;
-            padding: 24px;
             background: white;
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
-            border-radius: 6px;
-            // margin-right: 20px;
-            font-family: Georgia, serif;
-            
+            border-radius: 6px; 
           }
           
           
-          .homeproduct-img-box {
-            margin-bottom: 28px;
-            margin-left: 28px;
-    
-          }
           .homeproduct-img {
-            width: 225px;
+            width: 165px;
             height: 160px;
+            
+            margin-left:40px;
             object-fit: contain;
             cursor:pointer;
           }
@@ -47,35 +39,17 @@ export default function DealItem({ id, name, img_url, price, qty }) {
             width: 80%;
             line-height: 20px;
             text-decoration: none;
+            margin-left:30px;
             font-weight: 500;
-            font-size: 18px;
+            font-size: 15px;
             cursor:pointer;
+            font-family:AvenirLTStd-Roman;
   
             text-align: center;
             color: black;
             margin-bottom: 18px;
           }
-          .product-status failed{
-            color:red;
-          }
-          .product-status pending{
-            color:yellow;
-          }
-          .product-status completed{
-            color:green;
-          }
-          .categories-search {
-            background: #e6fafa;
-            max-width: 120px;
-            border: 1px solid black;
-            margin: 10px auto;
-            font-size: 10px;
-            padding: 5px;
-            color: #7a0b34;
-            border-radius: 45px;
-            object-fit: cover;
-            box-shadow: 0px 2px 5px rgba(189, 170, 174);
-          }
+  
           .product-title:hover {
             font-weight: 600;
          

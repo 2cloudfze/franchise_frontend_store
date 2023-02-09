@@ -7,7 +7,7 @@ export default function SearchBox() {
   const [searchText, setSearchText] = useState("");
   const { head, queryString, next } = useQueryBuilder({
     query: searchText,
-    rowCount: 8,
+    rowCount: 100,
   });
   const handleSearch = (e) => {
     if (e.keyCode === 13) {
@@ -29,7 +29,7 @@ export default function SearchBox() {
           id="search"
           type="text"
           name="search"
-          placeholder="Search goods"
+          placeholder="Search"
           onKeyDown={handleSearch}
         />
       </div>
@@ -46,6 +46,7 @@ export default function SearchBox() {
           border: 2px solid white;
           box-sizing: border-box;
           border-radius: 12px;
+          margin-left: 400px;
         }
         .search-box .search-button {
           display: flex;

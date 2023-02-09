@@ -31,7 +31,7 @@ export default function OrderProducts() {
           font-weight: 500;
           margin-bottom: 40px;
           margin-top: 20px;
-          font-family: Georgia, serif;
+         
           color: black;
         }
       `}</style>

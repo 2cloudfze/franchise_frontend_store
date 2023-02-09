@@ -57,13 +57,13 @@ export default function ProductItem({
       </div>
 
       <div className="desc">
-        {description ? <p>Description : {description}</p> : null}
+        {description ? <p>{description}</p> : null}
       </div>
 
       <div className="item">
-        {manuName ? <p className="obj">Manufacture : {manuName}</p> : null}
-        {cat ? <p className="obj">Category : {cat}</p> : null}
-        {partNumber ? <p className="obj">Part No : {partNumber}</p> : null}
+        {manuName ? <p className="obj">{manuName}</p> : null}
+        {cat ? <p className="obj"> {cat}</p> : null}
+        {partNumber ? <p className="obj"> {partNumber}</p> : null}
         <p className="obj">
           Stock : {inStock ? "Available" : "Please check Availability"}
         </p>
@@ -83,9 +83,15 @@ export default function ProductItem({
           height: 100%;
           padding: 14px;
           background: #ffff;
+          color:#090808;
           box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
           border-radius: 6px;
+          font-family:'AvenirLTStd-Roman';
           cursor: pointer;
+          line-height:1.8px;
+          line-spacing:1px;
+          font-size:15px;
+          
         }
         .desc {
           align-items: center;
@@ -125,10 +131,8 @@ export default function ProductItem({
           width: 80%;
           line-height: 20px;
           text-decoration: none;
-          font-weight: 500;
           font-size: 20px;
           text-align: center;
-          color: balck;
           margin-bottom: 18px;
         }
         .product-name:hover {
@@ -138,11 +142,11 @@ export default function ProductItem({
         }
         .price {
           display: flex;
-          margin-left:148px;
+           margin-left:18px;
           align-items: center;
           font-weight: 900;
           font-size: 16px;
-          color: #666666;
+          padding-top:10px;
         }
       `}</style>
     </article>

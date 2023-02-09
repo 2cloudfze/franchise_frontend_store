@@ -1,14 +1,17 @@
 import React, { useState } from "react";
-import { MdKeyboardArrowDown } from "react-icons/md";
 import Item from "./components";
 import { border, height, width } from "@mui/system";
 
 export default function CategoriesItem({ categoryData }) {
   const [showSubCategories, setShowSubCategories] = useState(false);
   let myStyles = {
-    backgroundColor: "white",
+    backgroundColor: "#fafafa",
     border: "none",
     maxWidth: "230px",
+    // letterSpacing: "0.5em",
+    fontWeight: 400,
+    fontFamily: "PlutoMedium",
+    fontSize: 10,
   };
 
   return (
@@ -21,10 +24,6 @@ export default function CategoriesItem({ categoryData }) {
           <a>
             <div className="content">
               <p>{categoryData.head.toUpperCase()}</p>
-            </div>
-
-            <div className="arrow-button">
-              <MdKeyboardArrowDown color="#ffffff" size="26" />
             </div>
           </a>
 
@@ -49,29 +48,20 @@ export default function CategoriesItem({ categoryData }) {
               align-items: center;
               justify-content: space-between;
               text-decoration: none;
-              font-weight: 500;
-              font-size: 11px;
-              color: white;
+              color: black;
               padding: 20px;
-              background: linear-gradient(205deg, #1260a3, #1a73e8, #36c7c7);
               cursor: pointer;
-              border-right: 0.5px solid #f5f5f5;
-              border-bottom: 2px solid #f5f5f5;
               transition: 0.4s;
-              box-shadow: 0px 2px 5px rgba(189, 170, 174);
-              box-shadow: 0px 2px 10px rgba(161, 189, 201);
             }
 
             li a:hover {
-              background: #36c7c7;
-              color: white;
+              // background: #36c7c7;
+              color: #918a8a;
             }
             li a .content {
               display: flex;
               flex-direction: row;
               align-items: center;
-              font-size: 13px;
-              font-weight: 500;
               width: auto;
             }
             li a .content .icon {
@@ -81,7 +71,6 @@ export default function CategoriesItem({ categoryData }) {
               align-self: flex-end;
             }
             .dropdownContainer {
-              background: linear-gradient(195deg, #1260a3, #1a73e8, #36c7c7);
               width: auto;
             }
           `}</style>

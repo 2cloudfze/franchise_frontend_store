@@ -23,7 +23,7 @@ export default function PageContainer({ title, description, children }) {
           align-items: center;
           justify-content: center;
           flex-direction: column;
-          font-family: Roboto;
+          overflow-x: hidden;
         }
       `}</style>
     </div>

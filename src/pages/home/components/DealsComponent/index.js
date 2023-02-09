@@ -7,15 +7,16 @@ import GridComponent from "@/components/GridComponent";
 import DealItem from "./DealItem";
 
 const Container = styled.div`
-  width: 50%;
+  width: auto;
   height: 400px;
   display: flex;
+  display-direction:row;
+  
   align-items: center;
-  margin-top: 100px;
-  margin-left: 400px;
-  margin-right: 400px;
+  
   position: relative;
   overflow: hidden;
+  justify-content:space-evenly;
 `;
 
 const Arrow = styled.div`
@@ -40,6 +41,7 @@ const Arrow = styled.div`
 const Wrapper = styled.div`
   height: 100%;
   display: flex;
+ 
   transition: all 1.5s ease;
   transform: translateX(${(props) => props.slideIndex * -100}vw);
 `;
@@ -49,6 +51,7 @@ const Slide = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding:10px;
 `;
 
 const ImgContainer = styled.div`
@@ -69,7 +72,6 @@ const InfoContainer = styled.div`
 
 const Title = styled.h1`
   font-size: 30px;
-  font-family: Georgia, serif;
   color: #057c99;
   &:hover {
     color: black;
@@ -81,7 +83,6 @@ const Desc = styled.p`
   font-size: 20px;
   font-weight: 100;
   object-fit:contain
-  font-family: Georgia, serif;
   letter-spacing: 2px;
   &:hover {
     color: #057c99;
@@ -123,16 +124,26 @@ function DealsComponent() {
   // }, [slideIndex]);
 
   return (
-    <Container>
-      <h2>OUR DEALS</h2>
+    <>
+    <h4 style={{
+          fontFamily: "PlutoMedium",
+          fontWeight: 400,
+          textAlign: "left",
+          letterSpacing: "1px",
+          fontSize: "16px",
+          marginTop: "50px",
+          textTransform: "uppercase",
+        }}
+        >OUR DEALS :</h4>
+    <Container >
       <Arrow direction="left" onClick={() => handleClick("left")}>
         <ArrowLeftOutlined sx={{ fontSize: 60 }} />
       </Arrow>
 
       <Wrapper slideIndex={slideIndex}>
-        <GridComponent>
-          {OrdersItems.slice(slideIndex, slideIndex + 3).map((product) => (
-            <Slide key={product.id}>
+       
+          {OrdersItems.slice(slideIndex, slideIndex + 6).map((product) => (
+            <div style={{paddingLeft:25}}>
               <DealItem
                 key={product.id}
                 id={product.id}
@@ -141,15 +152,16 @@ function DealsComponent() {
                 price={product.price}
                 qty={product.qty}
               />
-            </Slide>
+           
+        </div>
           ))}
-        </GridComponent>
       </Wrapper>
 
       <Arrow direction="right" onClick={() => handleClick("right")}>
         <ArrowRightOutlined sx={{ fontSize: 60 }} />
       </Arrow>
     </Container>
+    </>
   );
 }
 

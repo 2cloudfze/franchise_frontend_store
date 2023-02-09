@@ -3,7 +3,7 @@ import PromoCard from "@/components/PromoCard";
 function DefaultLayout({ children, isLayoutColumn }) {
   return (
     <Page>
-      <section id="block">
+      <div className="block">
         {!isLayoutColumn && (
           <div>
             <PromoCard />
@@ -12,23 +12,20 @@ function DefaultLayout({ children, isLayoutColumn }) {
         <div className="main">{children}</div>
 
         <style jsx>{`
-          #block {
+          .block {
             display: flex;
             flex-direction: ${isLayoutColumn ? "column" : "row"};
             justify-content: space-between;
             width: 100%;
           }
-          #block .main {
-            flex-grow: 1;
-            padding-left: 30px;
+          .main{
+            margin-top:30px;
+            // padding-left:6px;
+            
           }
-          @media (max-width: 900px) {
-            #block .main {
-              padding-left: 0;
-            }
-          }
+          
         `}</style>
-      </section>
+      </div>
     </Page>
   );
 }

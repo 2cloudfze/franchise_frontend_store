@@ -26,7 +26,7 @@ export default function OrdersComponent({ id, name,  img_url, price,qty,ordersta
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
             border-radius: 6px;
             margin-right: 20px;
-            font-family: Georgia, serif;
+            
           }
           
           

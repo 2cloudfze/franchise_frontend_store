@@ -5,18 +5,22 @@ import CartContext from "@/context/CartContext/cart-context";
 import { useContext } from "react";
 import Logo from "@/components/Logo";
 import SearchBox from "@/components/SearchBox";
+import { useRouter } from "next/router";
+import HeaderCategories from "@/components/HeaderCategories";
 
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
 
 export default function HeaderDesktop({ viewer }) {
+  const router = useRouter();
   const cartContext = useContext(CartContext);
   const cartQty = cartContext.items.length;
   return (
     <>
+    <div className="header-container">
       <div className="header header-top">
-        <Logo />
-
+        <div style={{ position:'absolute',top:40,left:30 ,marginRight:100}} onClick={() => router.push("/")}>
+          <Logo />
+        </div>
+        
         <SearchBox />
 
         <div className="nav-buttons">
@@ -51,25 +55,26 @@ export default function HeaderDesktop({ viewer }) {
                 </a>
               </Link>
               <Link legacyBehavior href="/shipping">
-                <a className="nav-buttons-ship">
-                  <p>My Address</p>
+                <a style={{ fontFamily:'AvenirLTStd-Roman',textTransform:"uppercase",fontSize:12}}>
+                  <p> Address</p>
                 </a>
               </Link>
               <Link legacyBehavior href="/my_orders">
-                <a className="nav-buttons-ship">
-                  <p>My orders</p>
+                <a style={{ fontFamily:'AvenirLTStd-Roman',textTransform:"uppercase",fontSize:12}}>
+                  <p> orders</p>
                 </a>
               </Link>
             </>
           )}
         </div>
+        
       </div>
+      <HeaderCategories /></div>
       {
         //Todo: search categories dropdown
       }
 
       <style jsx>{`
-        /* Header Top */
         .header {
           display: flex;
           flex-direction: row;
@@ -77,6 +82,15 @@ export default function HeaderDesktop({ viewer }) {
           align-items: center;
           padding: 28px 10vw;
           background: linear-gradient(195deg, #1260a3, #1a73e8, #36c7c7);
+          
+
+        }
+        .header-container{
+          position:fixed;
+          top:0;
+          z-index:1;
+          
+
         }
         .nav-buttons {
           display: flex;
@@ -110,7 +124,6 @@ export default function HeaderDesktop({ viewer }) {
         .nav-buttons a p {
           margin-left: 8px;
         }
-        /* Header Bottom */
         .header-bottom {
           padding: 0px 10vw;
           border-top: 2px solid #f5f5f5;
@@ -179,6 +192,7 @@ export default function HeaderDesktop({ viewer }) {
           font-size: 14px;
           color: #8a0707;
         }
+        
       `}</style>
     </>
   );

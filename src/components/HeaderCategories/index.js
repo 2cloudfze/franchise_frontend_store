@@ -15,13 +15,10 @@ export default function HeaderCategories() {
           flex-direction: row;
           background: white;
           color: black;
-
           z-index: 1;
-
-          font-family: Georgia, serif;
+          top:1000;
           border-radius: 16px;
-          margin-bottom: 30px;
-          box-shadow: 0px 2px 5px rgba(189, 170, 174);
+          margin-bottom: 30px; 
         }
         .categories:hover {
           height: 0px;

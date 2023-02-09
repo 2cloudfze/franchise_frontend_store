@@ -5,7 +5,7 @@ export default function CardComponent({ image, title, parent }) {
   const router = useRouter();
   const { head, queryString, next } = useQueryBuilder({
     query: `category:${parent} AND manname:${title}`,
-    rowCount: 8,
+    rowCount: 100,
   });
   const onClickHandler = () =>
     router.push({

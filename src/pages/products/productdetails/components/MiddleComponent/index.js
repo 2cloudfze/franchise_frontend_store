@@ -43,13 +43,13 @@ function Middlecomponent({ product }) {
       </Container>
       <style jsx>
         {`
-          .main-product {
-            position: absolute;
-            top: 40%;
-            left: 25%;
-            font-size: 20px;
-            font-weight: 600;
-          }
+          // .main-product {
+          //   position: absolute;
+          //   top: 40%;
+          //   left: 25%;
+          //   font-size: 20px;
+          //   font-weight: 600;
+          // }
           .data {
             font-size: 20px;
             font-weight: 30px;

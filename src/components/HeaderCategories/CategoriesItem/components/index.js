@@ -1,10 +1,23 @@
 import { useRouter } from "next/router";
 import useQueryBuilder from "@/hook/use-query-builder";
+import styled from "@emotion/styled";
+
+const StyledText = styled.p`
+  color: black;
+  padding: 8px;
+  font-family: AvenirLTStd-Roman;
+  cursor: pointer;
+  letter-spacing: 1.25px;
+  font-size: 12px;
+  &:hover {
+    color: #9c9494;
+  }
+`;
 export default function Item({ name, id, category }) {
   const router = useRouter();
   const { head, queryString, next } = useQueryBuilder({
     query: `category:${category}`,
-    rowCount: 8,
+    rowCount: 100,
   });
   const onClickHandler = () =>
     router.push({
@@ -15,15 +28,19 @@ export default function Item({ name, id, category }) {
     <li
       onClick={onClickHandler}
       key={id}
-      style={{
-        color: "white",
-        padding: "10px",
-        font: "15px Arial, sans-serif",
-        cursor: "pointer",
-        borderBottom: "2px solid #f5f5f5",
-      }}
+      // style={{
+      //   color: "black",
+      //   padding: "8px",
+      //   fontFamily: "AvenirLTStd-Roman",
+      //   cursor: "pointer",
+      //   hover: {
+      //     color: "lightgrey",
+      //   },
+      //   letterSpacing: "1.25px",
+      //   fontSize: "12px",
+      // }}
     >
-      {name}
+      <StyledText>{name}</StyledText>
     </li>
   );
 }
