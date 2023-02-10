@@ -4,19 +4,19 @@ export default function SnackBarComponent({ item, cartContext }) {
 
   const handleClickVariant = () => {
     cartContext.addItem({ ...item, qty: 1, total: item.price * 1 });
-    enqueueSnackbar("ADD TO CART SUCCESSFULLY", { variant:'success',anchorOrigin: { vertical: 'bottom', horizontal: 'center' } });
+    enqueueSnackbar("ADD TO CART SUCCESSFULLY", {
+      variant: "success",
+      anchorOrigin: { vertical: "bottom", horizontal: "center" },
+    });
   };
 
   return (
     <>
-      <button
-        className="add-cart"
-        onClick={ handleClickVariant}
-      >
+      <button className="add-cart" onClick={handleClickVariant}>
         Add Cart
       </button>
       <style jsx>{`
-         .add-cart {
+        .add-cart {
           width: 30%;
           border: none;
           margin-top: 5px;
@@ -26,10 +26,10 @@ export default function SnackBarComponent({ item, cartContext }) {
           color: white;
           cursor: pointer;
         }
-         .add-cart:focus {
+        .add-cart:focus {
           outline: none;
-         }
-     `}</style>
+        }
+      `}</style>
     </>
   );
 }

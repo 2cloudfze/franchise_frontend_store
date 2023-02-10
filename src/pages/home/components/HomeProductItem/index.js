@@ -6,7 +6,7 @@ export default function HomeProductItem({ id, image, title, brands, link }) {
   return (
     <div>
       <article>
-        <div onClick={() => router.push(`/brand_catalog/${id}`)}>
+        <div onClick={() => router.push(`/catalog_products/${id}`)}>
           <div className="homeproduct-img-box">
             <img className="homeproduct-img" src={image} alt="error" />
           </div>

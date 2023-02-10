@@ -9,12 +9,12 @@ function ProductDetails() {
   const router = useRouter();
   const { isLoading, error, sendRequest: runSearch } = useHttp();
   const [products, setProducts] = useState([]);
-
+  const [productId, setProductId] = useState();
   useEffect(() => {
     if (router.isReady) {
       const { query } = router;
       const parameter = (query.product_query + "?" + query.data).trim();
-      console.log(parameter);
+      setProductId(query.id);
       runSearch({ params: parameter }).then((data) => {
         if (data.response && data.response.docs)
           setProducts(data.response.docs);
@@ -24,10 +24,12 @@ function ProductDetails() {
 
   const LoadingComponent = <p>Loading .... </p>;
   const ErrorComponent = <p>{error}</p>;
-  const ProductBlock = <ProductFolder productData={products} />;
+  const ProductBlock = (
+    <ProductFolder productData={products} selectedId={productId} />
+  );
 
   return (
-    <DefaultLayout isLayoutColumn={false}>
+    <DefaultLayout isLayoutColumn={true}>
       {isLoading ? LoadingComponent : error ? ErrorComponent : ProductBlock}
     </DefaultLayout>
   );

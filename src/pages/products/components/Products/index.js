@@ -3,7 +3,6 @@ import GridComponent from "@/components/GridComponent";
 
 export default function Products({ productData }) {
   return (
-    
     <GridComponent>
       {productData && productData.length > 0 ? (
         productData.map((product) => (
@@ -24,20 +23,15 @@ export default function Products({ productData }) {
         <p className="nodata">No data found</p>
       )}
       <style jsx>{`
-       .nodata{
-        position: absolute;
-        top: 55%;
-        left: 55%;
-        transform: translate(-50%, -50%);
-        font-size:30px;
-        font: "15px Arial, sans-serif",
-       }
-      
-
+        .nodata {
+          position: absolute;
+          top: 55%;
+          left: 55%;
+          transform: translate(-50%, -50%);
+          font-size: 30px;
+          font: "AvenirLTStd-Roman";
+        }
       `}</style>
-
-
     </GridComponent>
-    
   );
 }

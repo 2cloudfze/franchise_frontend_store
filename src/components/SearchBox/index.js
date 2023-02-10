@@ -7,7 +7,7 @@ export default function SearchBox() {
   const [searchText, setSearchText] = useState("");
   const { head, queryString, next } = useQueryBuilder({
     query: searchText,
-    rowCount: 100,
+    rowCount: 8,
   });
   const handleSearch = (e) => {
     if (e.keyCode === 13) {

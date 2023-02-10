@@ -1,29 +1,20 @@
 import Page from "@/components/Page";
-import PromoCard from "@/components/PromoCard";
-function DefaultLayout({ children, isLayoutColumn }) {
+function DefaultLayout({ children }) {
   return (
     <Page>
       <div className="block">
-        {!isLayoutColumn && (
-          <div>
-            <PromoCard />
-          </div>
-        )}
         <div className="main">{children}</div>
-
         <style jsx>{`
           .block {
             display: flex;
-            flex-direction: ${isLayoutColumn ? "column" : "row"};
-            justify-content: space-between;
+            flex-direction: column;
+            justify-content: space-around;
             width: 100%;
+            padding: 20px;
           }
-          .main{
-            margin-top:30px;
-            // padding-left:6px;
-            
+          .main {
+            margin-top: 30px;
           }
-          
         `}</style>
       </div>
     </Page>

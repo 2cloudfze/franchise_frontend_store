@@ -17,7 +17,7 @@ export default function Item({ name, id, category }) {
   const router = useRouter();
   const { head, queryString, next } = useQueryBuilder({
     query: `category:${category}`,
-    rowCount: 100,
+    rowCount: 8,
   });
   const onClickHandler = () =>
     router.push({

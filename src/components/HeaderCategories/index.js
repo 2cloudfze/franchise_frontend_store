@@ -16,14 +16,13 @@ export default function HeaderCategories() {
           background: white;
           color: black;
           z-index: 1;
-          top:1000;
+          top: 1000;
           border-radius: 16px;
-          margin-bottom: 30px; 
+          margin-bottom: 30px;
         }
         .categories:hover {
           height: 0px;
         }
-
       `}</style>
     </div>
   );

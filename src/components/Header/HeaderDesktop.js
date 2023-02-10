@@ -8,68 +8,87 @@ import SearchBox from "@/components/SearchBox";
 import { useRouter } from "next/router";
 import HeaderCategories from "@/components/HeaderCategories";
 
-
 export default function HeaderDesktop({ viewer }) {
   const router = useRouter();
   const cartContext = useContext(CartContext);
   const cartQty = cartContext.items.length;
   return (
     <>
-    <div className="header-container">
-      <div className="header header-top">
-        <div style={{ position:'absolute',top:40,left:30 ,marginRight:100}} onClick={() => router.push("/")}>
-          <Logo />
-        </div>
-        
-        <SearchBox />
+      <div className="header-container">
+        <div className="header header-top">
+          <div
+            style={{
+              position: "absolute",
+              top: 40,
+              left: 30,
+              marginRight: 100,
+            }}
+            onClick={() => router.push("/")}
+          >
+            <Logo />
+          </div>
 
-        <div className="nav-buttons">
-          <Link legacyBehavior href="/cart">
-            <a className="nav-buttons-items">
-              <FaShoppingCart color="" />
-              <p>
-                <sup className="items-total">{cartQty}</sup>
-              </p>
-            </a>
-          </Link>
+          <SearchBox />
 
-          {!viewer && (
-            <Link legacyBehavior href="/login">
-              <a className="nav-buttons-signin">
-                <FaUser color="#808080" />
-                <p>Sign In</p>
+          <div className="nav-buttons">
+            <Link legacyBehavior href="/cart">
+              <a className="nav-buttons-items">
+                <FaShoppingCart color="" />
+                <p>
+                  <sup className="items-total">{cartQty}</sup>
+                </p>
               </a>
             </Link>
-          )}
-          {viewer && (
-            <>
+
+            {!viewer && (
               <Link legacyBehavior href="/login">
-                <a className="nav-buttons-profile">
-                  <FaUser color="" />
-                  <p>{viewer.name}</p>
+                <a className="nav-buttons-signin">
+                  <FaUser color="#808080" />
+                  <p>Sign In</p>
                 </a>
               </Link>
-              <Link legacyBehavior href="/signout">
-                <a className="nav-buttons-signout">
-                  <FaSignOutAlt />
-                </a>
-              </Link>
-              <Link legacyBehavior href="/shipping">
-                <a style={{ fontFamily:'AvenirLTStd-Roman',textTransform:"uppercase",fontSize:12}}>
-                  <p> Address</p>
-                </a>
-              </Link>
-              <Link legacyBehavior href="/my_orders">
-                <a style={{ fontFamily:'AvenirLTStd-Roman',textTransform:"uppercase",fontSize:12}}>
-                  <p> orders</p>
-                </a>
-              </Link>
-            </>
-          )}
+            )}
+            {viewer && (
+              <>
+                <Link legacyBehavior href="/login">
+                  <a className="nav-buttons-profile">
+                    <FaUser color="" />
+                    <p>{viewer.name}</p>
+                  </a>
+                </Link>
+                <Link legacyBehavior href="/signout">
+                  <a className="nav-buttons-signout">
+                    <FaSignOutAlt />
+                  </a>
+                </Link>
+                <Link legacyBehavior href="/shipping">
+                  <a
+                    style={{
+                      fontFamily: "AvenirLTStd-Roman",
+                      textTransform: "uppercase",
+                      fontSize: 12,
+                    }}
+                  >
+                    <p> Address</p>
+                  </a>
+                </Link>
+                <Link legacyBehavior href="/my_orders">
+                  <a
+                    style={{
+                      fontFamily: "AvenirLTStd-Roman",
+                      textTransform: "uppercase",
+                      fontSize: 12,
+                    }}
+                  >
+                    <p> orders</p>
+                  </a>
+                </Link>
+              </>
+            )}
+          </div>
         </div>
-        
+        <HeaderCategories />
       </div>
-      <HeaderCategories /></div>
       {
         //Todo: search categories dropdown
       }
@@ -82,15 +101,11 @@ export default function HeaderDesktop({ viewer }) {
           align-items: center;
           padding: 28px 10vw;
           background: linear-gradient(195deg, #1260a3, #1a73e8, #36c7c7);
-          
-
         }
-        .header-container{
-          position:fixed;
-          top:0;
-          z-index:1;
-          
-
+        .header-container {
+          position: fixed;
+          top: 0;
+          z-index: 1;
         }
         .nav-buttons {
           display: flex;
@@ -192,7 +207,6 @@ export default function HeaderDesktop({ viewer }) {
           font-size: 14px;
           color: #8a0707;
         }
-        
       `}</style>
     </>
   );

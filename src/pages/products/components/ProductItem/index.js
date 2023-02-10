@@ -27,7 +27,7 @@ export default function ProductItem({
   const onClickHandler = () =>
     router.push({
       pathname: "/products/productdetails/" + head,
-      query: { data: `${queryString}` },
+      query: { data: `${queryString}`, id },
     });
 
   const item = {
@@ -42,37 +42,34 @@ export default function ProductItem({
   };
 
   return (
-    <article >
+    <article>
       <div onClick={onClickHandler}>
-      <div className="product-img-box">
-        <img
-          className="product-img"
-          src={
-            img_url
-              ? img_url
-              : `https://d2v8x7eqx4g1su.cloudfront.net/brand_images/${manuName.toLowerCase()}.jpg`
-          }
-          alt="Image not found"
-        />
-      </div>
-
-      <div className="desc">
-        {description ? <p>{description}</p> : null}
-      </div>
-
-      <div className="item">
-        {manuName ? <p className="obj">{manuName}</p> : null}
-        {cat ? <p className="obj"> {cat}</p> : null}
-        {partNumber ? <p className="obj"> {partNumber}</p> : null}
-        <p className="obj">
-          Stock : {inStock ? "Available" : "Please check Availability"}
-        </p>
-      </div>
-
-      
-        <p className="price">${price}</p>
+        <div className="product-img-box">
+          <img
+            className="product-img"
+            src={
+              img_url
+                ? img_url
+                : `https://d2v8x7eqx4g1su.cloudfront.net/brand_images/${manuName.toLowerCase()}.jpg`
+            }
+            alt="Image not found"
+          />
         </div>
-      
+
+        <div className="desc">{description ? <p>{description}</p> : null}</div>
+
+        <div className="item">
+          {manuName ? <p className="obj">{manuName}</p> : null}
+          {cat ? <p className="obj"> {cat}</p> : null}
+          {partNumber ? <p className="obj"> {partNumber}</p> : null}
+          <p className="obj">
+            Stock : {inStock ? "Available" : "Please check Availability"}
+          </p>
+        </div>
+
+        <p className="price">${price}</p>
+      </div>
+
       <SnackBarButton item={item} cartContext={cartContext} />
       <style jsx>{`
         article {
@@ -83,15 +80,14 @@ export default function ProductItem({
           height: 100%;
           padding: 14px;
           background: #ffff;
-          color:#090808;
+          color: #090808;
           box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
           border-radius: 6px;
-          font-family:'AvenirLTStd-Roman';
+          font-family: "AvenirLTStd-Roman";
           cursor: pointer;
-          line-height:1.8px;
-          line-spacing:1px;
-          font-size:15px;
-          
+          line-height: 1.8px;
+          line-spacing: 1px;
+          font-size: 15px;
         }
         .desc {
           align-items: center;
@@ -142,11 +138,11 @@ export default function ProductItem({
         }
         .price {
           display: flex;
-           margin-left:18px;
+          margin-left: 18px;
           align-items: center;
           font-weight: 900;
           font-size: 16px;
-          padding-top:10px;
+          padding-top: 10px;
         }
       `}</style>
     </article>
