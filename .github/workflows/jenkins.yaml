@@ -1,19 +1,19 @@
-name: franchise-frontend-trigger
+# name: franchise-frontend-trigger
 
-on:
-  push:
-    branches:
-    - master
-jobs:
+# on:
+#   push:
+#     branches:
+#     - master
+# jobs:
 
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-    - name: trigger single Job
-      uses: 2cloudfze/github_action_trigger_jenkins@main
-      with:
-        url: "https://jenkins.2cloud.gq/"
-        user: "user"
-        token: ${{ secrets.TOKEN }}
-        job: "arabtr-frontend"
+#   build:
+#     name: Build
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: trigger single Job
+#       uses: 2cloudfze/github_action_trigger_jenkins@main
+#       with:
+#         url: "https://jenkins.2cloud.gq/"
+#         user: "user"
+#         token: ${{ secrets.TOKEN }}
+#         job: "arabtr-frontend"
