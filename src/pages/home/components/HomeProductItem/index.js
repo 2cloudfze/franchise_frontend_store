@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import HeaderTypography from "@/components/Typography/HeaderTypography";
 
 export default function HomeProductItem({ id, image, title, brands, link }) {
   const router = useRouter();
@@ -11,7 +12,7 @@ export default function HomeProductItem({ id, image, title, brands, link }) {
             <img className="homeproduct-img" src={image} alt="error" />
           </div>
 
-          <p className="product-title">{title}</p>
+          <HeaderTypography>{title}</HeaderTypography>
         </div>
 
         <style jsx>{`
@@ -31,6 +32,7 @@ export default function HomeProductItem({ id, image, title, brands, link }) {
           }
           .homeproduct-img-box {
             margin-bottom: 28px;
+
           }
           .homeproduct-img {
             width: 225px;

@@ -10,15 +10,9 @@ import PaginationContainer from "../components/PaginationContainer";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import styled from "@emotion/styled";
+import MDBox from "@/components/MDBox";
+import BodyDescTypography from "@/components/Typography/BodyDescTypography";
 
-const Container = styled.div`
-    height: "100%",
-    width: "100%",
-    position: "fixed",
-    right: 0,
-    top: 0,
-  `;
 export default function LoadSelectedProduct() {
   const router = useRouter();
   const filterContext = useContext(FilterContext);
@@ -97,7 +91,7 @@ export default function LoadSelectedProduct() {
   );
 
   const renderMenu = () => (
-    <Container>
+    <MDBox width="100%">
       <Menu
         anchorEl={anchorEl}
         keepMounted
@@ -111,106 +105,30 @@ export default function LoadSelectedProduct() {
           </MenuItem>
         ))}
       </Menu>
-    </Container>
+    </MDBox>
   );
 
   const ErrorComponent = <p>{error}</p>;
   const ProductBlock = (
-    <>
+    <MDBox>
       <Products productData={products} />
       <PaginationContainer buttonHandler={onButtonClickHandler} />
-    </>
+    </MDBox>
   );
   return (
-    <div>
-      <DefaultLayout>
-        <div className="filter-block">
-          <p onClick={handleOpenMenu}>Filter</p>
-          <p>Sort</p>
-        </div>
-        {isLoading ? LoadingComponent : error ? ErrorComponent : ProductBlock}
-        {renderMenu()}
-      </DefaultLayout>
-
-      <style jsx>{`
-        p {
-          font-family: "AvenirLTStd-Roman";
-          font-weight: bold;
-          text-transform: uppercase;
-          font-size: 12px;
-          cursor: pointer;
-          padding: 20px;
-          text-decoration: none;
-          position: relative;
-          padding-bottom: 5px;
-        }
-
-        p::after {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          border-bottom: 2px solid black;
-          transform: scaleX(0);
-          transform-origin: right;
-          transition: transform 0.5s ease-in-out;
-        }
-
-        p:hover::after {
-          transform: scaleX(1);
-          transform-origin: left;
-        }
-        .filter-block {
-          display: flex;
-          flex-direction: row;
-          justify-content: right;
-        }
-        .circle-loader {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-        }
-        .next-button {
-          background-color: red;
-          color: red;
-          width: 100px;
-        }
-        .container {
-          flex-direction: column;
-          justify-content: center;
-          margin: 0;
-        }
-      `}</style>
-    </div>
+    <DefaultLayout>
+      <MDBox display="flex" flexDirection="row" justifyContent="flex-end">
+        <MDBox p={2}>
+          <BodyDescTypography onClickHandler={handleOpenMenu}>
+            Filter
+          </BodyDescTypography>
+        </MDBox>
+        <MDBox p={2}>
+          <BodyDescTypography>Sort</BodyDescTypography>
+        </MDBox>
+      </MDBox>
+      {isLoading ? LoadingComponent : error ? ErrorComponent : ProductBlock}
+      {renderMenu()}
+    </DefaultLayout>
   );
 }
-
-// import { useEffect, useState } from "react";
-// import Products from "@/pages/products/components/Products";
-// import { useRouter } from "next/router";
-// import useHttp from "@/hook/use-http";
-
-// export default function LoadSelectedProduct() {
-//   const router = useRouter();
-//   const { isLoading, error, sendRequest: runSearch, products } = useHttp();
-
-//   useEffect(() => {
-//     if (router.isReady) {
-//       const { query } = router;
-//       const parameter = (query.params + "?" + query.data).trim();
-//       runSearch({
-//         params: parameter,
-//       });
-//     }
-//   }, [router, runSearch]);
-
-//   if (isLoading) {
-//     return <p>Loading .... </p>;
-//   }
-//   if (error) {
-//     return <p>{error}</p>;
-//   }
-//   return <Products productData={products} />;
-// }

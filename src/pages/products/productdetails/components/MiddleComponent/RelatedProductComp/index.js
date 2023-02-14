@@ -1,59 +1,38 @@
-
-
-export default function relatedProduct({ id, name, img_url, price }) {
+import FlexBox from "@/components/MDSpacer/MDSpacer";
+import MDBox from "@/components/MDBox";
+import Card from "@mui/material/Card";
+import BodyDescTypography from "@/components/Typography/BodyDescTypography";
+export default function RelatedProduct({ id, name, img_url, price }) {
     return (
-      <article>
-        <div >
-          <img className="homeproduct-img" src={img_url} alt="error" />
-  
-          <p className="product-title"> {name}</p>
-          <p className="product-title"> ${price} </p>
-        </div>
-  
-        <style jsx>{`
-            article {
-              display: flex;
-              align-items: center;
-              flex-direction: column;
-              box-sizing: border-box;
-              font-size:12px;
-              line-height:1.8px;
-               color:#090808;
-              height: 100%;
-              background: white;
-              box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
-              border-radius: 6px; 
-            }
-            
-            
-            .homeproduct-img {
-              width: 165px;
-              height: 160px;
+      
+        <Card sx={{width:"100%",height:"90%",justifyContent:"center"}}>
+         <MDBox display="flex" justifyContent="space-between" pt={1} px={2}> 
+         <FlexBox flexDirection="column">
+         <MDBox         
+            mt={8}
+            key="BaseImage"
+            component="img"
+            sx={{
               
-              margin-left:40px;
-              object-fit: contain;
-              cursor:pointer;
-            }
-            .product-title {
-              width: 80%;
-              line-height: 20px;
-              text-decoration: none;
-              margin-left:30px;
-              font-weight: 500;
-              font-size: 15px;
-              cursor:pointer;
-              font-family:AvenirLTStd-Roman;
-    
-              text-align: center;
-              color: black;
-              margin-bottom: 18px;
-            }
-    
-            .product-title:hover {
-              font-weight: 600;
-           
-          `}</style>
-      </article>
+              objectFit: "scale-down",
+              height: 183,
+              width: 250,
+              maxHeight: { xs: 333, md: 267 },
+              maxWidth: { xs: 450, md: 350 },
+              borderRadius: [2, 2, 2, 2],
+            }}
+            src={img_url} alt="Image"
+            />
+           <MDBox width="300px "><BodyDescTypography > {name}</BodyDescTypography>
+          <BodyDescTypography> ${price} </BodyDescTypography></MDBox>
+  
+          
+            </FlexBox> 
+          </MDBox>
+        </Card>
+  
+       
+      
     );
   }
   

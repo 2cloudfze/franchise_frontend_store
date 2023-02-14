@@ -1,12 +1,12 @@
 @font-face {
-  font-family: "PlutoMedium";
-  src: url("/fonts/Pluto-Medium.ttf") format("truetype");
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Italic-VariableFont_wght.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: "AvenirLTStd-Roman";
-  src: url("/fonts/AvenirLTStd-Roman-1.ttf") format("truetype");
+  font-family: "Quantico";
+  src: url("/fonts/Quantico-Italic.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }

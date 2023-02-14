@@ -1,24 +1,20 @@
-import { ArrowLeftOutlined, ArrowRightOutlined } from "@mui/icons-material";
-import Button from "@mui/material/Button";
+import MDBox from "@/components/MDBox";
+import FlexBox from "@/components/MDSpacer/MDSpacer";
+import ButtonTypography from "@/components/Typography/ButtonTYpography";
+
 export default function PaginationContainer({ buttonHandler }) {
   return (
-    <div style={{ paddingTop: "50px" }}>
-      <Button
-        className="previous"
-        variant="contained"
-        startIcon={<ArrowLeftOutlined />}
-        onClick={() => buttonHandler("previous")}
-        style={{ marginRight: "30px", marginLeft: "500px" }}
-      >
-        Previous
-      </Button>
-      <Button
-        variant="contained"
-        endIcon={<ArrowRightOutlined />}
-        onClick={() => buttonHandler("next")}
-      >
-        Next
-      </Button>
-    </div>
+    <MDBox display="flex" flexDirection="row" justifyContent="center">
+      <MDBox p={2}>
+        <ButtonTypography onClick={() => buttonHandler("previous")}>
+          Previous
+        </ButtonTypography>
+      </MDBox>
+      <MDBox p={2}>
+        <ButtonTypography width="100px" onClick={() => buttonHandler("next")}>
+          Next
+        </ButtonTypography>
+      </MDBox>
+    </MDBox>
   );
 }

@@ -1,17 +1,20 @@
 import { useRouter } from "next/router";
-
+import BodyDescTypography from "@/components/Typography/BodyDescTypography";
 export default function DealItem({ id, name, img_url, price }) {
   const router = useRouter();
   return (
+    
     <article>
-      <div >
-        <img className="homeproduct-img" src={img_url} alt="error" />
+      
+        <div>
+          <img className="homeproduct-img" src={img_url} alt="error" />
+          <BodyDescTypography fontSize="14" lineHeight="20px">
+          <p className="product-title"> {name}</p>
+          <p className="product-title"> ${price} </p>
+          </BodyDescTypography>
+        </div>
 
-        <p className="product-title"> {name}</p>
-        <p className="product-title"> ${price} </p>
-      </div>
-
-      <style jsx>{`
+        <style jsx>{`
           article {
             display: flex;
             align-items: center;
@@ -35,25 +38,10 @@ export default function DealItem({ id, name, img_url, price }) {
             object-fit: contain;
             cursor:pointer;
           }
-          .product-title {
-            width: 80%;
-            line-height: 20px;
-            text-decoration: none;
-            margin-left:30px;
-            font-weight: 500;
-            font-size: 15px;
-            cursor:pointer;
-            font-family:AvenirLTStd-Roman;
-  
-            text-align: center;
-            color: black;
-            margin-bottom: 18px;
-          }
-  
-          .product-title:hover {
-            font-weight: 600;
          
         `}</style>
+      
     </article>
+    
   );
 }

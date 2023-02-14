@@ -1,17 +1,10 @@
 import React, { useState } from "react";
 import Item from "./components";
-import { border, height, width } from "@mui/system";
-
+import HeaderTypography from "@/components/Typography/HeaderTypography";
 export default function CategoriesItem({ categoryData }) {
   const [showSubCategories, setShowSubCategories] = useState(false);
   let myStyles = {
     backgroundColor: "#fafafa",
-    border: "none",
-    maxWidth: "230px",
-    // letterSpacing: "0.5em",
-    fontWeight: 400,
-    fontFamily: "PlutoMedium",
-    fontSize: 10,
   };
 
   return (
@@ -19,7 +12,9 @@ export default function CategoriesItem({ categoryData }) {
       onMouseEnter={() => setShowSubCategories(true)}
       onMouseLeave={() => setShowSubCategories(false)}
     >
-      <div style={myStyles}>
+      <HeaderTypography fontSize="12" fontWeight="200" backgroundColor="white">
+      <div style={myStyles} >
+        
         <li key={categoryData.id}>
           <a>
             <div className="content">
@@ -75,7 +70,9 @@ export default function CategoriesItem({ categoryData }) {
             }
           `}</style>
         </li>
+       
       </div>
+      </HeaderTypography>
     </div>
   );
 }

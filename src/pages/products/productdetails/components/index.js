@@ -1,11 +1,11 @@
 import React from "react";
+import FlexBox from "@/components/MDSpacer/MDSpacer";
 import Product from "@/pages/products/productdetails/components/MiddleComponent";
-import RelatedProduct from "./MiddleComponent/RelatedProductComp";
-import OrdersItems from "@/db/offlineData/myOrdersData";
-
+import BodyDescTypography from "@/components/Typography/BodyDescTypography";
 function ProductFolder({ productData, selectedId }) {
   return (
-    <div className="main-product">
+    <FlexBox >
+      
       {productData && productData.length > 0 ? (
         productData.map(
           (product) =>
@@ -14,39 +14,17 @@ function ProductFolder({ productData, selectedId }) {
             )
         )
       ) : (
-        <p>No data found</p>
+        <BodyDescTypography>No data found</BodyDescTypography>
       )}
-      <h4
-        style={{
-          fontFamily: "plutomedium",
-          fontSize: "17px",
-          fontWeight: 100,
-          marginTop: 100,
-        }}
-      >
-        Related Products
-      </h4>
-      <div className="related">
-        {OrdersItems.map((product) => (
-          <div>
-            <RelatedProduct
-              key={product.id}
-              img_url={product.img_url}
-              name={product.name}
-              price={product.price}
-            />
-          </div>
-        ))}
-      </div>
+     
+       </FlexBox>
+      
+    
+        
+     
+      
 
-      <style jsx>{`
-        .related {
-          display: flex;
-          flex-direction: row;
-          margin-top: 50px;
-        }
-      `}</style>
-    </div>
+     
   );
 }
 

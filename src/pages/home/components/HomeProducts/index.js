@@ -1,7 +1,7 @@
 import HomeProductItem from "@/pages/home/components/HomeProductItem";
 import GridComponent from "@/components/GridComponent";
 import offlineProducts from "@/db/offlineData/home";
-import { fontWeight } from "@mui/system";
+import { fontWeight } from "@mui/system"; 
 export default function HomeCategories() {
   return (
     <>

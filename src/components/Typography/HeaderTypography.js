@@ -1,18 +1,21 @@
 export default function HeaderTypography({
-  heading,
-  fontSize = 18,
-  color = "white",
+  children,
+  fontSize = 13,
+  color = "black",
+  fontWeight = 100
 }) {
   return (
     <>
-      <h1>{heading}</h1>
+      <h1>{children}</h1>
       <style jsx>{`
         h1 {
           color: ${color};
-          font-family: "PlutoMedium";
+          font-family: 'Quantico';
           font-size: ${fontSize}px;
           cursor: pointer;
+          fontWeight: ${fontWeight};
           text-transform: uppercase;
+          backgroundColor: "#fafafa",
         }
       `}</style>
     </>

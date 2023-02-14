@@ -1,11 +1,11 @@
 import { useRouter } from "next/router";
 import useQueryBuilder from "@/hook/use-query-builder";
 import styled from "@emotion/styled";
-
+import SubHeaderTypography from "@/components/Typography/SubHeaderTypography";
 const StyledText = styled.p`
   color: black;
   padding: 8px;
-  font-family: AvenirLTStd-Roman;
+  font-family: 'Montserrat';
   cursor: pointer;
   letter-spacing: 1.25px;
   font-size: 12px;
@@ -40,7 +40,7 @@ export default function Item({ name, id, category }) {
       //   fontSize: "12px",
       // }}
     >
-      <StyledText>{name}</StyledText>
+      <SubHeaderTypography fontSize="10">{name}</SubHeaderTypography>
     </li>
   );
 }
