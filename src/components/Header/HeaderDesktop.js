@@ -46,7 +46,6 @@ export default function HeaderDesktop({ viewer }) {
             flexDirection: "row",
             paddingTop: 3,
             paddingLeft: 3,
-            
           }}
         >
           <MDBox color="white" onClick={() => router.push("/cart")}>

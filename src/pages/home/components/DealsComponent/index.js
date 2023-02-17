@@ -8,7 +8,6 @@ import BodyDescTypography from "@/components/Typography/BodyDescTypography";
 import FlexBox from "@/components/MDSpacer/MDSpacer";
 import MDBox from "@/components/MDBox";
 
-
 function DealsComponent() {
   const [slideIndex, setSlideIndex] = useState(0);
 
@@ -30,35 +29,28 @@ function DealsComponent() {
   // }, [slideIndex]);
 
   return (
-    <MDBox >
-    
-        <BodyDescTypography >OUR DEALS :</BodyDescTypography> 
-    
+    <MDBox p={1}>
+      <BodyDescTypography>OUR DEALS :</BodyDescTypography>
+
       {/* <Arrow direction="left" onClick={() => handleClick("left")}>
         <ArrowLeftOutlined sx={{ fontSize: 60 }} />
       </Arrow> */}
 
       <MDBox slideIndex={slideIndex} display="flex" flexDirection="row" p={2}>
-       
-          {OrdersItems.slice(slideIndex, slideIndex + 6).map((product) => (
-            
-              <DealItem
-                key={product.id}
-                id={product.id}
-                img_url={product.img_url}
-                name={product.name}
-                price={product.price}
-              />
-           
-           
-          ))}
+        {OrdersItems.slice(slideIndex, slideIndex + 6).map((product) => (
+          <DealItem
+            key={product.id}
+            id={product.id}
+            img_url={product.img_url}
+            name={product.name}
+            price={product.price}
+          />
+        ))}
       </MDBox>
-     
 
       {/* <Arrow direction="right" onClick={() => handleClick("right")}>
         <ArrowRightOutlined sx={{ fontSize: 60 }} />
       </Arrow> */}
-    
     </MDBox>
   );
 }
