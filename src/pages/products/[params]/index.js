@@ -8,13 +8,18 @@ import PaginationContext from "@/context/PaginationContext/pagination-context";
 import FilterContext from "@/context/FilterContext/filter-context";
 import PaginationContainer from "../components/PaginationContainer";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
 import MDBox from "@/components/MDBox";
+import {
+  useMaterialUIController,
+  setOpenConfigurator,
+} from "@/context/MaterialContext";
 import BodyDescTypography from "@/components/Typography/BodyDescTypography";
+import FilterCard from "@/components/FilterCard";
 
 export default function LoadSelectedProduct() {
   const router = useRouter();
+  const [controller, dispatch] = useMaterialUIController();
+  const { openConfigurator } = controller;
   const filterContext = useContext(FilterContext);
   const paginationContext = useContext(PaginationContext);
   const { isLoading, error, sendRequest: runSearch } = useHttp();
@@ -22,16 +27,8 @@ export default function LoadSelectedProduct() {
   const [nextCurser, setNextCurser] = useState("*");
   const [currentQuery, setCurrentQuery] = useState("");
   const { head, next } = useQueryBuilder({ query: "*:*" });
-  const [anchorEl, setAnchorEl] = useState(null);
-
-  const handleOpenMenu = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
+  const handleConfiguratorOpen = () =>
+    setOpenConfigurator(dispatch, !openConfigurator);
   useEffect(() => {
     if (router.isReady) {
       const { query } = router;
@@ -49,9 +46,7 @@ export default function LoadSelectedProduct() {
       });
     }
   }, [router, router.isReady, runSearch]);
-
   const removeNextCurser = (str) => str.split("&").slice(0, -1).join("&");
-
   const onButtonClickHandler = (action) => {
     paginationContext.addCursors(nextCurser);
     const nextUrl = removeNextCurser(currentQuery);
@@ -66,9 +61,7 @@ export default function LoadSelectedProduct() {
       const currentCurserIndex = paginationContext.cursors.indexOf(
         paginationContext.currentCursor
       );
-
       const previousCursor = paginationContext.cursors[currentCurserIndex - 1];
-
       goToUrl = nextUrl + next(previousCursor);
       router.push({
         pathname: "/products/" + head,
@@ -76,7 +69,6 @@ export default function LoadSelectedProduct() {
       });
     }
   };
-
   const LoadingComponent = (
     <div style={{ height: "1000px" }}>
       <CircleLoader
@@ -89,25 +81,6 @@ export default function LoadSelectedProduct() {
       />
     </div>
   );
-
-  const renderMenu = () => (
-    <MDBox width="100%">
-      <Menu
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
-        {filterContext.filterItems.map((element, index) => (
-          <MenuItem key={index} onClick={handleClose}>
-            {/*TODO: bring a check box and filter functionality*/}
-            {element.label}
-          </MenuItem>
-        ))}
-      </Menu>
-    </MDBox>
-  );
-
   const ErrorComponent = <p>{error}</p>;
   const ProductBlock = (
     <MDBox>
@@ -117,9 +90,10 @@ export default function LoadSelectedProduct() {
   );
   return (
     <DefaultLayout>
+      <FilterCard />
       <MDBox display="flex" flexDirection="row" justifyContent="flex-end">
         <MDBox p={2}>
-          <BodyDescTypography onClickHandler={handleOpenMenu}>
+          <BodyDescTypography onClickHandler={handleConfiguratorOpen}>
             Filter
           </BodyDescTypography>
         </MDBox>
@@ -128,7 +102,6 @@ export default function LoadSelectedProduct() {
         </MDBox>
       </MDBox>
       {isLoading ? LoadingComponent : error ? ErrorComponent : ProductBlock}
-      {renderMenu()}
     </DefaultLayout>
   );
 }

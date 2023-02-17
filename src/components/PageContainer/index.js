@@ -1,8 +1,9 @@
 import Head from "next/head";
+import MDBox from "../MDBox";
 
 export default function PageContainer({ title, description, children }) {
   return (
-    <div className="container">
+    <>
       <Head>
         <title>{title || "Franchise"}</title>
         {description !== false && (
@@ -15,7 +16,6 @@ export default function PageContainer({ title, description, children }) {
       </Head>
 
       <main>{children}</main>
-
       <style jsx>{`
         main {
           display: flex;
@@ -26,6 +26,6 @@ export default function PageContainer({ title, description, children }) {
           overflow-x: hidden;
         }
       `}</style>
-    </div>
+    </>
   );
 }

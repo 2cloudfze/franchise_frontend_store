@@ -16,12 +16,9 @@ export default function CheckOutItem({
           align-items: center;
           justify-content: space-between;
           font-size: ${fontSize}px;
-          font-family: "Roboto", sans-serif;
+          font-family: 'Montserrat';
           letter-spacing: 0.5;
           color: ${color};
-        }
-        .label{
-       pading-left:40px;
         }
       `}</style>
     </div>

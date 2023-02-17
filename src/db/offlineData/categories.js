@@ -330,7 +330,7 @@ const categories = [
   },
   {
     id: "9",
-    head: "Software",
+    head: "Software Application",
     categories: [
       {
         id: "9/1",

@@ -8,6 +8,7 @@ function Home() {
   return (
     <DefaultLayout isLayoutColumn={true}>
       <Slider />
+      
       <HomeProducts />
       <DealsComponent />
     </DefaultLayout>

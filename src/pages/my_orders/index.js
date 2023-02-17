@@ -3,11 +3,12 @@ import OrdersComponent from "@/pages/my_orders/components/OrdersComponent";
 import GridComponent from "@/components/GridComponent";
 import ordersData from "@/db/offlineData/myOrdersData";
 import Layout from "@/components/Layouts/DefaultLayout";
+import HeaderTypography from "@/components/Typography/HeaderTypography";
 export default function OrderProducts() {
   return (
     <div>
       <Layout>
-        <h1 className="title-content">MY ORDERS</h1>
+        <HeaderTypography marginLeft="850px" marginTop="70px" fontSize="20px" >ORDERS</HeaderTypography>
         <GridComponent>
           {ordersData.map((product) => (
             <OrdersComponent
@@ -22,19 +23,6 @@ export default function OrderProducts() {
           ))}
         </GridComponent>
       </Layout>
-      <style jsx>{`
-        .title-content {
-          display: flex;
-          align-items: center;
-          flex-direction: column;
-          font-size: 20px;
-          font-weight: 500;
-          margin-bottom: 40px;
-          margin-top: 20px;
-         
-          color: black;
-        }
-      `}</style>
     </div>
   );
 }

@@ -7,7 +7,7 @@ import TableRow from "@mui/material/TableRow";
 import QtyComponent from "@/pages/cart/components/QtyComponent";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-export default function CartItem({ cartItem }) {
+export default function CartItem({ cartItem, }) {
   const cartContext = useContext(CartContext);
 
   const cartAddRemove = (action) => {

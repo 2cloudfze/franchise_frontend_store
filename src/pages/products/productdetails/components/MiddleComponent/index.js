@@ -1,4 +1,3 @@
-import styled from "@emotion/styled";
 import React, { useContext } from "react";
 import { useRouter } from "next/router";
 import CartContext from "@/context/CartContext/cart-context";
@@ -9,39 +8,32 @@ import MDBox from "@/components/MDBox";
 import RelatedProduct from "./RelatedProductComp";
 import OrdersItems from "@/db/offlineData/myOrdersData";
 import Card from "@mui/material/Card";
+import ImageContainer from "@/components/ImageContainer";
 
-function Middlecomponent({ product }) {
+
+
+function Middlecomponent({ product,img_url }) {
   const cartContext = useContext(CartContext);
   const router = useRouter();
   return (
-    <FlexBox flexDirection="column" spacing={20} justifyContent="center">
-      <Card justifyContent="center">
+    <FlexBox flexDirection="column" marginTop="80px" spacing={20} justifyContent="center">
+      <Card justifyContent="center"  >
         <FlexBox flexDirection="row" spacing={30} justifyContent="center">
-          <MDBox
-            mt={8}
-            pr={20}
-            key="BaseImage"
-            component="img"
-            sx={{
-              objectFit: "scale-down",
-              height: 283,
-              width: 450,
-              maxHeight: { xs: 333, md: 267 },
-              maxWidth: { xs: 450, md: 350 },
-              borderRadius: [2, 2, 2, 2],
-            }}
-            src={
-              product.url
+          <ImageContainer
+          imageUrl={
+            product.url
                 ? product.url
                 : `https://d2v8x7eqx4g1su.cloudfront.net/brand_images/${product.manname.toLowerCase()}.jpg`
             }
-            alt="Image"
+          
           />
 
           <MDBox p={8}>
-            <BodyDescTypography width="880px" lineHeight="35px">
+            <MDBox width="50%" >
+            <BodyDescTypography  lineHeight="35px" isdetails >
               {product.description}
             </BodyDescTypography>
+            </MDBox>
             <BodyDescTypography> {`$${product.price}`}</BodyDescTypography>
             <BodyDescTypography>
               {product.inStock ? "instock" : "out of stock"}

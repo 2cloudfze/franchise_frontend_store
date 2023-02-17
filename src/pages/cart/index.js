@@ -4,6 +4,10 @@ import { useContext } from "react";
 import CartTableComponent from "@/pages/cart/components/CartTableComponent";
 import CartCheckoutComponent from "./components/CartCheckoutComponent";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
+import MDBox from "@/components/MDBox";
+import HeaderTypography from "@/components/Typography/HeaderTypography";
+import FlexBox from "@/components/MDSpacer/MDSpacer";
+import BodyDescTypography from "@/components/Typography/BodyDescTypography";
 function Cart() {
   const cartContext = useContext(CartContext);
   const NoProductsFound = (
@@ -15,52 +19,63 @@ function Cart() {
   return (
     <>
       <DefaultLayout isLayoutColumn={true}>
-        <div 
+        <MDBox
           style={{
             backgroundColor: "white",
             position: "relative",
             padding: "40px",
-           
           }}
         >
           {cartContext.items.length === 0 ? (
             NoProductsFound
           ) : (
             <>
-              <ShoppingBagIcon sx={{position:'absolute',top: '60px',right: '970px', width: '36px',height: '36px'}} />
-              <h1 className="cart-header">My cart</h1>
-              
-                <CartTableComponent cartContext={cartContext} />
-              
-              <div className="side-box">
+              <ShoppingBagIcon
+                sx={{
+                  position: "absolute",
+                  top: "108px",
+                  right: "970px",
+                  width: "36px",
+                  height: "36px",
+                }}
+              />
+              <HeaderTypography
+                marginLeft="800px"
+                marginTop="80px"
+                fontSize="19px"
+              >
+                My cart
+              </HeaderTypography>
+
+              <CartTableComponent cartContext={cartContext} />
+
+              <FlexBox
+                justifyContent="flex-end"
+                flexDirection="column"
+                position="absolute"
+                top="35%"
+                right="8%"
+              >
                 <CartCheckoutComponent />
-              </div>
-              <p style={{position:'absolute',top:'82%',left:'23%'}}> {cartContext.items.length} Items</p>
-              <p style={{position:'absolute',top:'82%',left:'50%'}}> ${cartContext.totalAmount.toFixed(2)}</p>
+              </FlexBox>
+
+              <BodyDescTypography style={{ position: "absolute", top: "62%", left: "83%" }}>
+                <FlexBox position="absolute"
+                top="80%"
+                left="37%">
+                {cartContext.items.length} Items
+                </FlexBox >
+              </BodyDescTypography>
+              <BodyDescTypography style={{ position: "absolute", top: "82%", left: "90%" }}>
+              <FlexBox position="absolute"
+                top="80%"
+                left="54%">
+                ${cartContext.totalAmount.toFixed(2)}
+                </FlexBox >
+              </BodyDescTypography>
             </>
           )}
-
-          <style jsx>{`
-            .cart-header {
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              font-size:30px;
-            }
-
-            .side-box {
-              display: flex;
-              flex-direction: column;
-              justify-content: flex-end;
-              position: absolute;
-              top: 30%;
-              right:0%;
-              margin-right: 90px;
-              margin-bottom: 70px;
-            }
-            
-          `}</style>
-        </div>
+        </MDBox>
       </DefaultLayout>
     </>
   );

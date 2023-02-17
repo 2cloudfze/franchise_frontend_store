@@ -4,6 +4,7 @@ import ProductFolder from "@/pages/products/productdetails/components";
 import { useRouter } from "next/router";
 import useHttp from "@/hook/use-http";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
+import HeaderTypography from "@/components/Typography/HeaderTypography";
 
 function ProductDetails() {
   const router = useRouter();
@@ -22,8 +23,8 @@ function ProductDetails() {
     }
   }, [router, router.isReady, runSearch]);
 
-  const LoadingComponent = <p>Loading .... </p>;
-  const ErrorComponent = <p>{error}</p>;
+  const LoadingComponent = <HeaderTypography >Loading .... </HeaderTypography>;
+  const ErrorComponent = <HeaderTypography>{error}</HeaderTypography>;
   const ProductBlock = (
     <ProductFolder productData={products} selectedId={productId} />
   );

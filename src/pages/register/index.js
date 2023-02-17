@@ -1,78 +1,50 @@
 import React from "react";
-import styled from "@emotion/styled";
+import MDBox from "@/components/MDBox";
+import FlexBox from "@/components/MDSpacer/MDSpacer";
+import HeaderTypography from "@/components/Typography/HeaderTypography";
+import ButtonTypography from "@/components/Typography/ButtonTYpography";
 
-const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(
-    rgba(255, 255, 255, 0.5),
-    rgba(255, 255, 255, 0.5)
-  );
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const Wrapper = styled.div`
-  width: 40%;
-  padding: 20px;
-  background-color: white;
-`;
-
-const Title = styled.h1`
-  font-size: 24px;
-  font-weight: 300;
-  &:hover {
-    color: #2a2a72;
-  }
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-wrap: wrap;
-`;
-
-const Input = styled.input`
-  flex: 1;
-  min-width: 40%;
-  margin: 20px 10px 0px 0px;
-  padding: 10px;
-`;
-
-const Agreement = styled.span`
-  font-size: 12px;
-  margin: 20px 0px;
-`;
-
-const Button = styled.button`
-  width: 40%;
-  border: none;
-  padding: 15px 20px;
-  background-color: #d3f2f2;
-  color: black;
-  cursor: pointer;
-  border-radius: 15px;
-`;
-
+let style = {
+  borderRadius: "5px",
+  marginTop: "20px",
+  height: "30px",
+  border: "1px solid black",
+  padding:"10px"
+};
 function Register() {
   return (
-    <Container>
-      <Wrapper>
-        <Title>CREATE AN ACCOUNT</Title>
-        <Form>
-          <Input placeholder="Name" />
-          <Input placeholder="Last Name" />
-          <Input placeholder="Username" />
-          <Input placeholder="Email" />
-          <Input placeholder="Password" />
-          <Input placeholder="Confirm Password" />
-          <Agreement>
-            I acknowledge that I have read and agreed to the <b>TERMS & CONDITIONS & PRIVACY POLICY.</b>
-          </Agreement>
-          <Button>CREATE</Button>
-        </Form>
-      </Wrapper>
-    </Container>
+    <FlexBox display="flex" justifyContent="center" mt="160px">
+      <MDBox border="1px solid black" p="30px" borderRadius="15px" width="30%">
+        <MDBox fontSize="24px" fontWeight="300">
+          CREATE AN ACCOUNT
+        </MDBox>
+        <MDBox borderRadius="5px">
+          <input style={style} type="text" placeholder="username" />
+        </MDBox>
+        <MDBox>
+          <input style={style} type="text" placeholder="Last Name" />
+        </MDBox>
+        <MDBox>
+          <input style={style} type="text" placeholder="Username" />
+        </MDBox>
+        <MDBox>
+          <input style={style} type="email" placeholder="Email" />
+        </MDBox>
+        <MDBox>
+          <input style={style} type="Password" placeholder="Password" />
+        </MDBox>
+        <MDBox>
+          <input style={style} type="Password" placeholder="Confirm Password" />
+        </MDBox>
+        <HeaderTypography marginTop="20px" >
+          I acknowledge that I have read and agreed to the TERMS & CONDITIONS &
+          PRIVACY POLICY.
+        </HeaderTypography>
+        <ButtonTypography width="30%" marginTop="20px">
+        CREATE
+        </ButtonTypography>
+      </MDBox>
+    </FlexBox>
   );
 }
 

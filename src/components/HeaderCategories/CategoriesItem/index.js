@@ -1,29 +1,30 @@
 import React, { useState } from "react";
 import Item from "./components";
 import HeaderTypography from "@/components/Typography/HeaderTypography";
+import MDBox from "@/components/MDBox";
+
 export default function CategoriesItem({ categoryData }) {
   const [showSubCategories, setShowSubCategories] = useState(false);
-  let myStyles = {
-    backgroundColor: "#fafafa",
-  };
 
   return (
-    <div
+    <MDBox
       onMouseEnter={() => setShowSubCategories(true)}
       onMouseLeave={() => setShowSubCategories(false)}
     >
-      <HeaderTypography fontSize="12" fontWeight="200" backgroundColor="white">
-      <div style={myStyles} >
-        
-        <li key={categoryData.id}>
-          <a>
-            <div className="content">
-              <p>{categoryData.head.toUpperCase()}</p>
-            </div>
-          </a>
+      <HeaderTypography>
+        <MDBox sx={{ backgroundColor: "#fafafa" }} key={categoryData.id}>
+          <MDBox
+            sx={{
+              "&:hover": {
+                color: "#918a8a",
+              },
+            }}
+          >
+            {categoryData.head.toUpperCase()}
+          </MDBox>
 
           {showSubCategories && (
-            <div className="dropdownContainer">
+            <MDBox sx={{ width: "auto", "z-index": 1 }}>
               {categoryData.categories.map((sub) => (
                 <Item
                   key={sub.id}
@@ -32,47 +33,10 @@ export default function CategoriesItem({ categoryData }) {
                   category={sub.category}
                 />
               ))}
-            </div>
+            </MDBox>
           )}
-
-          <style jsx>{`
-            li a {
-              display: flex;
-              flex-direction: row;
-              height: 30px;
-              align-items: center;
-              justify-content: space-between;
-              text-decoration: none;
-              color: black;
-              padding: 20px;
-              cursor: pointer;
-              transition: 0.4s;
-            }
-
-            li a:hover {
-              // background: #36c7c7;
-              color: #918a8a;
-            }
-            li a .content {
-              display: flex;
-              flex-direction: row;
-              align-items: center;
-              width: auto;
-            }
-            li a .content .icon {
-              padding-right: 18px;
-            }
-            li a .arrow-button {
-              align-self: flex-end;
-            }
-            .dropdownContainer {
-              width: auto;
-            }
-          `}</style>
-        </li>
-       
-      </div>
+        </MDBox>
       </HeaderTypography>
-    </div>
+    </MDBox>
   );
 }

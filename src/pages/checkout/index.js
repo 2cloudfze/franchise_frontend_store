@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Pay from "@/pages/checkout/pay"
 import Checkbox from '@mui/material/Checkbox';
+import DefaultLayout from "@/components/Layouts/DefaultLayout";
 
 const Container = styled.div`
   background-color: white;
@@ -17,8 +18,7 @@ const Container = styled.div`
     rgba(255, 255, 255, 0.7),
     rgba(255, 255, 255, 0.7)
   ),
-  url('')
-    center;
+  
   background-size: cover;
 `;
 
@@ -83,7 +83,7 @@ function Checkout() {
 
   return (
     <>
-      <Header />
+     <DefaultLayout>
 
       <Container>
         <Box sx={{ width: 500, maxWidth: "100%" }}>
@@ -196,7 +196,7 @@ function Checkout() {
 
       </Container>
 
-      <Footer />
+      </DefaultLayout>
     </>
   );
 }

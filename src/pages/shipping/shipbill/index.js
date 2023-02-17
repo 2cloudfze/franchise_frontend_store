@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Layout from "@/components/Layouts/DefaultLayout";
 import { CircleLoader } from "react-spinners";
-
-const ShippingBilling = () => {
+import MDBox from "@/components/MDBox";
+import HeaderTypography from "@/components/Typography/HeaderTypography";
+import SubHeaderTypography from "@/components/Typography/SubHeaderTypography";
+import ButtonTypography from "@/components/Typography/ButtonTYpography";
+const Billing = () => {
   const [billingAddress, setBillingAddress] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
@@ -26,195 +29,86 @@ const ShippingBilling = () => {
       {isLoading ? (
         LoadingComponent
       ) : (
-        <div className="main-box">
+        <MDBox mt="80px" ml="600px" display="block">
+          <HeaderTypography fontSize="15px">Billing Address</HeaderTypography>
           <form onSubmit={handleSubmit}>
-            <h2 className="adress-titlesecond">Billing Address</h2>
-            <label className="adress-line">
+            <SubHeaderTypography fontSize="13px">
               Address Line 1:
               <input
-                className="field-adress"
+                style={{ marginLeft: "68px", height: "30px", paddingLeft: "10px" }}
                 type="text"
                 name="address1"
                 placeholder="Address Line 1"
                 onChange={handleBillingAddressChange}
               />
-            </label>
+            </SubHeaderTypography>
+
             <br />
-            <label className="adress-line">
+            <SubHeaderTypography fontSize="13px">
               Address Line 2:
               <input
-                className="field-adress"
+                style={{marginLeft: "65px", height: "30px", paddingLeft: "10px"}}
                 type="text"
                 name="address2"
                 placeholder="Address Line 2"
                 onChange={handleBillingAddressChange}
               />
-            </label>
+            </SubHeaderTypography>
             <br />
-            <label className="city">
-              City:
-              <input
-                className="field-city"
-                type="text"
-                name="city"
-                placeholder="City"
-                onChange={handleBillingAddressChange}
-              />
-            </label>
+            <MDBox marginRight>
+              <SubHeaderTypography fontSize="13px">
+                City:
+                <input
+                  style={{marginLeft: "158px", height: "30px", paddingLeft: "10px"}}
+                  type="text"
+                  name="city"
+                  placeholder="City"
+                  onChange={handleBillingAddressChange}
+                />
+              </SubHeaderTypography>
+            </MDBox>
             <br />
-            <label className="state">
+            <SubHeaderTypography fontSize="13px">
               State:
               <input
-                className="field-state"
+                style={{marginLeft: "146px", height: "30px", paddingLeft: "10px"}}
                 type="text"
                 name="state"
                 placeholder="State"
                 onChange={handleBillingAddressChange}
               />
-            </label>
+            </SubHeaderTypography>
             <br />
-            <label className="zipcode">
+            <SubHeaderTypography fontSize="13px">
               Zip Code:
               <input
-                className="field-zip"
+                style={{marginLeft: "118px", height: "30px", paddingLeft: "10px"}}
                 type="text"
                 name="zip"
                 placeholder="Zip Code"
                 onChange={handleBillingAddressChange}
               />
-            </label>
+            </SubHeaderTypography>
             <br />
-            <label className="country">
+            <SubHeaderTypography fontSize="13px">
               Country:
               <input
-                className="field-country"
+                style={{marginLeft: "119px", height: "30px", paddingLeft: "10px"}}
                 type="text"
                 name="country"
                 placeholder="Country"
                 onChange={handleBillingAddressChange}
               />
-            </label>
+            </SubHeaderTypography>
             <br />
-            <button className="button" type="submit">
-              Save
-            </button>
+            <ButtonTypography>Save</ButtonTypography>
           </form>
 
-          <style jsx>{`
-            .main-box {
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              // background-color: lightblue;
-              margin-top: 20px;
-              flex-direction: column;
-              font-family: "Raleway", sans-serif;
-              position: absolute;
-              top: 70%;
-              left: 37%;
-              transform: translate(-50%, -50%);
-              width: 800px;
-              height: 400px;
-            }
-
-            .adress-titlesecond {
-              margin-bottom: 40px;
-              color: black;
-              font-size: 23px;
-              position: absolute;
-              top: -30%;
-              left: 29.5%;
-              font: "15px Arial, sans-serif";
-            }
-
-            .adress-line {
-              margin-bottom: 8px;
-
-              font-size: 16px;
-              font-weight: bold;
-              display: block;
-            }
-
-            .city {
-              margin-bottom: 10px;
-              font-size: 16px;
-              font-weight: bold;
-              display: block;
-            }
-            .state {
-              margin-bottom: 20px;
-
-              font-size: 16px;
-              font-weight: bold;
-              display: block;
-            }
-            .zipcode {
-              margin-bottom: 20px;
-
-              font-size: 16px;
-              font-weight: bold;
-              display: block;
-            }
-            .country {
-              margin-bottom: 20px;
-
-              font-size: 16px;
-              font-weight: bold;
-              display: block;
-            }
-            .button {
-              width: 80px;
-              height: 30px;
-
-              margin-top: 10px;
-              background: linear-gradient(195deg, #1260a3, #1a73e8, #36c7c7);
-              color: white;
-              border: none;
-
-              cursor: pointer;
-              border-radius: 21px;
-
-              box-shadow: 0px 2px 5px rgba(189, 170, 174);
-              box-shadow: 0px 2px 10px rgba(161, 189, 201);
-            }
-            .button:hover {
-              background-color: #2f9dd4;
-            }
-            .field-adress {
-              // background:red;
-              padding-left: 10px;
-              margin-left: 10px;
-              height: 30px;
-            }
-            .field-city {
-              // background:red;
-              padding-left: 10px;
-              margin-left: 95px;
-              height: 30px;
-            }
-            .field-state {
-              // background:red;
-              padding-left: 10px;
-              margin-left: 86px;
-              height: 30px;
-            }
-            .field-zip {
-              // background:red;
-              padding-left: 10px;
-              margin-left: 58px;
-              height: 30px;
-            }
-            .field-country {
-              // background:red;
-              padding-left: 10px;
-              margin-left: 65px;
-              height: 30px;
-            }
-          `}</style>
-        </div>
+          
+        </MDBox>
       )}
     </Layout>
   );
 };
 
-export default ShippingBilling;
+export default Billing;

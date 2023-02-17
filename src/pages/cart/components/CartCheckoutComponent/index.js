@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import CartContext from "@/context/CartContext/cart-context";
 
 import CheckOutItem from "./CheckOutItem";
+import ButtonTypography from "@/components/Typography/ButtonTYpography";
 
 export default function CartCheckoutComponent() {
   const router = useRouter();
@@ -20,26 +21,10 @@ export default function CartCheckoutComponent() {
 
       />
 
-      <button className="check-button" onClick={() => router.push("/checkout")}>
+      <ButtonTypography width="60%" marginLeft="100px" marginTop="20px" onClick={() => router.push("/checkout")}>
         Checkout
-      </button>
-
-      <style jsx>{`
-        .check-button {
-          width: 60%;
-          height: 40px;
-          border: none;
-          margin-top: 10px;
-          // padding: 15px 20px;
-          background: linear-gradient(195deg, #1260a3, #1a73e8, #36c7c7);
-          color: white;
-          cursor: pointer;
-        }
-
-        // .context-values{
-        //   margin-left:"50px";
-        // }
-      `}</style>
+      </ButtonTypography>
+        
     </>
   );
 }

@@ -1,35 +1,29 @@
 import HomeProductItem from "@/pages/home/components/HomeProductItem";
-import GridComponent from "@/components/GridComponent";
+
 import offlineProducts from "@/db/offlineData/home";
-import { fontWeight } from "@mui/system"; 
+import { Grid } from "@mui/material";
+import BodyDescTypography from "@/components/Typography/BodyDescTypography";
+import MDBox from "@/components/MDBox";
 export default function HomeCategories() {
   return (
-    <>
-      <h4
-        style={{
-          fontFamily: "PlutoMedium",
-          fontWeight: 400,
-          textAlign: "left",
-          letterSpacing: "1px",
-          fontSize: "16px",
-          marginTop: "50px",
-          textTransform: "uppercase",
-        }}
-      >
-        our catalog:
-      </h4>
-      <GridComponent>
-        {offlineProducts.map((product) => (
-          <HomeProductItem
-            key={product.id}
-            id={product.id}
-            image={product.image}
-            title={product.title}
-            brands={product.brands}
-            link={product.link}
-          />
-        ))}
-      </GridComponent>
-    </>
+    <MDBox p={2}>
+      <BodyDescTypography>our catalog:</BodyDescTypography>
+      <MDBox py={3}>
+        <Grid container spacing={3}>
+          {offlineProducts.map((product) => (
+            <Grid item key={product.name} xs={12} sm={6} md={4} lg={3}>
+              <MDBox height="30%" mb={1.5}>
+                <HomeProductItem
+                  key={product.id}
+                  id={product.id}
+                  image={product.image}
+                  title={product.title}
+                />
+              </MDBox>
+            </Grid>
+          ))}
+        </Grid>
+      </MDBox>
+    </MDBox>
   );
 }

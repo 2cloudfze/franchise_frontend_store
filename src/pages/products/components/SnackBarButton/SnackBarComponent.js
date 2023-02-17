@@ -20,21 +20,6 @@ export default function SnackBarComponent({ item, cartContext }) {
       >
         Add Cart
       </ButtonTypography>
-      {/* <style jsx>{`
-        .add-cart {
-          width: 30%;
-          border: none;
-          margin-top: 5px;
-          padding: 15px 20px;
-          background-color: lightblue;
-          border-radius: 20px;
-          color: white;
-          cursor: pointer;
-        }
-        .add-cart:focus {
-          outline: none;
-        }
-      `}</style> */}
     </>
   );
 }

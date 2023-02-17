@@ -6,9 +6,9 @@ import SnackBarButton from "@/pages/products/components/SnackBarButton";
 import BodyDescTypography from "@/components/Typography/BodyDescTypography";
 import Card from "@mui/material/Card";
 import MDBox from "@/components/MDBox";
-import FlexBox from "@/components/MDSpacer/MDSpacer";
 import { CardContent, CardActions } from "@mui/material";
 import ButtonTypography from "@/components/Typography/ButtonTYpography";
+import ImageContainer from "@/components/ImageContainer";
 export default function ProductItem({
   id,
   name,
@@ -57,23 +57,12 @@ export default function ProductItem({
     >
       <CardContent sx={{ flex: "1 0 auto" }} onClick={onClickHandler}>
         <MDBox height="100%">
-          <MDBox
-            key="BaseImage"
-            component="img"
-            sx={{
-              objectFit: "scale-down",
-              height: 283,
-              width: 450,
-              maxHeight: { xs: 333, md: 267 },
-              maxWidth: { xs: 450, md: 350 },
-              borderRadius: [2, 2, 2, 2],
-            }}
-            src={
+          <ImageContainer
+            imageUrl={
               img_url
                 ? img_url
                 : `https://d2v8x7eqx4g1su.cloudfront.net/brand_images/${manuName.toLowerCase()}.jpg`
             }
-            alt="Image not found"
           />
           <MDBox pb={1}>
             {description ? (

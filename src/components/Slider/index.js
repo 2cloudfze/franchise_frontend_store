@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { sliderItems } from "@/db/offlineData/slider";
-import { ArrowLeftOutlined, ArrowRightOutlined } from "@mui/icons-material";
 import { useEffect } from "react";
-import { element } from "prop-types";
-import Dot from "./components";
+
+import DotTypography from "../Typography/DotTypography";
+import MDBox from "../MDBox";
 
 const Container = styled.div`
   width: 100%;
-  height: 40%;
+  height: 35%;
   display: flex;
   position: relative;
   overflow: hidden;
@@ -32,13 +32,10 @@ const Slide = styled.div`
 
 const ImgContainer = styled.div`
   height: 100%;
-  // margin-left: 100px;
-  // flex: 1;
 `;
 
 const Image = styled.img`
   height: 100%;
-  // margin-bottom: 30px;
   width: 130%;
 `;
 
@@ -61,7 +58,7 @@ function slider() {
   }, [slideIndex]);
 
   return (
-    <div>
+    <MDBox>
       <Container>
         <Wrapper slideIndex={slideIndex}>
           {sliderItems.map((item) => (
@@ -75,14 +72,14 @@ function slider() {
       </Container>
       <DotContainer>
         {sliderItems.map((_, index) => (
-          <Dot
+          <DotTypography
             clickHandler={() => handleClick(index)}
             id={index}
             selectedIndex={slideIndex}
           />
         ))}
       </DotContainer>
-    </div>
+    </MDBox>
   );
 }
 

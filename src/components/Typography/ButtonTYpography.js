@@ -13,6 +13,8 @@ export default function ButtonTypography({
   marginLeft = "",
   width = "",
   marginTop = "",
+  height="",
+  borderRadius=""
 }) {
   return (
     <>
@@ -32,9 +34,11 @@ export default function ButtonTypography({
           margin-left: ${marginLeft};
           border: ${border};
           position: ${position};
-          margintop: ${marginTop};
+          margin-top: ${marginTop};
           top: ${top};
           left: ${left};
+          height:${height};
+          border-radius:${borderRadius};
         }
         button:hover {
           background-color: ${color};
