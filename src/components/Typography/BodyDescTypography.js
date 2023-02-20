@@ -12,33 +12,35 @@ export default function BodyDescTypography({
   isdetails = false,
   onClickHandler = () => {},
   flexDirection = "",
-  textAlign ="",
-  padding =""
+  textAlign = "",
+  padding = "",
+  fontWeight = "",
 }) {
-  const elipse =`white-space: nowrap;
+  const elipse = `white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;`
+  text-overflow: ellipsis;`;
 
   return (
     <>
       <h3 onClick={onClickHandler}>{children}</h3>
       <style jsx>{`
         h3 {
-         ${!isdetails && elipse}
+          ${!isdetails && elipse}
           max-width: 100%;
           color: ${color};
           font-family: "Montserrat";
           font-size: ${fontSize};
           cursor: pointer;
-          padding:${padding};
+          padding: ${padding};
           letter-spacing: 1px;
           position: ${position};
           top: ${top};
           left: ${left};
           width: ${width};
+          font-weight: ${fontWeight};
           line-height: ${lineHeight};
-          flex-direction:${flexDirection};
-          text-align:${textAlign};
+          flex-direction: ${flexDirection};
+          text-align: ${textAlign};
           display: felx;
         }
       `}</style>
