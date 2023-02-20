@@ -55,9 +55,9 @@ const data = (cartItems, cartContext) => {
       return {
         image: <ImageContainer width={200} imageUrl={item.img_url} />,
         product: <BodyDescTypography>{item.name}</BodyDescTypography>,
-        price: <BodyDescTypography>${item.price}</BodyDescTypography>,
+        price: <BodyDescTypography>${item.price.toFixed(2)}</BodyDescTypography>,
         qty: <QtyComponent cartAddRemove={cartAddRemove} quantity={item.qty} />,
-        total: <BodyDescTypography>${item.total}</BodyDescTypography>,
+        total: <BodyDescTypography>${item.total.toFixed(2)}</BodyDescTypography>,
         remove: (
           <MDBox
             display="flex"

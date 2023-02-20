@@ -6,7 +6,7 @@ export default function CheckOutItem({
 }) {
   return (
     <div className="main">
-      <p style={{ padingLeft:'40px'}}>{label}</p>
+      <p style={{ paddingLeft:'40px'}}>{label}</p>
       <p style={{marginLeft:'110px'}}>{value}</p>
 
       <style jsx>{`

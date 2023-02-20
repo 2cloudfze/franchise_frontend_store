@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import HeaderTypography from "../Typography/HeaderTypography";
 import MDBox from "@/components/MDBox";
 import HeaderCategories from "../HeaderCategories";
+import Usermenu from "./UserMenu";
 
 let style = {
   position: "fixed",
@@ -34,7 +35,7 @@ export default function HeaderDesktop({ viewer }) {
         <MDBox onClick={() => router.push("/")}>
           <Logo />
         </MDBox>
-        <MDBox pt={1}>
+        <MDBox pt={1} pr={12} marginRight="130px">
           <SearchBox />
         </MDBox>
 
@@ -46,11 +47,11 @@ export default function HeaderDesktop({ viewer }) {
             flexDirection: "row",
             paddingTop: 3,
             paddingLeft: 3,
+            cursor: "pointer",
           }}
         >
           <MDBox color="white" onClick={() => router.push("/cart")}>
-            <FaShoppingCart mr="20px" />
-
+            <FaShoppingCart />
             {cartQty}
           </MDBox>
           {!viewer && (
@@ -60,29 +61,9 @@ export default function HeaderDesktop({ viewer }) {
           )}
           {viewer && (
             <>
-              <MDBox
-                marginLeft="25px"
-                color="white"
-                onClick={() => router.push("/login")}
-              >
-                <FaUser />
+              <MDBox marginLeft="55px" color="white">
+                <Usermenu />
                 <HeaderTypography>{viewer.name}</HeaderTypography>
-              </MDBox>
-              <MDBox
-                marginLeft="25px"
-                color="white"
-                onClick={() => router.push("/signout")}
-              >
-                <FaSignOutAlt />
-              </MDBox>
-              <MDBox marginLeft="25px" onClick={() => router.push("/shipping")}>
-                <HeaderTypography color="white">Address</HeaderTypography>
-              </MDBox>
-              <MDBox
-                marginLeft="25px"
-                onClick={() => router.push("/my_orders")}
-              >
-                <HeaderTypography color="white"> orders </HeaderTypography>
               </MDBox>
             </>
           )}
