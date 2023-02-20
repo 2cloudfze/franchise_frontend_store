@@ -7,6 +7,7 @@ export default function HeaderTypography({
   marginBottom = "",
   flexDirection = "",
   marginTop = "",
+  onClick = () => {},
 }) {
   let defaultStyle = {
     display: "flex",
@@ -20,12 +21,13 @@ export default function HeaderTypography({
     fontWeight: fontWeight,
     flexDirection: flexDirection,
     textTransform: "uppercase",
-    backgroundcolor: "#fafafa",
   };
 
   return (
     <>
-      <h1 style={defaultStyle}>{children}</h1>
+      <h1 style={defaultStyle} onClick={onClick}>
+        {children}
+      </h1>
     </>
   );
 }

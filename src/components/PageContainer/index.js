@@ -1,5 +1,4 @@
 import Head from "next/head";
-import MDBox from "../MDBox";
 
 export default function PageContainer({ title, description, children }) {
   return (

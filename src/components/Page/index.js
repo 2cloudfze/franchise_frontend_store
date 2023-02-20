@@ -8,6 +8,7 @@ export default function Page({ title, description, children }) {
     <PageContainer title={title} description={description}>
       <Header />
       <MDBox
+        sx={{ marginTop: "11.5%", marginBottom: "2.5%" }}
         display="flex"
         flexDirection="column"
         width="98%"
@@ -15,6 +16,7 @@ export default function Page({ title, description, children }) {
       >
         {children}
       </MDBox>
+
       <Footer />
     </PageContainer>
   );

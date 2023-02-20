@@ -1,72 +1,103 @@
-import * as React from "react";
-import { FaShoppingCart, FaUser, FaSignOutAlt } from "react-icons/fa";
-import CartContext from "@/context/CartContext/cart-context";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Logo from "@/components/Logo";
+import MDBox from "@/components/MDBox";
+import HeaderCategories from "@/components/HeaderCategories";
 import SearchBox from "@/components/SearchBox";
 import { useRouter } from "next/router";
-
+import CartContext from "@/context/CartContext/cart-context";
+import { Badge, IconButton, Menu, MenuItem } from "@mui/material";
+import { ShoppingCart, AccountCircle } from "@mui/icons-material";
 import HeaderTypography from "../Typography/HeaderTypography";
-import MDBox from "@/components/MDBox";
-import HeaderCategories from "../HeaderCategories";
-import Usermenu from "./UserMenu";
 
 let style = {
   position: "fixed",
   top: "0",
   zIndex: "10",
-  justifyContent: "center",
-  alignItem: "center",
-  display: "flex",
-  flexDirection: "row",
-  paddingTop: 3,
   width: "100vw",
 };
-export default function HeaderDesktop({ viewer }) {
+let fontSize = "12px";
+export default function HeaderDesktop() {
   const router = useRouter();
+  const [openMenu, setOpenMenu] = useState(false);
   const cartContext = useContext(CartContext);
-  const cartQty = cartContext.items.length;
+
+  const handleOpenMenu = (event) => setOpenMenu(event.currentTarget);
+  const handleCloseMenu = () => setOpenMenu(false);
+
+  const renderMenu = () => (
+    <Menu
+      anchorEl={openMenu}
+      anchorReference={null}
+      anchorOrigin={{
+        vertical: "bottom",
+        horizontal: "left",
+      }}
+      open={Boolean(openMenu)}
+      onClose={handleCloseMenu}
+      sx={{ mt: 2 }}
+    >
+      <MDBox flexDirection="column">
+        <MenuItem>
+          <HeaderTypography
+            onClick={() => router.push("/shipping")}
+            fontSize={fontSize}
+          >
+            ADDRESS
+          </HeaderTypography>
+        </MenuItem>
+        <MenuItem>
+          <HeaderTypography
+            onClick={() => router.push("/my_orders")}
+            fontSize={fontSize}
+          >
+            ORDERS
+          </HeaderTypography>
+        </MenuItem>
+        <MenuItem>
+          <HeaderTypography
+            onClick={() => router.push("/login")}
+            fontSize={fontSize}
+          >
+            LOGOUT/LOGIN
+          </HeaderTypography>
+        </MenuItem>
+      </MDBox>
+    </Menu>
+  );
   return (
-    <MDBox pt={12}>
+    <MDBox sx={{ ...style }}>
       <MDBox
         bgColor="linear-gradient(195deg, #1260a3, #1a73e8, #36c7c7)"
-        sx={{ ...style }}
+        display="flex"
+        flexDirection="row"
+        justifyContent="space-around"
+        alignItems="center"
       >
-        <MDBox onClick={() => router.push("/")}>
+        <MDBox p={2}>
           <Logo />
         </MDBox>
-        <MDBox pt={1} pr={12} marginRight="130px">
+        <MDBox p={2}>
           <SearchBox />
         </MDBox>
-
         <MDBox
-          sx={{
-            justifyContent: "center",
-            alignItem: "center",
-            display: "flex",
-            flexDirection: "row",
-            paddingTop: 3,
-            paddingLeft: 3,
-            cursor: "pointer",
-          }}
+          p={2}
+          display="flex"
+          flexDirection="row"
+          justifyContent="space-between"
         >
-          <MDBox color="white" onClick={() => router.push("/cart")}>
-            <FaShoppingCart />
-            {cartQty}
+          <MDBox p={1}>
+            <IconButton aria-label="cart" onClick={() => router.push("/cart")}>
+              <Badge badgeContent={cartContext.items.length} color="white">
+                <ShoppingCart color="white" />
+              </Badge>
+            </IconButton>
           </MDBox>
-          {!viewer && (
-            <MDBox color="white" onClick={() => router.push("/login")}>
-              <FaUser />
-            </MDBox>
-          )}
-          {viewer && (
-            <>
-              <MDBox marginLeft="55px" color="white">
-                <Usermenu />
-                <HeaderTypography>{viewer.name}</HeaderTypography>
-              </MDBox>
-            </>
-          )}
+          <MDBox p={1}>
+            <IconButton aria-label="login" onClick={handleOpenMenu}>
+              <AccountCircle color="white" />
+            </IconButton>
+            {renderMenu()}
+          </MDBox>
         </MDBox>
       </MDBox>
       <HeaderCategories />

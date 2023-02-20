@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import useQueryBuilder from "@/hook/use-query-builder";
 import MDBox from "@/components/MDBox";
-import FlexBox from "../MDSpacer/MDSpacer";
+
 export default function SearchBox() {
   const router = useRouter();
   const [searchText, setSearchText] = useState("");
