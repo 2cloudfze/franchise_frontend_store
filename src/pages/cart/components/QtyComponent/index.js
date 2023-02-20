@@ -7,14 +7,14 @@ import MDBox from "@/components/MDBox";
 export default function QtyComponent({ cartAddRemove, quantity }) {
   return (
     <MDBox display="flex" flexDirection="row">
-      <MDButton size="Large">
-        <RemoveIcon onClick={() => cartAddRemove("Remove")} />
+      <MDButton size="Large" onClick={() => cartAddRemove("Remove")}>
+        <RemoveIcon />
       </MDButton>
       <BodyDescTypography fontSize={10} fontWeight={400}>
         {quantity}
       </BodyDescTypography>
-      <MDButton size="Large">
-        <AddIcon onClick={() => cartAddRemove("Add")} />
+      <MDButton size="Large" onClick={() => cartAddRemove("Add")}>
+        <AddIcon />
       </MDButton>
     </MDBox>
   );
