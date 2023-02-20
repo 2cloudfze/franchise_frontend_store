@@ -46,6 +46,7 @@ export default function HeaderCategories() {
                 <MenuItemBuilder
                   subCategory={subCategory}
                   subIndex={subIndex}
+                  handleMenuClose={handleMenuClose}
                 />
               ))}
             </MDBox>
