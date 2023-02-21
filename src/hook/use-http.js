@@ -5,7 +5,7 @@ const useHttp = () => {
   const [error, setError] = useState(null);
 
   const sendRequest = useCallback(async (options) => {
-    const apiRoot = "http://solr.arabtr.com/solr/collection1/";
+    const apiRoot = "https://solr.arabtr.com/solr/collection1/";
     setIsLoading(true);
     setError(null);
     try {
