@@ -9,14 +9,14 @@ export default function BodyDescTypography({
   left = "",
   lineHeight = "",
   width = "",
-  isdetails = false,
+  isDetails = false,
   onClickHandler = () => {},
   flexDirection = "",
   textAlign = "",
   padding = "",
   fontWeight = "",
 }) {
-  const elipse = `white-space: nowrap;
+  const ellipse = `white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;`;
 
@@ -25,7 +25,7 @@ export default function BodyDescTypography({
       <h3 onClick={onClickHandler}>{children}</h3>
       <style jsx>{`
         h3 {
-          ${!isdetails && elipse}
+          ${!isDetails && ellipse}
           max-width: 100%;
           color: ${color};
           font-family: "Montserrat";

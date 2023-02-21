@@ -39,12 +39,12 @@ export default function HeaderCategories() {
               onClose={handleMenuClose}
               anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
               transformOrigin={{ vertical: "top", horizontal: "center" }}
-              getContentAnchorEl={null}
               disableScrollLock
             >
               <MDBox onMouseLeave={handleMenuClose}>
                 {element.categories.map((subCategory, subIndex) => (
                   <MenuItemBuilder
+                    key={subIndex}
                     subCategory={subCategory}
                     subIndex={subIndex}
                     handleMenuClose={handleMenuClose}

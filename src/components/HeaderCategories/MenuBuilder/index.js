@@ -14,7 +14,11 @@ export default function MenuItemBuilder({
   const onClickHandler = () => {
     router.push({
       pathname: "/products/" + head,
-      query: { data: `${queryString}${next()}`, currentCurser: "*" },
+      query: {
+        data: `${queryString}${next()}`,
+        currentCurser: "*",
+        selectedCategory: subCategory.category,
+      },
     });
     handleMenuClose();
   };

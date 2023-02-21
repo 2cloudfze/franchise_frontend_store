@@ -90,7 +90,7 @@ export default function LoadSelectedProduct() {
   );
   return (
     <DefaultLayout>
-      <FilterCard />
+      <FilterCard filterOptions={filterContext.filterItems} />
       <MDBox display="flex" flexDirection="row" justifyContent="flex-end">
         <MDBox p={2}>
           <BodyDescTypography onClickHandler={handleConfiguratorOpen}>

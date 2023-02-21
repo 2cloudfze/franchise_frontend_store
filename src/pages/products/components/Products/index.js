@@ -14,7 +14,7 @@ export default function Products({ productData }) {
                 <ProductItem
                   key={product.id}
                   id={product.id}
-                  name={product.manname}
+                  name={product.description ?? product.manname}
                   img_url={product.url}
                   price={product.price}
                   description={product.description}

@@ -10,36 +10,46 @@ import OrdersItems from "@/db/offlineData/myOrdersData";
 import Card from "@mui/material/Card";
 import ImageContainer from "@/components/ImageContainer";
 
-
-
-function Middlecomponent({ product,img_url }) {
+function Middlecomponent({ product, img_url }) {
   const cartContext = useContext(CartContext);
   const router = useRouter();
   return (
-    <FlexBox flexDirection="column" marginTop="80px" spacing={20} justifyContent="center">
-      <Card justifyContent="center"  >
+    <FlexBox
+      flexDirection="column"
+      marginTop="80px"
+      spacing={20}
+      justifyContent="center"
+    >
+      <Card justifyContent="center">
         <FlexBox flexDirection="row" spacing={30} justifyContent="center">
           <ImageContainer
-          imageUrl={
-            product.url
+            imageUrl={
+              product.url
                 ? product.url
                 : `https://d2v8x7eqx4g1su.cloudfront.net/brand_images/${product.manname.toLowerCase()}.jpg`
             }
-          
           />
 
           <MDBox p={8}>
-            <MDBox width="50%" >
-            <BodyDescTypography  lineHeight="35px" isdetails >
-              {product.description}
-            </BodyDescTypography>
+            <MDBox width="50%">
+              <BodyDescTypography lineHeight="35px" isDetails>
+                {product.description}
+              </BodyDescTypography>
             </MDBox>
             <BodyDescTypography> {`$${product.price}`}</BodyDescTypography>
             <BodyDescTypography>
-              {product.inStock ? "instock" : "out of stock"}
+              {product.inStock ? "inStock" : "out of stock"}
             </BodyDescTypography>
             <BodyDescTypography>{product.condition}</BodyDescTypography>
-            <ButtonTypography onClick={() => cartContext.addItem(product)}>
+            <ButtonTypography
+              onClick={() =>
+                cartContext.addItem({
+                  ...product,
+                  qty: 1,
+                  total: product.price * 1,
+                })
+              }
+            >
               Add to cart
             </ButtonTypography>
           </MDBox>

@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import CatalogProducts from "../components/CatalogProducts";
 import { CircleLoader } from "react-spinners";
-import brands from "@/config/constants";
+
 const brandById = (id) => home.find((element) => element.id == id);
 
 function BrandCatalog() {
@@ -18,7 +18,10 @@ function BrandCatalog() {
       const { query } = router;
       const id = query.catalog_id;
       const data = brandById(id);
-      filterContext.initialize(data.brands);
+      filterContext.initialize({
+        brands: data.brands,
+        selectedCategory: data.link,
+      });
       setParent(data.link);
     }
   }, [router, router.isReady]);

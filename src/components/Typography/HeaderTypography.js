@@ -25,7 +25,7 @@ export default function HeaderTypography({
 
   return (
     <>
-      <h1 style={defaultStyle} onClick={onClick}>
+      <h1 style={{ ...defaultStyle }} onClick={onClick}>
         {children}
       </h1>
     </>

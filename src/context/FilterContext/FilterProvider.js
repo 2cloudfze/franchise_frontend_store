@@ -3,7 +3,7 @@ import { useReducer } from "react";
 import FilterContext from "@/context/FilterContext/filter-context";
 
 const defaultFilterState = {
-  filterItems: [],
+  filterItems: {},
 };
 
 const FilterReducer = (state, action) => {
