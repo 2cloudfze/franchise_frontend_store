@@ -11,7 +11,7 @@ const categories = [
       {
         id: "1/2",
         displayname: "All In One, Desktops & workstations",
-        category: "All",
+        category: "All-In-One_Desktops",
       },
       {
         id: "1/3",
@@ -104,8 +104,8 @@ const categories = [
       //   displayname: "PABX & Telephone Accessories",
       //   category: "Telephone_Accessories",
       // },
-      // { id: "2/21", displayname: "Cabinet & Racks", category: "Cabinets" },
-      // { id: "2/22", displayname: "Routers", category: "Routers" },
+      { id: "2/21", displayname: "Cabinet & Racks", category: "Cabinets" },
+      { id: "2/22", displayname: "Routers", category: "Routers" },
     ],
   },
   {

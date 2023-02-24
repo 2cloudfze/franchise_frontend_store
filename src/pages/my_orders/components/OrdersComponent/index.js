@@ -17,7 +17,7 @@ export default function OrdersComponent({
 
       <BodyDescTypography textAlign="center" fontSize="16px" padding="10px">Name: {name}</BodyDescTypography>
       <BodyDescTypography textAlign="center" fontSize="14px">Price: {price} </BodyDescTypography>
-      <BodyDescTypography textAlign="center" fontSize="14px" >Quantity {qty}</BodyDescTypography>
+      <BodyDescTypography textAlign="center" fontSize="14px" >Quantity:{qty}</BodyDescTypography>
 
       <BodyDescTypography textAlign="center" fontSize="14px">subtotal: {price * qty}</BodyDescTypography>
       <BodyDescTypography textAlign="center" fontSize="14px">orderstatus: {orderstatus}</BodyDescTypography>

@@ -10,7 +10,10 @@ export default function ImageContainer({
   justifyContent = "center",
   maxHeight = { xs: 333, md: 267 },
   maxWidth = { xs: 450, md: 350 },
-  marginLeft ="",
+  marginLeft = "",
+  mt = 8,
+  pr = 20,
+  cursor=""
 }) {
   const [src, setSrc] = useState(imageUrl);
 
@@ -21,12 +24,13 @@ export default function ImageContainer({
 
   return (
     <MDBox
-      mt={8}
-      pr={20}
+      mt={mt}
+      pr={pr}
       key="BaseImage"
       component="img"
       sx={{
         objectFit: objectFit,
+        cursor:cursor,
         justifyContent: justifyContent,
         height: height,
         width: width,

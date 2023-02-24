@@ -15,6 +15,7 @@ export default function BodyDescTypography({
   textAlign = "",
   padding = "",
   fontWeight = "",
+  cursor= "pointer"
 }) {
   const ellipse = `white-space: nowrap;
   overflow: hidden;
@@ -30,7 +31,7 @@ export default function BodyDescTypography({
           color: ${color};
           font-family: "Montserrat";
           font-size: ${fontSize};
-          cursor: pointer;
+          cursor:${cursor};
           padding: ${padding};
           letter-spacing: 1px;
           position: ${position};

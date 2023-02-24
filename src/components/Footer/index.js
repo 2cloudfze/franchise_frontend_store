@@ -62,7 +62,7 @@ export default function Footer() {
             marginLeft="15px"
             marginRight="15px"
           >
-            © 2023. Computron UI{" "}
+            © 2023. Franchise UI{" "}
           </SubHeaderTypography>
           <SubHeaderTypography
             fontSize="14px"

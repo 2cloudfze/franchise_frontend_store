@@ -1,15 +1,19 @@
 import { useRouter } from "next/router";
 import BodyDescTypography from "@/components/Typography/BodyDescTypography";
-import FlexBox from "@/components/MDSpacer/MDSpacer";
 import MDBox from "@/components/MDBox";
 import ImageContainer from "@/components/ImageContainer";
 import { Card } from "@mui/material";
+
 export default function DealItem({ id, name, img_url, price }) {
   const router = useRouter();
   return (
-    <MDBox p={1} display="flex" justifyContent="center" width="50%">
-      <Card>
+    <MDBox p={1} display="flex" justifyContent="center" width="100%">
+      <Card sx={{ display: "flex", justifyContent: "center" }}>
         <ImageContainer
+          width={420}
+          maxWidth={{ xs: 1000, md: 1000 }}
+          pr={2}
+          cursor="pointer"
           imageUrl={
             img_url
               ? img_url
@@ -18,11 +22,13 @@ export default function DealItem({ id, name, img_url, price }) {
         />
         <MDBox ml={2}>
           <BodyDescTypography
-            fontSize="10"
+            fontSize="14px"
             lineHeight="20px"
             flexDirection="column"
           >
-            {name}
+            <MDBox display="flex" justifyContent="center">
+              {name}
+            </MDBox>
             <MDBox display="flex" justifyContent="center" mt={2}>
               ${price}
             </MDBox>

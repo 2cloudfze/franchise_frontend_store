@@ -23,7 +23,7 @@ export const sliderItems = [
       },
     {
       id: 4,
-      img: "https://kinsta.com/wp-content/uploads/2017/05/how-to-optimize-images-for-web-and-performance.jpg",
+      img: "https://wallup.net/wp-content/uploads/2017/11/22/351665-New_York_City-long_exposure-city_lights-city-Brooklyn_Bridge.jpg",
       title: "Verilux® USB C Hub Multiport Adapter",
       desc: "Verilux® USB C Hub Multiport Adapter- 6 in 1 Portable Aluminum Type C Hub with 4K HDMI Output, USB 2.0/3.0 Ports, MacBook Air 2018-2020, Type-C Devices",
       bg: "red",

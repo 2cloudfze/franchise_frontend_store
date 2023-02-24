@@ -1,58 +1,96 @@
-import React, { useState } from "react";
-import styled from "@emotion/styled";
-import OrdersItems from "@/db/offlineData/myOrdersData";
-import { ArrowLeftOutlined, ArrowRightOutlined } from "@mui/icons-material";
-import { useEffect } from "react";
-import DealItem from "./DealItem";
+import { useState, useEffect, useRef } from "react";
 import BodyDescTypography from "@/components/Typography/BodyDescTypography";
-import FlexBox from "@/components/MDSpacer/MDSpacer";
 import MDBox from "@/components/MDBox";
+import DealItem from "./DealItem";
+import OrdersItems from "@/db/offlineData/ourDealsData";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-function DealsComponent() {
-  const [slideIndex, setSlideIndex] = useState(0);
+const DealsComponent = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+ 
 
-  const handleClick = (direction) => {
-    if (direction === "left") {
-      console.log(direction);
-      setSlideIndex(slideIndex < OrdersItems.length - 3 ? slideIndex + 1 : 0);
-    } else {
-      console.log(direction);
-      setSlideIndex(slideIndex > 0 ? slideIndex - 1 : OrdersItems.length - 3);
-    }
-    console.log(slideIndex);
+  const prevSlide = () => {
+    setCurrentSlide(
+      (prevSlide) =>
+        (prevSlide - 1 + Math.ceil(OrdersItems.length / 4)) %
+        Math.ceil(OrdersItems.length / 4)
+    );
   };
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setSlideIndex(slideIndex < 3 ? slideIndex + 1 : 0);
-  //   }, 1000);
-  //   return () => clearInterval(interval);
-  // }, [slideIndex]);
+
+  const nextSlide = () => {
+    setCurrentSlide(
+      (prevSlide) => (prevSlide + 1) % Math.ceil(OrdersItems.length / 4)
+    );
+  };
 
   return (
-    <MDBox p={1}>
+    <>
       <BodyDescTypography>OUR DEALS :</BodyDescTypography>
-
-      {/* <Arrow direction="left" onClick={() => handleClick("left")}>
-        <ArrowLeftOutlined sx={{ fontSize: 60 }} />
-      </Arrow> */}
-
-      <MDBox slideIndex={slideIndex} display="flex" flexDirection="row" p={2}>
-        {OrdersItems.slice(slideIndex, slideIndex + 6).map((product) => (
-          <DealItem
-            key={product.id}
-            id={product.id}
-            img_url={product.img_url}
-            name={product.name}
-            price={product.price}
-          />
-        ))}
+      <MDBox
+        style={{
+          position: "relative",
+          overflowX: "scroll",
+          WebkitOverflowScrolling: "touch", scrollbarWidth: "none", msOverflowStyle: "none",
+          width: "100%",
+          height: "400px",
+          scrollBehavior: "smooth",
+          scrollbarWidth: "none", 
+          '-ms-overflow-style': 'none' ,
+          '::WebkitScrollbar': { display: 'none' },
+        }}
+       
+      >
+        <MDBox
+          style={{
+            display: "flex",
+            width: `${OrdersItems.length * 20}%`,
+            transition: "transform 0.5s ease",
+            transform: `translateX(-${currentSlide * 25}%)`,
+          }}
+        >
+          {OrdersItems.map((product) => (
+            <DealItem
+              key={product.id}
+              id={product.id}
+              img_url={product.img_url}
+              name={product.name}
+              price={product.price}
+            />
+          ))}
+        </MDBox>
       </MDBox>
+      <ArrowBackIosNewIcon
+        style={{
+          position: "absolute",
+          top: "50%",
+          background: "transparent",
+          border: "none",
+          cursor: "pointer",
+          left: "10px",
+          opacity: "0.5",
+        }}
+        onClick={prevSlide}
+        fontSize="medium"
+      />
 
-      {/* <Arrow direction="right" onClick={() => handleClick("right")}>
-        <ArrowRightOutlined sx={{ fontSize: 60 }} />
-      </Arrow> */}
-    </MDBox>
+      <ArrowForwardIosIcon
+        style={{
+          position: "absolute",
+          top: "50%",
+
+          background: "transparent",
+          border: "none",
+          fontSize: "24px",
+          cursor: "pointer",
+          right: "10px",
+          opacity: "0.5",
+        }}
+        onClick={nextSlide}
+        fontSize="medium"
+      />
+    </>
   );
-}
+};
 
 export default DealsComponent;
