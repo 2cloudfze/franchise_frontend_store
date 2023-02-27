@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import CatalogProducts from "../components/CatalogProducts";
 import { CircleLoader } from "react-spinners";
+import MDBox from "@/components/MDBox";
 
 const brandById = (id) => home.find((element) => element.id == id);
 
@@ -18,6 +19,7 @@ function BrandCatalog() {
       const { query } = router;
       const id = query.catalog_id;
       const data = brandById(id);
+      filterContext.initializeCategory({ categories: [data.link] });
       filterContext.initialize({
         brands: data.brands,
         selectedCategory: data.link,
@@ -42,7 +44,7 @@ function BrandCatalog() {
       {parent !== "" ? (
         <CatalogProducts catalogName={parent} />
       ) : (
-        LoadingComponent
+        <MDBox height={"200%"}>{LoadingComponent}</MDBox>
       )}
     </DefaultLayout>
   );

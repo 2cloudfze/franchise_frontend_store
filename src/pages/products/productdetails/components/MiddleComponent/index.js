@@ -6,7 +6,7 @@ import BodyDescTypography from "@/components/Typography/BodyDescTypography";
 import FlexBox from "@/components/MDSpacer/MDSpacer";
 import MDBox from "@/components/MDBox";
 import RelatedProduct from "./RelatedProductComp";
-import OrdersItems from "@/db/offlineData/relatedProductsData";
+import OrdersItems from "@/db/offlineData/relatedProduct";
 import Card from "@mui/material/Card";
 import ImageContainer from "@/components/ImageContainer";
 

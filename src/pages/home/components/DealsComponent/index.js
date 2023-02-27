@@ -5,11 +5,11 @@ import DealItem from "./DealItem";
 import OrdersItems from "@/db/offlineData/ourDealsData";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-
 const DealsComponent = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
- 
+  const [showArrows, setShowArrows] = useState(true);
 
+  
   const prevSlide = () => {
     setCurrentSlide(
       (prevSlide) =>
@@ -23,24 +23,12 @@ const DealsComponent = () => {
       (prevSlide) => (prevSlide + 1) % Math.ceil(OrdersItems.length / 4)
     );
   };
-
   return (
     <>
-      <BodyDescTypography>OUR DEALS :</BodyDescTypography>
-      <MDBox
-        style={{
-          position: "relative",
-          overflowX: "scroll",
-          WebkitOverflowScrolling: "touch", scrollbarWidth: "none", msOverflowStyle: "none",
-          width: "100%",
-          height: "400px",
-          scrollBehavior: "smooth",
-          scrollbarWidth: "none", 
-          '-ms-overflow-style': 'none' ,
-          '::WebkitScrollbar': { display: 'none' },
-        }}
-       
-      >
+    <BodyDescTypography>OUR DEALS :</BodyDescTypography>
+     
+      
+      <div className="scroll-bar">
         <MDBox
           style={{
             display: "flex",
@@ -58,37 +46,54 @@ const DealsComponent = () => {
               price={product.price}
             />
           ))}
+        </MDBox >
+      </div>
+      <MDBox style={{ display: "flex", justifyContent: "space-between" }}>
+        <ArrowBackIosNewIcon
+          style={{
+            position: "absolute",
+            top: "50%",
+            background: "transparent",
+            border: "none",
+            cursor: "pointer",
+            left: "10px",
+            opacity: "0.8",
+          }}
+          onClick={prevSlide}
+          fontSize="large"
+        />
+
+        <ArrowForwardIosIcon
+          style={{
+            position: "absolute",
+            top: "50%",
+            background: "transparent",
+            border: "none",
+            fontSize: "24px",
+            cursor: "pointer",
+            right: "10px",
+            opacity: "0.8",
+          }}
+          onClick={nextSlide}
+          fontSize="large"
+        />
         </MDBox>
-      </MDBox>
-      <ArrowBackIosNewIcon
-        style={{
-          position: "absolute",
-          top: "50%",
-          background: "transparent",
-          border: "none",
-          cursor: "pointer",
-          left: "10px",
-          opacity: "0.5",
-        }}
-        onClick={prevSlide}
-        fontSize="medium"
-      />
-
-      <ArrowForwardIosIcon
-        style={{
-          position: "absolute",
-          top: "50%",
-
-          background: "transparent",
-          border: "none",
-          fontSize: "24px",
-          cursor: "pointer",
-          right: "10px",
-          opacity: "0.5",
-        }}
-        onClick={nextSlide}
-        fontSize="medium"
-      />
+      <style jsx>{`
+        .scroll-bar {
+          position: relative;
+          overflow-x: scroll;
+          -webkit-overflow-scrolling: touch;
+          width: 100%;
+          height: 400px;
+          scroll-behavior: smooth;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+        .scroll-bar::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
+     
     </>
   );
 };

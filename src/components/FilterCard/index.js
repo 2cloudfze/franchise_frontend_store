@@ -22,7 +22,7 @@ export default function FilterCard({ filterOptions }) {
   const router = useRouter();
 
   const { head, queryString, next, updateQuery } = useQueryBuilder({
-    query: `category:${filterOptions.selectedCategory} AND manname:*`,
+    query: `catname:${filterOptions.selectedCategory} AND manname:*`,
     rowCount: 8,
   });
   const [checkedState, setCheckedState] = useState(
@@ -32,7 +32,7 @@ export default function FilterCard({ filterOptions }) {
   const handleFilterSelect = (checkedState) => {
     const selectedFilterIndex = findTrueIndex(checkedState);
     if (selectedFilterIndex != -1) {
-      const filterQuery = `category:${filterOptions.selectedCategory} AND manname:${filterOptions.brands[selectedFilterIndex].label}`;
+      const filterQuery = `catname:${filterOptions.selectedCategory} AND manname:${filterOptions.brands[selectedFilterIndex]}`;
       router.push({
         pathname: "/products/" + head,
         query: {
@@ -73,13 +73,55 @@ export default function FilterCard({ filterOptions }) {
         <MDBox>
           <HeaderTypography fontSize="18px">Filter By</HeaderTypography>
         </MDBox>
-        <CancelIcon fontSize="Large" onClick={handleCloseConfigurator} />
+        <CancelIcon fontSize="Medium" onClick={handleCloseConfigurator} />
       </MDBox>
       <Divider
         variant="middle"
         sx={{ height: 2, backgroundColor: "grey" }}
         role="presentation"
       />
+
+      {filterOptions.categories.categories.length > 1 ? (
+        <>
+          <HeaderTypography>Categories</HeaderTypography>
+          <Divider
+            sx={{
+              height: 2,
+              backgroundColor: "grey",
+              width: "50%",
+              margin: "0px",
+            }}
+            variant="inset"
+          />
+          <MDBox>
+            {filterOptions.categories.categories.map((element, index) => (
+              <MDBox
+                display="flex"
+                flexDirection="row"
+                justifyContent="flex-start"
+                alignItems="center"
+              >
+                <MDBox>
+                  <Checkbox
+                    sx={{
+                      "& .MuiSvgIcon-root": {
+                        fontSize: 24,
+                        border: "2px solid grey",
+                      },
+                    }}
+                    checked={checkedState[index]}
+                    onChange={handleChange(index)}
+                    inputProps={{ "aria-label": `primary checkbox-${index}` }}
+                  />
+                </MDBox>
+                <BodyDescTypography fontWeight="400">
+                  {element}
+                </BodyDescTypography>
+              </MDBox>
+            ))}
+          </MDBox>
+        </>
+      ) : null}
 
       <HeaderTypography>Brand's</HeaderTypography>
       <Divider
@@ -88,7 +130,7 @@ export default function FilterCard({ filterOptions }) {
       />
 
       <MDBox>
-        {filterOptions.brands.map((element, index) => (
+        {filterOptions.brands.brands.map((element, index) => (
           <MDBox
             display="flex"
             flexDirection="row"
@@ -108,9 +150,7 @@ export default function FilterCard({ filterOptions }) {
                 inputProps={{ "aria-label": `primary checkbox-${index}` }}
               />
             </MDBox>
-            <BodyDescTypography fontWeight="400">
-              {element.label}
-            </BodyDescTypography>
+            <BodyDescTypography fontWeight="400">{element}</BodyDescTypography>
           </MDBox>
         ))}
       </MDBox>
