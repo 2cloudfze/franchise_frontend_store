@@ -4,6 +4,7 @@ import MDBox from "@/components/MDBox";
 
 export default function ImageContainer({
   imageUrl,
+  onLoad,
   objectFit = "scale-down",
   height = 200,
   width = 280,
@@ -13,7 +14,10 @@ export default function ImageContainer({
   marginLeft = "",
   mt = 8,
   pr = 20,
-  cursor=""
+  cursor = "",
+  position = "",
+  top = "",
+  left = "",
 }) {
   const [src, setSrc] = useState(imageUrl);
 
@@ -30,7 +34,7 @@ export default function ImageContainer({
       component="img"
       sx={{
         objectFit: objectFit,
-        cursor:cursor,
+        cursor: cursor,
         justifyContent: justifyContent,
         height: height,
         width: width,
@@ -38,10 +42,14 @@ export default function ImageContainer({
         maxWidth: maxWidth,
         borderRadius: [2, 2, 2, 2],
         marginLeft: marginLeft,
+        position: position,
+        top: top,
+        left: left,
       }}
       src={src}
       alt="Image not found"
       onError={onErrorHandler}
+      onLoad={onLoad}
     />
   );
 }

@@ -6,7 +6,6 @@ import CartCheckoutComponent from "./components/CartCheckoutComponent";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import MDBox from "@/components/MDBox";
 import HeaderTypography from "@/components/Typography/HeaderTypography";
-import FlexBox from "@/components/MDSpacer/MDSpacer";
 import BodyDescTypography from "@/components/Typography/BodyDescTypography";
 import ImageContainer from "@/components/ImageContainer";
 import CartTable from "./components/CartTable";
@@ -16,11 +15,12 @@ function Cart() {
     <>
       <MDBox display="flex" justifyContent="center">
         <ImageContainer
+          marginLeft={"220px"}
           height={500}
-          width={800}
+          width={1000}
           maxHeight={{ xs: 1000, md: 1000 }}
           maxWidth={{ xs: 1000, md: 1000 }}
-          imageUrl={"/assets/EmptyCart/emptyCart.gif"}
+          imageUrl={"/assets/EmptyCart/empty-cart.gif"}
         />
       </MDBox>
       <MDBox display="flex" justifyContent="center">
@@ -45,11 +45,14 @@ function Cart() {
             >
               <ShoppingBagIcon
                 sx={{
+                  marginTop: "20px",
                   width: "36px",
                   height: "36px",
                 }}
               />
-              <HeaderTypography fontSize="19px">My cart</HeaderTypography>
+              <HeaderTypography fontSize="19px" marginTop="32px">
+                My cart
+              </HeaderTypography>
             </MDBox>
           </MDBox>
           {cartContext.items.length === 0 ? (

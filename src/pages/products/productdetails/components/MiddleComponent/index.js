@@ -31,7 +31,7 @@ function Middlecomponent({ product, img_url }) {
           />
 
           <MDBox p={8}>
-            <MDBox width="50%">
+            <MDBox width="40%">
               <BodyDescTypography lineHeight="35px" isDetails>
                 {product.description}
               </BodyDescTypography>
@@ -60,7 +60,7 @@ function Middlecomponent({ product, img_url }) {
 
       <FlexBox flexDirection="row" spacing={10}>
         {OrdersItems.map((product) => (
-          <MDBox>
+          <MDBox p={2}>
             <RelatedProduct
               key={product.id}
               img_url={product.img_url}

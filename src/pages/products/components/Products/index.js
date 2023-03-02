@@ -1,7 +1,8 @@
 import MDBox from "@/components/MDBox";
 import BodyDescTypography from "@/components/Typography/BodyDescTypography";
 import ProductItem from "@/pages/products/components/ProductItem";
-import { Grid } from "@mui/material";
+import { Card, Grid } from "@mui/material";
+import ImageContainer from "@/components/ImageContainer";
 
 export default function Products({ productData }) {
   return (
@@ -27,7 +28,22 @@ export default function Products({ productData }) {
             </Grid>
           ))
         ) : (
-          <BodyDescTypography>No data found</BodyDescTypography>
+          <MDBox>
+            <MDBox display="flex" justifyContent="center" marginLeft="240px">
+              <BodyDescTypography>No data found</BodyDescTypography>
+            </MDBox>
+
+            <ImageContainer
+              display="flex"
+              justifyContent="center"
+              marginLeft={"420px"}
+              height={500}
+              width={1000}
+              maxHeight={{ xs: 1600, md: 1200 }}
+              maxWidth={{ xs: 1000, md: 1000 }}
+              imageUrl={"/assets/Nodata/no_data.png"}
+            />
+          </MDBox>
         )}
       </Grid>
     </MDBox>

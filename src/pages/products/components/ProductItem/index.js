@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import useQueryBuilder from "@/hook/use-query-builder";
 import CartContext from "@/context/CartContext/cart-context";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import SnackBarButton from "@/pages/products/components/SnackBarButton";
 import BodyDescTypography from "@/components/Typography/BodyDescTypography";
 import Card from "@mui/material/Card";
@@ -9,6 +9,8 @@ import MDBox from "@/components/MDBox";
 import { CardContent, CardActions } from "@mui/material";
 import ButtonTypography from "@/components/Typography/ButtonTYpography";
 import ImageContainer from "@/components/ImageContainer";
+import CircularProgress from "@mui/material/CircularProgress";
+
 export default function ProductItem({
   id,
   name,
@@ -22,6 +24,7 @@ export default function ProductItem({
 }) {
   const router = useRouter();
   const cartContext = useContext(CartContext);
+  const [loading, setLoading] = useState(true);
 
   const { head, queryString } = useQueryBuilder({
     query: `sku_str:${partNumber}`,
@@ -45,7 +48,7 @@ export default function ProductItem({
     partNumber,
     cat,
   };
-
+  const onLoadHandler = () => setLoading(false);
   return (
     <Card
       sx={{
@@ -55,15 +58,32 @@ export default function ProductItem({
         height: "auto",
       }}
     >
-      <CardContent sx={{ flex: "1 0 auto" }} onClick={onClickHandler}>
+      <CardContent onClick={onClickHandler}>
         <MDBox height="100%">
           <ImageContainer
+            onLoad={onLoadHandler}
             imageUrl={
               img_url
                 ? img_url
                 : `https://d2v8x7eqx4g1su.cloudfront.net/brand_images/${manuName.toLowerCase()}.jpg`
             }
           />
+          <MDBox display="flex" justifyContent="center">
+            {loading && (
+              <MDBox display="flex" justifyContent="center">
+                <ImageContainer
+                  position="absolute"
+                  top="10%"
+                  left="30%"
+                  height={150}
+                  width={170}
+                  maxHeight={{ xs: 1000, md: 1000 }}
+                  maxWidth={{ xs: 1000, md: 1000 }}
+                  imageUrl={"/assets/imgLoading/hourglass.gif"}
+                />
+              </MDBox>
+            )}
+          </MDBox>
           <MDBox pb={1}>
             {description ? (
               <BodyDescTypography fontSize={18} width="100%">
