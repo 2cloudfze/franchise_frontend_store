@@ -3,7 +3,7 @@ import { Padding } from "@mui/icons-material";
 export default function BodyDescTypography({
   children,
   fontSize = 16,
-  color = "balck",
+  color = "black",
   position = "",
   top = "",
   left = "",
@@ -14,8 +14,10 @@ export default function BodyDescTypography({
   flexDirection = "",
   textAlign = "",
   padding = "",
+  marginLeft = "",
   fontWeight = "",
-  cursor= "pointer"
+  letterSpacing = "",
+  cursor = "pointer",
 }) {
   const ellipse = `white-space: nowrap;
   overflow: hidden;
@@ -31,9 +33,9 @@ export default function BodyDescTypography({
           color: ${color};
           font-family: "Montserrat";
           font-size: ${fontSize};
-          cursor:${cursor};
-          padding: ${padding};
-          letter-spacing: 1px;
+          cursor: ${cursor};
+          padding: ${padding}px;
+          letter-spacing: ${letterSpacing}px;
           position: ${position};
           top: ${top};
           left: ${left};
@@ -42,7 +44,7 @@ export default function BodyDescTypography({
           line-height: ${lineHeight};
           flex-direction: ${flexDirection};
           text-align: ${textAlign};
-          display: felx;
+          margin-left: ${marginLeft}px;
         }
       `}</style>
     </>

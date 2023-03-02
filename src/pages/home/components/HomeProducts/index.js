@@ -10,8 +10,15 @@ export default function HomeCategories() {
       <BodyDescTypography>our catalog:</BodyDescTypography>
       <MDBox py={3}>
         <Grid container spacing={3}>
-          {offlineProducts.map((product) => (
-            <Grid item key={product.name} xs={12} sm={6} md={4} lg={3}>
+          {offlineProducts.map((product, index) => (
+            <Grid
+              item
+              key={`${product.name}_${index}`}
+              xs={12}
+              sm={6}
+              md={4}
+              lg={3}
+            >
               <MDBox height="30%" mb={1.5}>
                 <HomeProductItem
                   key={product.id}

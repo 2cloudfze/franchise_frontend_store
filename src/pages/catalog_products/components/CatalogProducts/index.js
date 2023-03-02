@@ -1,6 +1,7 @@
 import useQueryBuilder from "@/hook/use-query-builder";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+
 export default function CatalogProducts({ catalogName }) {
   const router = useRouter();
   const { head, queryString, next } = useQueryBuilder({

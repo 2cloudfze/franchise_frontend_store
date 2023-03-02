@@ -4,7 +4,6 @@ import FilterContext from "@/context/FilterContext/filter-context";
 
 const defaultFilterState = {
   filterItems: {},
-  categoryItems: {},
 };
 
 const FilterReducer = (state, action) => {
@@ -15,12 +14,16 @@ const FilterReducer = (state, action) => {
         ...state,
         filterItems: newFilterList,
       };
-    case "InitializeCategory":
-      const newCategoryItems = action.items;
+    case "updateCategory":
+      const newSelectedCategory = action.category;
+
       return {
-        ...state,
-        categoryItems: newCategoryItems,
+        filterItems: {
+          ...state.filterItems,
+          selectedCategory: newSelectedCategory,
+        },
       };
+
     default:
       return defaultFilterState;
   }
@@ -35,15 +38,14 @@ const FilterProvider = (props) => {
   const initializeHandler = (items) => {
     dispatchFilterAction({ type: "Initialize", items });
   };
-  const initializeCategoryHandler = (items) => {
-    dispatchFilterAction({ type: "InitializeCategory", items });
+  const updateSelectedCategoryHandler = (category) => {
+    dispatchFilterAction({ type: "updateCategory", category });
   };
 
   const filterContext = {
     filterItems: filterState.filterItems,
     initialize: initializeHandler,
-    categoryItems: filterState.categoryItems,
-    initializeCategory: initializeCategoryHandler,
+    updateSelectedCategory: updateSelectedCategoryHandler,
   };
 
   return (

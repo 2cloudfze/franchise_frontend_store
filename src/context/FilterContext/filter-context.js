@@ -2,9 +2,8 @@ import React from "react";
 
 const FilterContext = React.createContext({
   filterItems: {},
-  categoryItems:{},
   initialize: (items) => {},
-  initializeCategory: (items) => {},
+  updateSelectedCategory: (selectedCategory) => {},
 });
 
 export default FilterContext;

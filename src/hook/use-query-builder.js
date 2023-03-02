@@ -4,16 +4,13 @@ const useQueryBuilder = ({
   rowCount = 10,
   isPaginated = true,
   isSku = false,
+  sort = "id+asc",
 }) => {
-  const changeString = (str) => str.replace(/:/g, "%3A").replace(/ /g, "+");
-
   const toNextPage = (cursorMark = "*") => `&cursorMark=${cursorMark}`;
   const buildQueryString = (alter = null) =>
     isSku
-      ? `q=${changeString(alter ?? query)}&wt=json&indent=true`
-      : `q=${changeString(
-          alter ?? query
-        )}&sort=id+asc&rows=${rowCount}&wt=json&indent=true`;
+      ? `q=${alter ?? query}&wt=json&indent=true`
+      : `q=${alter ?? query}&sort=${sort}&rows=${rowCount}&wt=json&indent=true`;
 
   return {
     head: "select",

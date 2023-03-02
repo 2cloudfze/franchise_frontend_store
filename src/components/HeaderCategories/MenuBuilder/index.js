@@ -3,28 +3,31 @@ import FilterContext from "@/context/FilterContext/filter-context";
 import { useRouter } from "next/router";
 import useQueryBuilder from "@/hook/use-query-builder";
 import { MenuItem } from "@mui/material";
+import replaceAndSpace from "@/helper";
 export default function MenuItemBuilder({
   subCategory,
   subIndex,
   handleMenuClose,
 }) {
-  const filtercontext = useContext(FilterContext);
+  const filterContext = useContext(FilterContext);
   const router = useRouter();
   const { head, queryString, next } = useQueryBuilder({
-    query: `catname:${subCategory.categories[0]}`,
+    query: `catname:${replaceAndSpace(subCategory.categories[0])}`,
     rowCount: 8,
   });
   const findBrands = () => {};
   const onClickHandler = () => {
-    filtercontext.initializeCategory({
+    filterContext.initialize({
+      brands: ["Hp", "Lenovo", "Dell", "Allied Telesis"],
       categories: [...subCategory.categories],
+      selectedCategory: subCategory.categories[0],
     });
     router.push({
       pathname: "/products/" + head,
       query: {
         data: `${queryString}${next()}`,
         currentCurser: "*",
-        selectedCategory: subCategory.categories[0],
+        selectedCategory: replaceAndSpace(subCategory.categories[0]),
       },
     });
 

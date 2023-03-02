@@ -90,17 +90,8 @@ export default function LoadSelectedProduct() {
   );
   return (
     <DefaultLayout>
-      <FilterCard
-        filterOptions={{
-          brands: filterContext.filterItems,
-          categories: filterContext.categoryItems,
-        }}
-      />
-      <MDBox>
-        {filterContext.categoryItems.categories.map((e) => (
-          <p>{e}</p>
-        ))}
-      </MDBox>
+      <FilterCard />
+      <MDBox>{filterContext.filterItems.selectedCategory}</MDBox>
       <MDBox display="flex" flexDirection="row" justifyContent="flex-end">
         <MDBox p={2}>
           <BodyDescTypography onClickHandler={handleConfiguratorOpen}>

@@ -19,9 +19,10 @@ function BrandCatalog() {
       const { query } = router;
       const id = query.catalog_id;
       const data = brandById(id);
-      filterContext.initializeCategory({ categories: [data.link] });
+
       filterContext.initialize({
         brands: data.brands,
+        categories: [data.link],
         selectedCategory: data.link,
       });
       setParent(data.link);
