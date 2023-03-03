@@ -22,7 +22,7 @@ export default function FilterCard() {
   const [controller, dispatch] = useMaterialUIController();
   const { openConfigurator } = controller;
   const [selectedCategoriesValue, setSelectedCategoriesValue] = useState(
-    filterItems.selectedCategory
+    filterContext.filterItems.selectedCategory
   );
   const [selectedBrandValue, setSelectedBrandValue] = useState("All-Brands");
 
@@ -33,7 +33,6 @@ export default function FilterCard() {
   const handleOptionSelect = (category, brand) => {
     const modifiedCategory = replaceAndSpace(category);
     const modifiedBrand = replaceAndSpace(brand);
-    filterContext.updateSelectedCategory(category);
     const filterQuery = updateQuery(
       `catname:${modifiedCategory} AND manname:${modifiedBrand}`
     );
@@ -41,11 +40,14 @@ export default function FilterCard() {
       pathname: "/products/" + head,
       query: {
         data: filterQuery + next(),
+        selectedCategory: category,
       },
     });
   };
+
   const handleCategoriesChange = (event) => {
     const newSelectedCategory = event.target.value;
+    filterContext.updateSelectedCategory(newSelectedCategory);
     setSelectedCategoriesValue(newSelectedCategory);
     handleOptionSelect(newSelectedCategory, selectedBrandValue);
     setTimeout(() => {
@@ -83,29 +85,25 @@ export default function FilterCard() {
         role="presentation"
       />
 
-      {filterItems.categories.length > 1 ? (
-        <>
-          <HeaderTypography>Categories</HeaderTypography>
-          <Divider
-            sx={{
-              height: 2,
-              backgroundColor: "grey",
-              width: "50%",
-              margin: "0px",
-            }}
-            variant="inset"
+      <HeaderTypography>Categories</HeaderTypography>
+      <Divider
+        sx={{
+          height: 2,
+          backgroundColor: "grey",
+          width: "50%",
+          margin: "0px",
+        }}
+        variant="inset"
+      />
+      <MDBox>
+        {filterItems.categories.map((element) => (
+          <RadioButton
+            label={element}
+            selected={selectedCategoriesValue}
+            handleSelected={handleCategoriesChange}
           />
-          <MDBox>
-            {filterItems.categories.map((element) => (
-              <RadioButton
-                label={element}
-                selected={selectedCategoriesValue}
-                handleSelected={handleCategoriesChange}
-              />
-            ))}
-          </MDBox>
-        </>
-      ) : null}
+        ))}
+      </MDBox>
 
       <HeaderTypography>Brand's</HeaderTypography>
       <Divider

@@ -12,13 +12,13 @@ export default function MenuItemBuilder({
   const filterContext = useContext(FilterContext);
   const router = useRouter();
   const { head, queryString, next } = useQueryBuilder({
-    query: `catname:${replaceAndSpace(subCategory.categories[0])}`,
+    query: `catname:${replaceAndSpace(subCategory.categories[0])} AND manname:*`,
     rowCount: 8,
   });
   const findBrands = () => {};
   const onClickHandler = () => {
     filterContext.initialize({
-      brands: ["Hp", "Lenovo", "Dell", "Allied Telesis"],
+      brands: ["Hp", "Lenovo", "Dell", "Allied Telesis","Fujifilm"],
       categories: [...subCategory.categories],
       selectedCategory: subCategory.categories[0],
     });

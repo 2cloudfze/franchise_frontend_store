@@ -30,7 +30,7 @@ export default function Products({ productData }) {
         ) : (
           <MDBox>
             <MDBox display="flex" justifyContent="center" marginLeft="240px">
-              <BodyDescTypography>No data found</BodyDescTypography>
+              <BodyDescTypography>No products found</BodyDescTypography>
             </MDBox>
 
             <ImageContainer

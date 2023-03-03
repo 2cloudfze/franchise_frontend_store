@@ -9,6 +9,7 @@ import RelatedProduct from "./RelatedProductComp";
 import OrdersItems from "@/db/offlineData/relatedProduct";
 import Card from "@mui/material/Card";
 import ImageContainer from "@/components/ImageContainer";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 function Middlecomponent({ product, img_url }) {
   const cartContext = useContext(CartContext);
@@ -50,7 +51,7 @@ function Middlecomponent({ product, img_url }) {
                 })
               }
             >
-              Add to cart
+              <ShoppingCartIcon />
             </ButtonTypography>
           </MDBox>
         </FlexBox>

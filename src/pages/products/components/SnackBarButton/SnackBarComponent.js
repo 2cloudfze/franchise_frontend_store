@@ -1,5 +1,6 @@
 import { useSnackbar } from "notistack";
 import ButtonTypography from "@/components/Typography/ButtonTYpography";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 export default function SnackBarComponent({ item, cartContext }) {
   const { enqueueSnackbar } = useSnackbar();
@@ -18,7 +19,7 @@ export default function SnackBarComponent({ item, cartContext }) {
         color="white"
         onClick={handleClickVariant}
       >
-        Add Cart
+        <ShoppingCartIcon fontSize="Medium" />
       </ButtonTypography>
     </>
   );

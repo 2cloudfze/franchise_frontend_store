@@ -85,7 +85,9 @@ export default function LoadSelectedProduct() {
   const ProductBlock = (
     <MDBox>
       <Products productData={products} />
-      <PaginationContainer buttonHandler={onButtonClickHandler} />
+      {products.length > 1 ? (
+        <PaginationContainer buttonHandler={onButtonClickHandler} />
+      ) : null}
     </MDBox>
   );
   return (

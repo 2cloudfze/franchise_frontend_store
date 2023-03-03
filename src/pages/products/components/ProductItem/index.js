@@ -9,7 +9,9 @@ import MDBox from "@/components/MDBox";
 import { CardContent, CardActions } from "@mui/material";
 import ButtonTypography from "@/components/Typography/ButtonTYpography";
 import ImageContainer from "@/components/ImageContainer";
-import CircularProgress from "@mui/material/CircularProgress";
+
+import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import FavoriteSharpIcon from "@mui/icons-material/FavoriteSharp";
 
 export default function ProductItem({
   id,
@@ -25,13 +27,16 @@ export default function ProductItem({
   const router = useRouter();
   const cartContext = useContext(CartContext);
   const [loading, setLoading] = useState(true);
-
+  const [isFavorite, setIsFavorite] = useState(false);
   const { head, queryString } = useQueryBuilder({
     query: `sku_str:${partNumber}`,
     rowCount: 0,
     isSku: true,
   });
 
+  const favoriteClick = () => {
+    setIsFavorite(!isFavorite);
+  };
   const onClickHandler = () =>
     router.push({
       pathname: "/products/productdetails/" + head,
@@ -58,6 +63,33 @@ export default function ProductItem({
         height: "auto",
       }}
     >
+      <MDBox>
+        {isFavorite ? (
+          <FavoriteSharpIcon
+            fontSize="medium"
+            onClick={favoriteClick}
+            style={{
+              color: "red",
+              position: "absolute",
+              top: "4%",
+              right: "4%",
+              cursor: "pointer",
+            }}
+          />
+        ) : (
+          <FavoriteBorderOutlinedIcon
+            fontSize="medium"
+            onClick={favoriteClick}
+            style={{
+              color: "red",
+              position: "absolute",
+              top: "4%",
+              right: "4%",
+              cursor: "pointer",
+            }}
+          />
+        )}
+      </MDBox>
       <CardContent onClick={onClickHandler}>
         <MDBox height="100%">
           <ImageContainer

@@ -13,14 +13,16 @@ export default function ButtonTypography({
   marginLeft = "",
   width = "",
   marginTop = "",
-  height="",
-  borderRadius=""
+  height = "",
+  borderRadius = "",
 }) {
   return (
     <>
       <button onClick={onClick}>{children}</button>
       <style jsx>{`
         button {
+          dispaly: flex;
+          justifycontent: center;
           background-color: ${backgroundColor};
           color: ${color};
           font-size: ${fontSize}px;
@@ -37,8 +39,8 @@ export default function ButtonTypography({
           margin-top: ${marginTop};
           top: ${top};
           left: ${left};
-          height:${height};
-          border-radius:${borderRadius};
+          height: ${height};
+          border-radius: ${borderRadius};
         }
         button:hover {
           background-color: ${color};
